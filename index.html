@@ -880,6 +880,50 @@ body.app-ready .bottom-nav{visibility:visible;opacity:1;transition:opacity .18s 
     </div>
   </div>
 </div>
+
+<div class="modal-overlay" id="promoInvalidModal">
+  <div class="modal-box" style="max-width:440px;">
+    <button type="button" class="modal-close" onclick="closeModal('promoInvalidModal')">✕</button>
+    <div class="modal-header">
+      <div class="modal-icon" style="font-size:48px;">❌</div>
+      <h2>Geçersiz Kod</h2>
+      <p>Girdiğiniz promosyon kodu bulunamadı.</p>
+    </div>
+    <div style="padding:0 0 8px;">
+      <p style="color:#8da3bb;font-size:13px;line-height:1.6;margin-bottom:16px;">Lütfen promosyon kodunuzu kontrol edin ve tekrar deneyin.</p>
+      <button type="button" class="primary-button" onclick="closeModal('promoInvalidModal')" style="width:100%;">TAMAM</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="promoExpiredModal">
+  <div class="modal-box" style="max-width:440px;">
+    <button type="button" class="modal-close" onclick="closeModal('promoExpiredModal')">✕</button>
+    <div class="modal-header">
+      <div class="modal-icon" style="font-size:48px;">⏰</div>
+      <h2>Kod Geçerliliği Dolmuş</h2>
+      <p>Bu promosyon kodunun süresi dolmuş veya pasif hale getirilmiş.</p>
+    </div>
+    <div style="padding:0 0 8px;">
+      <p style="color:#8da3bb;font-size:13px;line-height:1.6;margin-bottom:16px;">Aktif bir promosyon kodu için lütfen daha sonra tekrar deneyin veya başka bir kod kullanan.</p>
+      <button type="button" class="primary-button" onclick="closeModal('promoExpiredModal')" style="width:100%;">TAMAM</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="promoLimitModal">
+  <div class="modal-box" style="max-width:440px;">
+    <button type="button" class="modal-close" onclick="closeModal('promoLimitModal')">✕</button>
+    <div class="modal-header">
+      <div class="modal-icon" style="font-size:48px;">📊</div>
+      <h2>Limit Dolmuş</h2>
+      <p>Bu promosyon kodunun kullanım limiti tamamlanmış.</p>
+    </div>
+    <div style="padding:0 0 8px;">
+      <p style="color:#8da3bb;font-size:13px;line-height:1.6;margin-bottom:16px;">Bu kod artık kullanılamıyor. Lütfen başka bir promosyon kodu deneyin.</p>
+      <button type="button" class="primary-button" onclick="closeModal('promoLimitModal')" style="width:100%;">TAMAM</button>
+    </div>
+  </div>
 </main>
 
 <!-- =========================================================
@@ -4486,20 +4530,23 @@ window.applyProfilePromoCode=async function(event){
         const codeRef=doc(db,'promoCodes',code);
         const codeSnap=await getDoc(codeRef);
         if(!codeSnap.exists()){
-            showStatus('profileStatus','Bu promosyon kodu geçersiz veya aktif değil.');
+            closeAllModals();
+            openModal('promoInvalidModal');
             return;
         }
 
         const promo=codeSnap.data();
         if(promo.active===false){
-            showStatus('profileStatus','Bu promosyon kodu şu anda pasif durumda.');
+            closeAllModals();
+            openModal('promoExpiredModal');
             return;
         }
 
         const maxUses=Number(promo.maxUses||0);
         const usedCount=Number(promo.usedCount||0);
         if(usedCount >= maxUses){
-            showStatus('profileStatus','Bu promosyon kodunun kullanım limiti doldu.');
+            closeAllModals();
+            openModal('promoLimitModal');
             return;
         }
 
