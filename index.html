@@ -136,8 +136,10 @@ button{cursor:pointer}
 @media(max-width:900px){.benefits-bar{grid-template-columns:repeat(2,1fr)}.benefit-item{padding:10px 8px}.benefit-item:nth-child(odd){border-right:1px solid rgba(255,255,255,.10)}}
 @media(max-width:560px){.benefits-bar{grid-template-columns:1fr 1fr;padding:10px;gap:8px}.benefit-item{padding:8px 7px;gap:7px;min-height:72px}.benefit-icon{font-size:20px}.benefit-item strong{font-size:9px}.benefit-item span{font-size:8px;white-space:normal}}
 
-footer{padding:22px 16px 12px;text-align:center;color:#71869d;font-size:12px;line-height:1.5;letter-spacing:.02em}
-@media(max-width:560px){footer{font-size:11px;line-height:1.4;padding:18px 12px 10px}}
+footer{padding:22px 16px 12px;text-align:center;color:#71869d;font-size:12px;line-height:1.5;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.footer-creator-button{background:none;border:none;color:#ffd54f;font-weight:900;cursor:pointer;padding:0 2px;font:inherit;letter-spacing:.03em;transition:opacity .2s ease,transform .2s ease}
+.footer-creator-button:hover{opacity:.9;transform:translateY(-1px)}
+@media(max-width:560px){footer{font-size:11px;line-height:1.4;padding:18px 12px 10px;gap:6px;display:flex;align-items:center;justify-content:center}.footer-creator-button{font-size:11px;letter-spacing:.02em}}
 
 @media(max-width:1150px){.main-layout{grid-template-columns:210px minmax(0,1fr) 210px}.side-card{min-height:640px}.top-bar{grid-template-columns:1fr;justify-items:center;gap:12px}.top-brand{order:-1}.top-group{justify-content:center!important;flex-wrap:wrap}.top-button{min-width:135px}}
 @media(max-width:900px){
@@ -837,7 +839,32 @@ body.app-ready .bottom-nav{visibility:visible;opacity:1;transition:opacity .18s 
     </div>
 </aside>
 </div>
-<footer>© 2026 DenoBaba Özel — Tüm hakları saklıdır.</footer>
+<footer>
+  <span>© 2026 DenoBaba Özel — Tüm hakları saklıdır.</span>
+  <span>|</span>
+  <button type="button" class="footer-creator-button" onclick="openCreatorMailPopup()">POWERED BY Sm-Rebell</button>
+</footer>
+
+<div class="modal-overlay" id="creatorMailModal">
+  <div class="modal-box" style="max-width:440px;">
+    <button type="button" class="modal-close" onclick="closeModal('creatorMailModal')">✕</button>
+    <div class="modal-header">
+      <div class="modal-icon">📧</div>
+      <h2>Site Yapımcısı</h2>
+      <p>İletişim için aşağıdaki e-posta adresini kullanabilirsiniz.</p>
+    </div>
+    <div class="form" style="padding:0 0 8px;">
+      <div class="form-group">
+        <label>E-posta</label>
+        <div class="input-wrap">
+          <span class="input-icon">📫</span>
+          <input type="text" class="form-input" value="sevkym@gmail.com" readonly>
+        </div>
+      </div>
+      <a href="mailto:sevkym@gmail.com" class="primary-button" style="display:flex;align-items:center;justify-content:center;text-decoration:none;width:100%;margin-top:10px;">✉️ MAİL GÖNDER</a>
+    </div>
+  </div>
+</div>
 </main>
 
 <!-- =========================================================
@@ -1960,6 +1987,11 @@ window.closeAdminPanel = function(){
     if(auth.currentUser) openAccount();
 };
 
+
+window.openCreatorMailPopup = function(){
+    closeAllModals();
+    openModal('creatorMailModal');
+};
 
 window.openPromoCodeModal = function(){
     const user=auth.currentUser;
