@@ -1048,6 +1048,7 @@ body.app-ready .bottom-nav{visibility:visible;opacity:1;transition:opacity .18s 
       </div>
     </div>
     <div class="account-purchase-history" id="accountPurchaseHistory"></div>
+    <div class="account-purchase-history" id="accountPromoHistory"></div>
     <div class="account-actions">
       <button type="button" class="account-action admin-account-button" id="accountAdminButton" style="display:none" onclick="openAdminPanelFromAccount()">🛡️ ADMİN PANELİ</button>
       <button type="button" class="account-action" onclick="openPromoCodeModal()">🎟️ PROMOSYON KODU</button>
@@ -1894,6 +1895,7 @@ window.openAccount = async function(){
         }
 
         await loadUserMarketHistory();
+        await loadUserPromoHistory();
     }catch(error){
         console.error(error);
         if(user.metadata?.creationTime){
@@ -1901,6 +1903,34 @@ window.openAccount = async function(){
         }else{
             document.getElementById("accountCreatedAt").textContent="Belirtilmiyor";
         }
+    }
+};
+
+window.loadUserPromoHistory=async function(){
+    const user=auth.currentUser;
+    const container=document.getElementById('accountPromoHistory');
+    if(!container || !user){container.innerHTML='';return;}
+
+    try{
+        const snap=await getDocs(query(collection(db,'promoCodeUsages'),where('userId','==',user.uid)));
+        const rows=[...snap.docs].map(docSnap=>({id:docSnap.id,...docSnap.data()})).sort((a,b)=>(b.usedAt?.toMillis?.()||0)-(a.usedAt?.toMillis?.()||0));
+
+        if(!rows.length){
+            container.innerHTML='<div class="account-purchase-empty">Henüz promosyon kodu kullanmadınız.</div>';
+            return;
+        }
+
+        container.innerHTML=`<div class="admin-view-title" style="margin-top:16px; margin-bottom:10px; font-size:16px;">🎟️ Promosyon Geçmişi</div>${rows.map(item=>`<div class="account-purchase-item">
+            <div class="account-purchase-item-head">
+                <div class="account-purchase-item-title">${escapeHtml(item.code || 'Kod')} </div>
+                <span class="admin-pill ok">KULLANILDI</span>
+            </div>
+            <div class="account-purchase-item-meta">${Number(item.amount || 0).toLocaleString('tr-TR')} Puan · ${safeDate(item.usedAt)}</div>
+            <div class="account-purchase-item-meta">Kullanım tarihi: ${safeDate(item.usedAt)}</div>
+        </div>`).join('')}`;
+    }catch(error){
+        console.error('Promosyon geçmişi yüklenemedi:',error);
+        container.innerHTML='<div class="account-purchase-empty">Promosyon geçmişi yüklenemedi.</div>';
     }
 };
 
