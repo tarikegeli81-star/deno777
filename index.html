@@ -238,6 +238,13 @@ footer{padding:28px 20px;text-align:center;color:#71869d;font-size:13px}
 .admin-account-button{border:1px solid rgba(255,193,7,.38);background:linear-gradient(135deg,rgba(255,208,0,.16),rgba(255,149,0,.08));color:#ffd54f;box-shadow:0 8px 24px rgba(255,174,0,.08)}
 .admin-account-button:hover{background:linear-gradient(135deg,rgba(255,208,0,.24),rgba(255,149,0,.14));transform:translateY(-1px)}
 .account-note{margin-top:14px;text-align:center;color:#71869d;font-size:11px;line-height:1.4}
+.account-purchase-history{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.account-purchase-item{padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
+.account-purchase-item-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+.account-purchase-item-title{font-size:13px;font-weight:900;color:#fff}
+.account-purchase-item-code{font-size:11px;color:#ffd54f;font-weight:900;word-break:break-all}
+.account-purchase-item-meta{font-size:10px;color:#8fa9c4;line-height:1.5}
+.account-purchase-empty{padding:14px;border-radius:12px;background:rgba(255,255,255,.02);border:1px dashed rgba(255,255,255,.08);color:#8fa9c4;font-size:12px;text-align:center}
 
 .profile-modal-box{width:min(500px,100%);max-height:calc(100dvh - 32px);overflow-y:auto;background:linear-gradient(145deg,#102b49,#071526);border:1px solid rgba(255,255,255,.10);border-radius:28px;padding:28px 30px;box-shadow:0 35px 100px rgba(0,0,0,.70);position:relative}
 .profile-modal-box::-webkit-scrollbar{width:0}.profile-modal-box{scrollbar-width:none}
@@ -253,7 +260,7 @@ footer{padding:28px 20px;text-align:center;color:#71869d;font-size:13px}
 
 .admin-panel-box{width:min(1120px,100%);height:min(800px,calc(100dvh - 32px));overflow:hidden;background:linear-gradient(145deg,#102b49,#061426);border:1px solid rgba(255,215,0,.20);border-radius:28px;box-shadow:0 35px 100px rgba(0,0,0,.70);position:relative;display:flex;flex-direction:column}
 .admin-panel-header{padding:22px 28px 17px;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:15px}.admin-panel-icon{width:58px;height:58px;flex:0 0 58px;border-radius:18px;background:linear-gradient(135deg,#ffd000,#ff9700);display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 8px 25px rgba(255,174,0,.20)}.admin-panel-header h2{font-size:22px;font-weight:900}.admin-panel-header p{color:#8fa9c4;font-size:12px;margin-top:4px}.admin-owner-badge{margin-left:auto;padding:8px 13px;border-radius:20px;background:rgba(255,193,7,.10);border:1px solid rgba(255,193,7,.25);color:#ffd54f;font-size:11px;font-weight:900}
-.admin-layout{display:grid;grid-template-columns:205px minmax(0,1fr);min-height:0;flex:1}.admin-sidebar{padding:18px 12px;border-right:1px solid rgba(255,255,255,.07);background:rgba(0,0,0,.12);display:flex;flex-direction:column;gap:7px}.admin-nav{width:100%;height:45px;border:1px solid transparent;border-radius:12px;background:transparent;color:#9db1c7;text-align:left;padding:0 14px;font-size:12px;font-weight:900;transition:.2s}.admin-nav:hover{background:rgba(255,255,255,.05);color:#fff}.admin-nav.active{background:linear-gradient(135deg,rgba(255,208,0,.18),rgba(255,149,0,.08));border-color:rgba(255,193,7,.25);color:#ffd54f}
+.admin-layout{display:grid;grid-template-columns:205px minmax(0,1fr);min-height:0;flex:1;overflow:hidden}.admin-sidebar{padding:18px 12px;border-right:1px solid rgba(255,255,255,.07);background:rgba(0,0,0,.12);display:flex;flex-direction:column;gap:7px;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}.admin-sidebar::-webkit-scrollbar{width:6px}.admin-sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:999px}.admin-nav{width:100%;min-height:45px;border:1px solid transparent;border-radius:12px;background:transparent;color:#9db1c7;text-align:left;padding:10px 14px;font-size:12px;font-weight:900;transition:.2s;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.admin-nav:hover{background:rgba(255,255,255,.05);color:#fff}.admin-nav.active{background:linear-gradient(135deg,rgba(255,208,0,.18),rgba(255,149,0,.08));border-color:rgba(255,193,7,.25);color:#ffd54f}
 .social-admin-note{padding:13px 15px;border-radius:14px;background:rgba(33,150,243,.06);border:1px solid rgba(33,150,243,.16);color:#a9bfd5;font-size:12px;line-height:1.55;margin-bottom:14px}.social-admin-note strong{color:#fff}.social-live-preview{grid-column:1/-1;padding:12px;border-radius:12px;background:rgba(0,0,0,.16);border:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:14px;flex-wrap:wrap}.social-live-label{font-size:10px;color:#718aa4;font-weight:900;letter-spacing:.6px}.social-live-preview .top-button{min-width:170px;height:46px}.social-row-theme{display:inline-flex;align-items:center;gap:7px}.social-row-theme-dot{width:9px;height:9px;border-radius:50%;background:#2b8ee6;box-shadow:0 0 10px rgba(43,142,230,.4)}
 .admin-sidebar-bottom{margin-top:auto;padding-top:12px;border-top:1px solid rgba(255,255,255,.07)}
 .admin-content{padding:22px;overflow:auto}.admin-view{display:none}.admin-view.active{display:block}.admin-view-title{font-size:20px;font-weight:900;margin-bottom:5px}.admin-view-subtitle{font-size:12px;color:#7f96ad;margin-bottom:18px}.admin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.admin-stat{padding:18px;border-radius:16px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.08);text-align:left}.admin-stat strong{display:block;font-size:22px;color:#ffd54f}.admin-stat span{display:block;color:#8fa9c4;font-size:11px;margin-top:5px;font-weight:800}.admin-stat small{display:block;color:#4ade80;font-size:10px;margin-top:9px;font-weight:800}.admin-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}.admin-tool{padding:18px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08)}.admin-tool h3{font-size:14px;margin-bottom:6px}.admin-tool p{font-size:12px;line-height:1.5;color:#8fa9c4;margin-bottom:13px}.admin-tool button,.admin-action{width:100%;min-height:40px;border:1px solid rgba(255,193,7,.22);border-radius:11px;background:rgba(255,193,7,.06);color:#ffd54f;font-size:11px;font-weight:900;padding:8px 12px}.admin-action.danger{border-color:rgba(255,80,80,.3);background:rgba(255,50,50,.08);color:#ff9b9b}.admin-action.secondary{border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#cbd8e6}.admin-toolbar{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap}.admin-toolbar .admin-action{width:auto}.admin-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:15px;border-radius:16px;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.08);margin-bottom:14px}.admin-field{display:flex;flex-direction:column;gap:5px}.admin-field.full{grid-column:1/-1}.admin-field label{font-size:10px;color:#8fa9c4;font-weight:900}.admin-input,.admin-select{width:100%;height:40px;border:1px solid rgba(255,255,255,.10);border-radius:10px;background:#07192c;color:#fff;outline:0;padding:0 11px;font-size:12px}.admin-input:focus,.admin-select:focus{border-color:#ffbd00;box-shadow:0 0 0 3px rgba(255,189,0,.06)}.admin-checkbox{display:flex;align-items:center;gap:7px;height:40px;color:#c6d4e3;font-size:11px;font-weight:800}.admin-checkbox input{accent-color:#ffbd00}.admin-form-actions{grid-column:1/-1;display:flex;gap:8px}.admin-form-actions button{flex:1}.admin-list{display:flex;flex-direction:column;gap:8px}.admin-row{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:12px;padding:12px 14px;border-radius:13px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)}.admin-row-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#ffd000,#ff9700);font-size:17px}.admin-row-main{min-width:0}.admin-row-title{font-size:13px;font-weight:900;word-break:break-word}.admin-row-meta{font-size:10px;color:#718aa4;margin-top:4px;line-height:1.4;word-break:break-word}.admin-row-actions{display:flex;gap:6px;align-items:center;justify-content:flex-end}.admin-row-actions button{width:auto;min-width:72px}.admin-pill{display:inline-flex;align-items:center;justify-content:center;padding:5px 8px;border-radius:20px;font-size:9px;font-weight:900}.admin-pill.ok{color:#8ff0ae;background:rgba(34,197,94,.10);border:1px solid rgba(34,197,94,.18)}.admin-pill.off{color:#ff9b9b;background:rgba(239,68,68,.10);border:1px solid rgba(239,68,68,.18)}.admin-pill.owner{color:#ffd54f;background:rgba(255,193,7,.10);border:1px solid rgba(255,193,7,.18)}.admin-placeholder{padding:22px;border-radius:16px;background:rgba(255,193,7,.05);border:1px solid rgba(255,193,7,.16);color:#c6d4e3;font-size:13px;line-height:1.6}.admin-empty{padding:30px;text-align:center;color:#71869d;font-size:12px;border:1px dashed rgba(255,255,255,.10);border-radius:15px}
@@ -1040,8 +1047,10 @@ body.app-ready .bottom-nav{visibility:visible;opacity:1;transition:opacity .18s 
         <div class="account-card-value" id="accountCreatedAt">Yükleniyor...</div>
       </div>
     </div>
+    <div class="account-purchase-history" id="accountPurchaseHistory"></div>
     <div class="account-actions">
       <button type="button" class="account-action admin-account-button" id="accountAdminButton" style="display:none" onclick="openAdminPanelFromAccount()">🛡️ ADMİN PANELİ</button>
+      <button type="button" class="account-action" onclick="openPromoCodeModal()">🎟️ PROMOSYON KODU</button>
       <button type="button" class="account-action" onclick="openProfileEditor()">✏️ PROFİLİ DÜZENLE</button>
       <button type="button" class="account-action" onclick="resetPasswordFromAccount()">🔐 ŞİFRE DEĞİŞTİR</button>
       <button type="button" class="account-action danger" onclick="handleLogout()">🚪 ÇIKIŞ YAP</button>
@@ -1083,6 +1092,30 @@ body.app-ready .bottom-nav{visibility:visible;opacity:1;transition:opacity .18s 
       <div class="status-message" id="profileStatus"></div>
       <button type="submit" class="primary-button profile-save" id="profileSaveButton">💾 DEĞİŞİKLİKLERİ KAYDET</button>
       <button type="button" class="secondary-button" onclick="closeModal('profileModal')">İPTAL</button>
+    </form>
+  </div>
+</div>
+
+<!-- PROMOSYON KODU -->
+<div class="modal-overlay" id="promoCodeModal">
+  <div class="modal-box">
+    <button type="button" class="modal-close" onclick="closeModal('promoCodeModal')">✕</button>
+    <div class="modal-header">
+      <div class="modal-icon">🎟️</div>
+      <h2>Promosyon Kodu</h2>
+      <p>Kodunu girerek hesabına puan ekleyebilirsin.</p>
+    </div>
+    <form class="form" onsubmit="applyProfilePromoCode(event)">
+      <div class="form-group">
+        <label>Promosyon kodu</label>
+        <div class="input-wrap">
+          <span class="input-icon">🎫</span>
+          <input type="text" class="form-input" id="promoCodeInput" placeholder="KODU GİRİN" maxlength="40" autocomplete="off" required>
+        </div>
+      </div>
+      <div class="status-message" id="promoCodeStatus"></div>
+      <button type="submit" class="primary-button" id="promoCodeSubmit">✅ KODU KULLAN</button>
+      <button type="button" class="secondary-button" onclick="closeModal('promoCodeModal')">İPTAL</button>
     </form>
   </div>
 </div>
@@ -1219,6 +1252,7 @@ body.app-ready .bottom-nav{visibility:visible;opacity:1;transition:opacity .18s 
 <button class="admin-nav" data-view="popup" onclick="showAdminView('popup',this)">🖼️ POPUP</button>
 <button class="admin-nav" data-view="press" onclick="showAdminView('press',this)">📩 BASIN</button>
 <button class="admin-nav" data-view="admins" onclick="showAdminView('admins',this)">🛡️ YÖNETİCİLER</button>
+<button class="admin-nav" data-view="promos" onclick="showAdminView('promos',this)">🎟️ PROMOSYON KODU</button>
 <button class="admin-nav" data-view="vip" onclick="showAdminView('vip',this)">⭐ VIP ALANLARI</button>
 <button class="admin-nav" data-view="socials" onclick="showAdminView('socials',this)">🔗 ÜST MENÜ</button>
 <button class="admin-nav" data-view="market" onclick="showAdminView('market',this)">🛒 MARKET</button>
@@ -1491,6 +1525,8 @@ body.app-ready .bottom-nav{visibility:visible;opacity:1;transition:opacity .18s 
     <input type="hidden" id="marketProductId"><input type="hidden" id="marketProductImageUrl"><input type="hidden" id="marketProductStoragePath">
     <div class="admin-field"><label>ÜRÜN ADI</label><input class="admin-input" id="marketProductName" maxlength="80" placeholder="Özel ürün"></div>
     <div class="admin-field"><label>FİYAT (PUAN)</label><input class="admin-input" id="marketProductPrice" type="number" min="1" step="1" placeholder="100"></div>
+    <div class="admin-field"><label>ÜRÜN TİPİ</label><select class="admin-input" id="marketProductType" onchange="toggleMarketProductCodeField()"><option value="normal">Normal ürün</option><option value="code">Kodlu ürün</option></select></div>
+    <div class="admin-field" id="marketProductCodeField" style="display:none"><label>KOD</label><input class="admin-input" id="marketProductCode" maxlength="80" placeholder="ABC123"></div>
     <div class="admin-field full"><label>AÇIKLAMA</label><input class="admin-input" id="marketProductDescription" maxlength="180" placeholder="Ürün hakkında kısa bilgi"></div>
     <div class="admin-field full"><label>ÜRÜN GÖRSELİ</label><input class="admin-file" id="marketProductFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif"><div class="logo-preview" id="marketProductPreview"></div></div>
     <label class="admin-checkbox"><input type="checkbox" id="marketProductActive" checked> Markette göster</label>
@@ -1518,6 +1554,23 @@ body.app-ready .bottom-nav{visibility:visible;opacity:1;transition:opacity .18s 
 <div class="admin-toolbar"><button class="admin-action secondary" onclick="loadRafflesAdmin()">↻ ÇEKİLİŞLERİ YENİLE</button></div>
 <div class="admin-list" id="adminRaffleList"></div>
 <div class="admin-view-title" style="margin-top:22px">Katılımlar</div><div class="admin-list" id="adminRaffleEntryList"></div>
+</div>
+
+<div class="admin-view" id="adminViewPromos">
+<div class="admin-view-title">🎟️ Promosyon Kodu Yönetimi</div>
+<div class="admin-view-subtitle">Kullanıcılara puan veren promosyon kodları oluşturun, kupon kullanım limitini ayarlayın ve kullanan kişileri takip edin.</div>
+<div class="admin-form">
+    <div class="admin-field"><label>KOD</label><input class="admin-input" id="adminPromoCodeInput" maxlength="30" placeholder="WELCOME50" style="text-transform:uppercase"></div>
+    <div class="admin-field"><label>PUAN MİKTARI</label><input class="admin-input" id="adminPromoAmountInput" type="number" min="1" step="1" placeholder="50"></div>
+    <div class="admin-field"><label>MAKSİMUM KULLANIM</label><input class="admin-input" id="adminPromoMaxUsesInput" type="number" min="1" step="1" placeholder="50"></div>
+    <label class="admin-checkbox"><input type="checkbox" id="adminPromoActiveInput" checked> Kod aktif</label>
+    <div class="admin-form-actions">
+        <button class="admin-action" onclick="savePromoCode()">💾 KOD OLUŞTUR</button>
+        <button class="admin-action secondary" onclick="resetPromoForm()">TEMİZLE</button>
+    </div>
+</div>
+<div class="admin-toolbar"><button class="admin-action secondary" onclick="loadPromoCodesAdmin()">↻ YENİLE</button></div>
+<div class="admin-list" id="adminPromoList"></div>
 </div>
 
 <div class="admin-view" id="adminViewAdmins">
@@ -1839,6 +1892,8 @@ window.openAccount = async function(){
         }else if(user.metadata?.creationTime){
             document.getElementById("accountCreatedAt").textContent=new Date(user.metadata.creationTime).toLocaleDateString("tr-TR");
         }
+
+        await loadUserMarketHistory();
     }catch(error){
         console.error(error);
         if(user.metadata?.creationTime){
@@ -1874,6 +1929,21 @@ window.closeAdminPanel = function(){
     if(auth.currentUser) openAccount();
 };
 
+
+window.openPromoCodeModal = function(){
+    const user=auth.currentUser;
+    if(!user){
+        openLogin();
+        return;
+    }
+
+    clearStatus("promoCodeStatus");
+    const input=document.getElementById("promoCodeInput");
+    if(input) input.value="";
+    closeAllModals();
+    openModal("promoCodeModal");
+    setTimeout(()=>input?.focus(),100);
+};
 
 window.openProfileEditor = async function(){
     const user=auth.currentUser;
@@ -2328,7 +2398,7 @@ window.handleLogin = async function(event){
 
 window.currentAdminData=null;
 function normalizeAdminRole(data={}){
-    const rawRole = String(data.role || data.adminRole || '').trim().toLowerCase();
+    const rawRole = String(data.role || data.adminRole || data.ownerRole || '').trim().toLowerCase();
     if(rawRole === 'owner' || rawRole === 'admin') return rawRole;
     if(data.isAdmin === true || data.isAdmin === 'true') return 'admin';
     if(data.isOwner === true || data.isOwner === 'true') return 'owner';
@@ -2337,10 +2407,6 @@ function normalizeAdminRole(data={}){
 async function getAuthorizedAdmin(){
     const user=auth.currentUser;
     if(!user)return null;
-
-    if(user.uid==='6MQvKiAZmHQ9nPvIyekoJFeH3It1'){
-        return {uid:user.uid,email:user.email||'sevkym@gmail.com',role:'owner',active:true};
-    }
 
     const [adminSnap, profileSnap]=await Promise.all([
         getDoc(doc(db,'admins',user.uid)).catch(()=>null),
@@ -2468,7 +2534,7 @@ window.deletePressRequest = async function(id){
     }
 };
 
-window.showAdminView=async function(view,button){const a=await getAuthorizedAdmin().catch(()=>null);if(!a){closeModal('adminPanelModal');alert('Admin yetkiniz bulunmuyor.');return;}if(view==='admins'&&a.role!=='owner'){alert('Yönetici yönetimi yalnızca Owner hesabına açıktır.');return;}window.currentAdminData=a;document.querySelectorAll('.admin-view').forEach(v=>v.classList.remove('active'));const target=document.getElementById('adminView'+view.charAt(0).toUpperCase()+view.slice(1));if(target)target.classList.add('active');document.querySelectorAll('.admin-nav').forEach(n=>n.classList.remove('active'));if(button)button.classList.add('active');if(view==='dashboard')loadAdminStats();if(view==='users')loadAdminUsers();if(view==='platforms')loadAdminPlatforms();if(view==='announcements')loadAdminAnnouncements();if(view==='popup')loadSitePopup();if(view==='press')loadPressRequests();if(view==='admins')loadAdminAdmins();if(view==='vip')loadVipAreas();if(view==='socials'){loadAdminSocials();updateSocialPreview();}if(view==='market'){loadMarketProducts();loadMarketOrders();}if(view==='raffles')loadRafflesAdmin();}
+window.showAdminView=async function(view,button){const a=await getAuthorizedAdmin().catch(()=>null);if(!a){closeModal('adminPanelModal');alert('Admin yetkiniz bulunmuyor.');return;}if(view==='admins'&&a.role!=='owner'){alert('Yönetici yönetimi yalnızca Owner hesabına açıktır.');return;}if(view==='promos'&&!(a.role==='owner'||a.role==='admin')){alert('Promosyon kodu bölümü yalnızca admin yetkisi olan hesaplara açıktır.');return;}window.currentAdminData=a;document.querySelectorAll('.admin-view').forEach(v=>v.classList.remove('active'));const target=document.getElementById('adminView'+view.charAt(0).toUpperCase()+view.slice(1));if(target)target.classList.add('active');document.querySelectorAll('.admin-nav').forEach(n=>n.classList.remove('active'));if(button)button.classList.add('active');if(view==='dashboard')loadAdminStats();if(view==='users')loadAdminUsers();if(view==='platforms')loadAdminPlatforms();if(view==='announcements')loadAdminAnnouncements();if(view==='popup')loadSitePopup();if(view==='press')loadPressRequests();if(view==='admins')loadAdminAdmins();if(view==='promos')loadPromoCodesAdmin();if(view==='vip')loadVipAreas();if(view==='socials'){loadAdminSocials();updateSocialPreview();}if(view==='market'){loadMarketProducts();loadMarketOrders();}if(view==='raffles')loadRafflesAdmin();}
 window.loadAdminStats=async function(){
 try{
  const a=window.currentAdminData||await getAuthorizedAdmin(); if(!a)return;
@@ -3250,11 +3316,18 @@ function drawPlinkoBoard(ballX=null,ballY=null){
     if(ballX!==null){context.beginPath();context.arc(ballX,ballY,13,0,Math.PI*2);context.fillStyle='#ffd21a';context.shadowColor='#ffd21a';context.shadowBlur=24;context.fill();context.shadowBlur=0;}
 }
 function updatePlinkoBalance(points){const balance=document.getElementById('plinkoBalance');if(balance)balance.textContent=Number(points||0).toLocaleString('tr-TR')+' Puan';}
+function getActivePlinkoBet(){
+    const active=document.querySelector('.plinko-bet.active');
+    const allowed=[10,25,50];
+    const value=Number(active?.dataset.bet || 10);
+    return allowed.includes(value) ? value : 10;
+}
 window.openPlinko=function(){if(!auth.currentUser){openLogin();return;}closeAllModals();openModal('plinkoModal');drawPlinkoBoard();getDoc(doc(db,'users',auth.currentUser.uid)).then(snap=>updatePlinkoBalance(snap.data()?.points||0)).catch(()=>{});};
-document.addEventListener('click',event=>{const betButton=event.target.closest('.plinko-bet');if(!betButton)return;document.querySelectorAll('.plinko-bet').forEach(button=>button.classList.remove('active'));betButton.classList.add('active');document.getElementById('plinkoBetInput').value=betButton.dataset.bet;});
+document.addEventListener('click',event=>{const betButton=event.target.closest('.plinko-bet');if(!betButton)return;document.querySelectorAll('.plinko-bet').forEach(button=>button.classList.remove('active'));betButton.classList.add('active');});
 window.dropPlinkoBall=async function(){
-    const user=auth.currentUser,input=document.getElementById('plinkoBetInput'),button=document.getElementById('plinkoDropButton'),status=document.getElementById('plinkoStatus'),canvas=document.getElementById('plinkoCanvas');if(!user){openLogin();return;}
-    const bet=Math.floor(Number(input.value));if(!Number.isSafeInteger(bet)||bet<1){status.textContent='Gecerli bir bahis puani gir.';status.className='plinko-status error';return;}if(plinkoBusy)return;
+    const user=auth.currentUser,button=document.getElementById('plinkoDropButton'),status=document.getElementById('plinkoStatus'),canvas=document.getElementById('plinkoCanvas');if(!user){openLogin();return;}
+    const bet=getActivePlinkoBet();
+    if(!Number.isSafeInteger(bet)||bet<1||bet>50||![10,25,50].includes(bet)){status.textContent='Lutfen 10, 25 veya 50 puan secin.';status.className='plinko-status error';return;}if(plinkoBusy)return;
     plinkoBusy=true;button.disabled=true;status.textContent='Top dusuyor...';status.className='plinko-status';const resultIndex=crypto.getRandomValues(new Uint32Array(1))[0]%plinkoMultipliers.length,multiplier=plinkoMultipliers[resultIndex],targetX=(resultIndex+.5)*(canvas.width/9),start=performance.now();
     const animate=now=>{const progress=Math.min(1,(now-start)/1800),eased=1-Math.pow(1-progress,3),wobble=Math.sin(progress*Math.PI*12)*(1-progress)*canvas.width*.035;drawPlinkoBoard(canvas.width/2+(targetX-canvas.width/2)*eased+wobble,35+(canvas.height-90)*progress);if(progress<1)requestAnimationFrame(animate);};requestAnimationFrame(animate);
     try{const userRef=doc(db,'users',user.uid);let updatedPoints=0,profile={};await runTransaction(db,async(transaction)=>{const snap=await transaction.get(userRef),data=snap.exists()?snap.data():{},currentPoints=Math.max(0,Number(data.points||0));if(currentPoints<bet)throw new Error('PLINKO_INSUFFICIENT_POINTS');const payout=Math.floor(bet*multiplier);updatedPoints=currentPoints-bet+payout;const league=getLeagueInfo(updatedPoints);profile={username:data.username||user.displayName||'Kullanici',league:league.key,leagueName:league.name};transaction.set(userRef,{points:updatedPoints,league:league.key,leagueName:league.name,updatedAt:serverTimestamp()},{merge:true});});await setDoc(doc(db,'leaderboard',user.uid),{username:profile.username,points:updatedPoints,league:profile.league,leagueName:profile.leagueName,updatedAt:serverTimestamp()},{merge:true});await new Promise(resolve=>setTimeout(resolve,1800));const payout=Math.floor(bet*multiplier);status.textContent=multiplier===0?`${bet} puan kaybettin.`:`${multiplier}x! ${payout} puan kazandin.`;status.className=multiplier===0?'plinko-status error':'plinko-status success';updatePlinkoBalance(updatedPoints);updateAccountPointsUI(updatedPoints);
@@ -3271,25 +3344,94 @@ function updateMarketBalance(points){const el=document.getElementById('marketBal
 async function loadMarketPublicProducts(){
     const list=document.getElementById('marketProductList');if(!list)return;
     list.innerHTML='<div class="market-empty">Ürünler yükleniyor...</div>';
-    try{const snap=await getDocs(collection(db,'marketProducts'));const products=snap.docs.map(s=>({id:s.id,...s.data()})).filter(p=>p.active!==false);if(!products.length){list.innerHTML='<div class="market-empty">Market şu an boş.</div>';return;}list.innerHTML=products.map(p=>`<article class="market-card">${p.imageUrl?`<img src="${escapeHtml(p.imageUrl)}" alt="${escapeHtml(p.name||'Ürün')}">`:'<div class="market-card-placeholder">🛍️</div>'}<div class="market-card-body"><h3>${escapeHtml(p.name||'Ürün')}</h3><p>${escapeHtml(p.description||'')}</p><strong class="market-price">${Number(p.price||0).toLocaleString('tr-TR')} Puan</strong><button type="button" class="market-buy" onclick="buyMarketProduct('${p.id}')">SATIN AL</button></div></article>`).join('');}catch(error){list.innerHTML='<div class="market-empty">Market yüklenemedi.</div>';}
+    try{const snap=await getDocs(collection(db,'marketProducts'));const products=snap.docs.map(s=>({id:s.id,...s.data()})).filter(p=>p.active!==false);if(!products.length){list.innerHTML='<div class="market-empty">Market şu an boş.</div>';return;}list.innerHTML=products.map(p=>`<article class="market-card">${p.imageUrl?`<img src="${escapeHtml(p.imageUrl)}" alt="${escapeHtml(p.name||'Ürün')}">`:'<div class="market-card-placeholder">🛍️</div>'}<div class="market-card-body"><h3>${escapeHtml(p.name||'Ürün')}</h3><p>${escapeHtml(p.description||'')}</p><strong class="market-price">${Number(p.price||0).toLocaleString('tr-TR')} Puan</strong><div class="admin-row-meta" style="margin:8px 0 10px;">${(p.type||'normal')==='code'?'Kodlu ürün':'Normal ürün'}</div><button type="button" class="market-buy" onclick="buyMarketProduct('${p.id}')">SATIN AL</button></div></article>`).join('');}catch(error){list.innerHTML='<div class="market-empty">Market yüklenemedi.</div>';}
 }
+window.toggleMarketProductCodeField=function(){
+    const typeEl=document.getElementById('marketProductType');
+    const field=document.getElementById('marketProductCodeField');
+    const codeEl=document.getElementById('marketProductCode');
+    const show=(typeEl && typeEl.value==='code');
+    if(field) field.style.display=show?'block':'none';
+    if(codeEl && !show) codeEl.value='';
+};
+
 window.buyMarketProduct=async function(productId){
     const user=auth.currentUser;if(!user){openLogin();return;}
     if(!confirm('Bu ürünü puanlarınla satın almak istiyor musun?'))return;
     try{
         const userRef=doc(db,'users',user.uid),productRef=doc(db,'marketProducts',productId);let updatedPoints=0,order={};
-        await runTransaction(db,async(transaction)=>{const userSnap=await transaction.get(userRef),productSnap=await transaction.get(productRef);const userData=userSnap.exists()?userSnap.data():{},product=productSnap.exists()?productSnap.data():{};const price=Math.floor(Number(product.price||0));if(!productSnap.exists()||product.active===false||price<1)throw new Error('MARKET_PRODUCT_UNAVAILABLE');const currentPoints=Math.max(0,Number(userData.points||0));if(currentPoints<price)throw new Error('MARKET_INSUFFICIENT_POINTS');updatedPoints=currentPoints-price;const league=getLeagueInfo(updatedPoints);order={productName:product.name||'Ürün',price,username:userData.username||user.displayName||'Kullanıcı',address:userData.address||'',userId:user.uid};transaction.set(userRef,{points:updatedPoints,league:league.key,leagueName:league.name,updatedAt:serverTimestamp()},{merge:true});const orderRef=doc(collection(db,'marketOrders'));transaction.set(orderRef,{...order,productId,status:'pending',createdAt:serverTimestamp()});});
-        const league=getLeagueInfo(updatedPoints);await setDoc(doc(db,'leaderboard',user.uid),{username:order.username,points:updatedPoints,league:league.key,leagueName:league.name,updatedAt:serverTimestamp()},{merge:true});updateMarketBalance(updatedPoints);updateAccountPointsUI(updatedPoints);alert('Siparişin alındı. Admin panelinden takip edilecek.');loadMarketPublicProducts();
-    }catch(error){alert(error?.message==='MARKET_INSUFFICIENT_POINTS'?'Bu ürün için yeterli puanın yok.':error?.message==='MARKET_PRODUCT_UNAVAILABLE'?'Bu ürün artık satışta değil.':firebaseError(error));}
+        await runTransaction(db,async(transaction)=>{const userSnap=await transaction.get(userRef),productSnap=await transaction.get(productRef);const userData=userSnap.exists()?userSnap.data():{},product=productSnap.exists()?productSnap.data():{};const price=Math.floor(Number(product.price||0));if(!productSnap.exists()||product.active===false||price<1)throw new Error('MARKET_PRODUCT_UNAVAILABLE');const currentPoints=Math.max(0,Number(userData.points||0));if(currentPoints<price)throw new Error('MARKET_INSUFFICIENT_POINTS');updatedPoints=currentPoints-price;const league=getLeagueInfo(updatedPoints);const productType=(product.type||'normal');const productCode=String(product.code||'').trim();if(productType==='code' && !productCode) throw new Error('MARKET_PRODUCT_NO_CODE');const isCodeProduct=productType==='code';order={productName:product.name||'Ürün',price,username:userData.username||user.displayName||'Kullanıcı',address:userData.address||'',userId:user.uid,email:user.email||'',code:isCodeProduct?productCode:'',status:'completed',productId,productType};transaction.set(userRef,{points:updatedPoints,league:league.key,leagueName:league.name,updatedAt:serverTimestamp()},{merge:true});const orderRef=doc(collection(db,'marketOrders'));transaction.set(orderRef,{...order,createdAt:serverTimestamp()});});
+        const league=getLeagueInfo(updatedPoints);await setDoc(doc(db,'leaderboard',user.uid),{username:order.username,points:updatedPoints,league:league.key,leagueName:league.name,updatedAt:serverTimestamp()},{merge:true});updateMarketBalance(updatedPoints);updateAccountPointsUI(updatedPoints);await loadUserMarketHistory();alert(order.productType==='code'?'Kodlu ürün satın alındı ve teslim edildi.':'Siparişin tamamlandı ve teslim edildi.');loadMarketPublicProducts();
+    }catch(error){alert(error?.message==='MARKET_INSUFFICIENT_POINTS'?'Bu ürün için yeterli puanın yok.':error?.message==='MARKET_PRODUCT_UNAVAILABLE'?'Bu ürün artık satışta değil.':error?.message==='MARKET_PRODUCT_NO_CODE'?'Bu ürün için kod tanımlanmamış. Lütfen ürün kodunu ekleyin.':firebaseError(error));}
 };
-window.resetMarketProductForm=function(){['marketProductId','marketProductImageUrl','marketProductStoragePath','marketProductName','marketProductDescription','marketProductPrice'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});document.getElementById('marketProductActive').checked=true;document.getElementById('marketProductFile').value='';document.getElementById('marketProductPreview').innerHTML='';};
+
+window.loadUserMarketHistory=async function(){
+    const user=auth.currentUser;
+    const container=document.getElementById('accountPurchaseHistory');
+    if(!container || !user){container.innerHTML='';return;}
+
+    try{
+        const snap=await getDocs(query(collection(db,'marketOrders'),where('userId','==',user.uid)));
+        const rows=[...snap.docs].map(docSnap=>({id:docSnap.id,...docSnap.data()})).sort((a,b)=>(b.createdAt?.toMillis?.()||0)-(a.createdAt?.toMillis?.()||0));
+
+        if(!rows.length){
+            container.innerHTML='<div class="account-purchase-empty">Henüz satın alma geçmişi yok.</div>';
+            return;
+        }
+
+        container.innerHTML=rows.map(order=>{
+            const isCodeProduct = (order.productType || 'normal') === 'code';
+            const status = order.status === 'completed' ? 'Teslim edildi' : 'Bekleniyor';
+            const codeText = order.status === 'completed' && order.code ? `<div class="account-purchase-item-code">Kod: ${escapeHtml(order.code)}</div>` : (isCodeProduct ? '<div class="account-purchase-item-meta">Kod: teslim edilmedi.</div>' : '<div class="account-purchase-item-meta">Normal ürün teslim edildi.</div>');
+            return `<div class="account-purchase-item">
+                <div class="account-purchase-item-head">
+                    <div class="account-purchase-item-title">${escapeHtml(order.productName || 'Ürün')}</div>
+                    <span class="admin-pill ${order.status === 'completed' ? 'ok' : 'off'}">${status}</span>
+                </div>
+                <div class="account-purchase-item-meta">${Number(order.price || 0).toLocaleString('tr-TR')} Puan · ${safeDate(order.createdAt)}</div>
+                <div class="account-purchase-item-meta">${isCodeProduct ? 'Kodlu ürün' : 'Normal ürün'}</div>
+                ${codeText}
+            </div>`;
+        }).join('');
+    }catch(error){
+        console.error('Market geçmişi yüklenemedi:',error);
+        container.innerHTML='<div class="account-purchase-empty">Satın alma geçmişi yüklenemedi.</div>';
+    }
+};
+
+window.addMarketOrderCode=async function(orderId){
+    const current=prompt('Ürün kodunu girin:');
+    if(current===null)return;
+    const code=current.trim();
+    if(!code){alert('Kod boş olamaz.');return;}
+
+    try{
+        await updateDoc(doc(db,'marketOrders',orderId),{
+            code,
+            status:'completed',
+            updatedAt:serverTimestamp(),
+            updatedBy:auth.currentUser?.uid || 'admin'
+        });
+        await loadMarketOrders();
+        await loadUserMarketHistory();
+        alert('Ürün kodu başarıyla eklendi ve teslim edildi.');
+    }catch(error){
+        console.error('Sipariş kodu eklenemedi:',error);
+        alert(firebaseError(error));
+    }
+};
+
+window.resetMarketProductForm=function(){['marketProductId','marketProductImageUrl','marketProductStoragePath','marketProductName','marketProductDescription','marketProductPrice','marketProductType','marketProductCode'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});const typeEl=document.getElementById('marketProductType');if(typeEl)typeEl.value='normal';const field=document.getElementById('marketProductCodeField');if(field)field.style.display='none';document.getElementById('marketProductActive').checked=true;document.getElementById('marketProductFile').value='';document.getElementById('marketProductPreview').innerHTML='';};
 window.saveMarketProduct=async function(){
-    const admin=await getAuthorizedAdmin().catch(()=>null);if(!admin){alert('Admin yetkiniz bulunmuyor.');return;}const file=document.getElementById('marketProductFile').files[0]||null;const name=document.getElementById('marketProductName').value.trim(),price=Math.floor(Number(document.getElementById('marketProductPrice').value)),description=document.getElementById('marketProductDescription').value.trim(),id=document.getElementById('marketProductId').value; if(!name||!Number.isSafeInteger(price)||price<1){alert('Ürün adı ve geçerli bir puan fiyatı girin.');return;}try{let imageUrl=document.getElementById('marketProductImageUrl').value.trim(),storagePath=document.getElementById('marketProductStoragePath').value.trim();if(file){if(!file.type.startsWith('image/')||file.size>5*1024*1024)throw new Error('Ürün görseli görsel formatında ve 5 MB altında olmalı.');const path=`market-products/${auth.currentUser.uid}_${Date.now()}_${file.name.replace(/[^a-z0-9._-]/gi,'-')}`;const result=await uploadBytes(storageRef(storage,path),file,{contentType:file.type,cacheControl:'public,max-age=3600'});imageUrl=await getDownloadURL(result.ref);storagePath=path;}const data={name,price,description,imageUrl,storagePath,active:document.getElementById('marketProductActive').checked,updatedAt:serverTimestamp(),updatedBy:auth.currentUser.uid};if(id)await updateDoc(doc(db,'marketProducts',id),data);else await addDoc(collection(db,'marketProducts'),{...data,createdAt:serverTimestamp(),createdBy:auth.currentUser.uid});resetMarketProductForm();await loadMarketProducts();alert('Ürün markete kaydedildi.');}catch(error){alert(firebaseError(error));}
+    const admin=await getAuthorizedAdmin().catch(()=>null);if(!admin){alert('Admin yetkiniz bulunmuyor.');return;}const file=document.getElementById('marketProductFile').files[0]||null;const name=document.getElementById('marketProductName').value.trim(),price=Math.floor(Number(document.getElementById('marketProductPrice').value)),description=document.getElementById('marketProductDescription').value.trim(),id=document.getElementById('marketProductId').value,productType=document.getElementById('marketProductType').value||'normal',productCode=document.getElementById('marketProductCode').value.trim(); if(!name||!Number.isSafeInteger(price)||price<1){alert('Ürün adı ve geçerli bir puan fiyatı girin.');return;}if(productType==='code' && !productCode){alert('Kodlu ürün için ürün kodunu girin.');return;}try{let imageUrl=document.getElementById('marketProductImageUrl').value.trim(),storagePath=document.getElementById('marketProductStoragePath').value.trim();if(file){if(!file.type.startsWith('image/')||file.size>5*1024*1024)throw new Error('Ürün görseli görsel formatında ve 5 MB altında olmalı.');const path=`market-products/${auth.currentUser.uid}_${Date.now()}_${file.name.replace(/[^a-z0-9._-]/gi,'-')}`;const result=await uploadBytes(storageRef(storage,path),file,{contentType:file.type,cacheControl:'public,max-age=3600'});imageUrl=await getDownloadURL(result.ref);storagePath=path;}const data={name,price,description,imageUrl,storagePath,type:productType,code:productType==='code'?productCode:'',active:document.getElementById('marketProductActive').checked,updatedAt:serverTimestamp(),updatedBy:auth.currentUser.uid};if(id)await updateDoc(doc(db,'marketProducts',id),data);else await addDoc(collection(db,'marketProducts'),{...data,createdAt:serverTimestamp(),createdBy:auth.currentUser.uid});resetMarketProductForm();await loadMarketProducts();alert('Ürün markete kaydedildi.');}catch(error){alert(firebaseError(error));}
 };
-window.loadMarketProducts=async function(){const list=document.getElementById('adminMarketProductList');if(!list)return;try{const snap=await getDocs(collection(db,'marketProducts'));const rows=snap.docs.map(s=>({id:s.id,...s.data()}));list.innerHTML=rows.length?rows.map(p=>`<div class="admin-row"><div>${p.imageUrl?`<img class="market-admin-image" src="${escapeHtml(p.imageUrl)}" alt="Ürün">`:'🛍️'}</div><div class="admin-row-main"><div class="admin-row-title">${escapeHtml(p.name||'Ürün')} <span class="admin-pill ${p.active!==false?'ok':'off'}">${p.active!==false?'YAYINDA':'PASİF'}</span></div><div class="admin-row-meta">${Number(p.price||0).toLocaleString('tr-TR')} Puan · ${escapeHtml(p.description||'')}</div></div><div class="admin-row-actions"><button class="admin-action secondary" onclick="editMarketProduct('${p.id}')">DÜZENLE</button><button class="admin-action danger" onclick="deleteMarketProduct('${p.id}')">SİL</button></div></div>`).join(''):'<div class="admin-empty">Henüz ürün eklenmedi.</div>';}catch(error){list.innerHTML='<div class="admin-empty">Ürünler yüklenemedi.</div>';}};
-window.editMarketProduct=async function(id){const snap=await getDoc(doc(db,'marketProducts',id));if(!snap.exists())return;const p=snap.data();document.getElementById('marketProductId').value=id;document.getElementById('marketProductImageUrl').value=p.imageUrl||'';document.getElementById('marketProductStoragePath').value=p.storagePath||'';document.getElementById('marketProductName').value=p.name||'';document.getElementById('marketProductPrice').value=p.price||'';document.getElementById('marketProductDescription').value=p.description||'';document.getElementById('marketProductActive').checked=p.active!==false;};
-window.deleteMarketProduct=async function(id){const admin=await getAuthorizedAdmin().catch(()=>null);if(!admin)return;if(!confirm('Bu ürün marketten silinsin mi?'))return;try{const snap=await getDoc(doc(db,'marketProducts',id));if(snap.exists()){const p=snap.data();await deleteDoc(doc(db,'marketProducts',id));if(p.storagePath)await deleteObject(storageRef(storage,p.storagePath)).catch(()=>{});}await loadMarketProducts();}catch(error){alert(firebaseError(error));}};
-window.loadMarketOrders=async function(){const list=document.getElementById('adminMarketOrderList');if(!list)return;try{const snap=await getDocs(collection(db,'marketOrders'));const rows=snap.docs.map(s=>({id:s.id,...s.data()})).sort((a,b)=>(b.createdAt?.toMillis?.()||0)-(a.createdAt?.toMillis?.()||0));list.innerHTML=rows.length?rows.map(o=>`<div class="admin-row"><div class="admin-row-avatar">🛒</div><div class="admin-row-main"><div class="admin-row-title">${escapeHtml(o.productName||'Ürün')}</div><div class="admin-row-meta">${escapeHtml(o.username||'Kullanıcı')} · ${Number(o.price||0).toLocaleString('tr-TR')} Puan<br>${escapeHtml(o.address||'Adres eklenmemiş')} · ${safeDate(o.createdAt)}</div></div><div class="admin-row-actions"><span class="admin-pill ${o.status==='completed'?'ok':'owner'}">${o.status==='completed'?'TAMAMLANDI':'YENİ SİPARİŞ'}</span></div></div>`).join(''):'<div class="admin-empty">Henüz sipariş yok.</div>';}catch(error){list.innerHTML='<div class="admin-empty">Siparişler yüklenemedi.</div>';}};
+window.loadMarketProducts=async function(){const list=document.getElementById('adminMarketProductList');if(!list)return;try{const snap=await getDocs(collection(db,'marketProducts'));const rows=snap.docs.map(s=>({id:s.id,...s.data()}));list.innerHTML=rows.length?rows.map(p=>`<div class="admin-row"><div>${p.imageUrl?`<img class="market-admin-image" src="${escapeHtml(p.imageUrl)}" alt="Ürün">`:'🛍️'}</div><div class="admin-row-main"><div class="admin-row-title">${escapeHtml(p.name||'Ürün')} <span class="admin-pill ${p.active!==false?'ok':'off'}">${p.active!==false?'YAYINDA':'PASİF'}</span></div><div class="admin-row-meta">${Number(p.price||0).toLocaleString('tr-TR')} Puan · ${(p.type||'normal')==='code'?'Kodlu ürün':'Normal ürün'} · ${escapeHtml(p.description||'')}</div>${(p.type||'normal')==='code'&&p.code?`<div class="admin-row-meta">Kod: <strong>${escapeHtml(p.code)}</strong></div>`:''}</div><div class="admin-row-actions"><button type="button" class="admin-action secondary market-edit-btn" data-market-product-id="${p.id}">DÜZENLE</button><button type="button" class="admin-action danger market-delete-btn" data-market-product-id="${p.id}">SİL</button></div></div>`).join(''):'<div class="admin-empty">Henüz ürün eklenmedi.</div>';
+        list.querySelectorAll('.market-edit-btn').forEach(btn=>{btn.onclick=async (e)=>{e.preventDefault();e.stopPropagation();if(!btn.dataset.marketProductId)return;await window.editMarketProduct(btn.dataset.marketProductId);};});
+        list.querySelectorAll('.market-delete-btn').forEach(btn=>{btn.onclick=async (e)=>{e.preventDefault();e.stopPropagation();if(!btn.dataset.marketProductId)return;await window.deleteMarketProduct(btn.dataset.marketProductId);};});
+    }catch(error){list.innerHTML='<div class="admin-empty">Ürünler yüklenemedi.</div>';}}
+window.editMarketProduct=async function(id){if(!id)return;const admin=await getAuthorizedAdmin().catch(()=>null);if(!admin){alert('Admin yetkiniz bulunmuyor.');return;}const snap=await getDoc(doc(db,'marketProducts',id));if(!snap.exists())return;const p=snap.data();const marketView=document.getElementById('adminViewMarket');if(marketView)marketView.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('marketProductId').value=id;document.getElementById('marketProductImageUrl').value=p.imageUrl||'';document.getElementById('marketProductStoragePath').value=p.storagePath||'';document.getElementById('marketProductName').value=p.name||'';document.getElementById('marketProductPrice').value=p.price||'';document.getElementById('marketProductDescription').value=p.description||'';document.getElementById('marketProductType').value=(p.type||'normal');document.getElementById('marketProductCode').value=p.code||'';toggleMarketProductCodeField();document.getElementById('marketProductActive').checked=p.active!==false;};
+window.deleteMarketProduct=async function(id){if(!id)return;const admin=await getAuthorizedAdmin().catch(()=>null);if(!admin)return;if(!confirm('Bu ürün marketten silinsin mi?'))return;try{const snap=await getDoc(doc(db,'marketProducts',id));if(snap.exists()){const p=snap.data();await deleteDoc(doc(db,'marketProducts',id));if(p.storagePath)await deleteObject(storageRef(storage,p.storagePath)).catch(()=>{});}await loadMarketProducts();}catch(error){alert(firebaseError(error));}};
+window.loadMarketOrders=async function(){const list=document.getElementById('adminMarketOrderList');if(!list)return;try{const snap=await getDocs(collection(db,'marketOrders'));const rows=snap.docs.map(s=>({id:s.id,...s.data()})).sort((a,b)=>(b.createdAt?.toMillis?.()||0)-(a.createdAt?.toMillis?.()||0));list.innerHTML=rows.length?rows.map(o=>`<div class="admin-row"><div class="admin-row-avatar">🛒</div><div class="admin-row-main"><div class="admin-row-title">${escapeHtml(o.productName||'Ürün')} <span class="admin-pill ${o.status==='completed'?'ok':'owner'}">${o.status==='completed'?'TAMAMLANDI':'YENİ SİPARİŞ'}</span></div><div class="admin-row-meta">${escapeHtml(o.username||'Kullanıcı')} · ${Number(o.price||0).toLocaleString('tr-TR')} Puan · ${(o.productType||'normal')==='code'?'Kodlu ürün':'Normal ürün'}<br>${escapeHtml(o.address||'Adres eklenmemiş')} · ${safeDate(o.createdAt)}</div>${o.code?`<div class="admin-row-meta">Kod: <strong>${escapeHtml(o.code)}</strong></div>`:'<div class="admin-row-meta">Kod: henüz eklenmedi.</div>'}</div><div class="admin-row-actions"><button class="admin-action ${o.code?'secondary':'ok'}" onclick="addMarketOrderCode('${o.id}')">${o.code?'KOD GÜNCELLE':'KOD EKLE'}</button></div></div>`).join(''):'<div class="admin-empty">Henüz sipariş yok.</div>';}catch(error){list.innerHTML='<div class="admin-empty">Siparişler yüklenemedi.</div>';}};
 
 window.openRaffles=async function(){
     if(!auth.currentUser){openLogin();return;}
@@ -4104,6 +4246,268 @@ window.renderPublicAnnouncements=async function(){
     }catch(e){console.warn(e);}
 };
 
+function normalizePromoCode(code){return String(code||'').trim().toUpperCase().replace(/[^A-Z0-9]/g,'');}
+
+window.resetPromoForm=function(){
+    const code=document.getElementById('adminPromoCodeInput');
+    const amount=document.getElementById('adminPromoAmountInput');
+    const maxUses=document.getElementById('adminPromoMaxUsesInput');
+    const active=document.getElementById('adminPromoActiveInput');
+    if(code)code.value=''; if(amount)amount.value=''; if(maxUses)maxUses.value=''; if(active)active.checked=true;
+};
+
+window.savePromoCode=async function(){
+    const admin=await getAuthorizedAdmin().catch(()=>null);
+    if(!admin){alert('Promosyon kodu oluşturmak için admin yetkisi gerekli.');return;}
+
+    const code=normalizePromoCode(document.getElementById('adminPromoCodeInput')?.value);
+    const amount=Number(document.getElementById('adminPromoAmountInput')?.value);
+    const maxUses=Number(document.getElementById('adminPromoMaxUsesInput')?.value);
+    const active=document.getElementById('adminPromoActiveInput')?.checked!==false;
+
+    if(!code){alert('Promosyon kodu boş olamaz.');return;}
+    if(code.length<3 || code.length>30){alert('Kod 3 ile 30 karakter arasında olmalıdır.');return;}
+    if(!Number.isFinite(amount) || amount < 1){alert('Kod puanı geçerli bir sayı olmalı.');return;}
+    if(!Number.isFinite(maxUses) || maxUses < 1){alert('Maksimum kullanım adedi en az 1 olmalı.');return;}
+
+    try{
+        const codeRef=doc(db,'promoCodes',code);
+        const existing=await getDoc(codeRef);
+        const existingData=existing.exists()?existing.data():{};
+        if(Number(existingData.maxUses||0) < Number(existingData.usedCount||0)){
+            alert('Bu kod için kullanım limiti, daha önce kullanılan değerlerden küçük olamaz.');
+            return;
+        }
+
+        await setDoc(codeRef,{
+            code,
+            amount:Math.floor(amount),
+            maxUses:Math.floor(maxUses),
+            usedCount:Number(existingData.usedCount||0),
+            active:Boolean(active),
+            createdBy:existingData.createdBy || admin.uid || admin.email || 'admin',
+            createdAt:existingData.createdAt || serverTimestamp(),
+            updatedAt:serverTimestamp(),
+            updatedBy:admin.uid || auth.currentUser?.uid || 'admin'
+        },{merge:true});
+
+        resetPromoForm();
+        await loadPromoCodesAdmin();
+        alert('Promosyon kodu başarıyla kaydedildi.');
+    }catch(error){
+        console.error('Promo kodu kaydetme hatası:',error);
+        alert(firebaseError(error));
+    }
+};
+
+window.togglePromoCode=async function(code,current){
+    try{
+        await updateDoc(doc(db,'promoCodes',code),{
+            active:!current,
+            updatedAt:serverTimestamp(),
+            updatedBy:auth.currentUser?.uid || 'admin'
+        });
+        await loadPromoCodesAdmin();
+    }catch(error){
+        console.error('Promo kodu durumu güncellenemedi:',error);
+        alert(firebaseError(error));
+    }
+};
+
+window.deletePromoCode=async function(code){
+    if(!confirm(`"${code}" kodunu silmek istediğinize emin misiniz?`))return;
+    try{
+        const usages=await getDocs(query(collection(db,'promoCodeUsages'),where('code','==',code)));
+        await Promise.all(usages.docs.map(docSnap=>deleteDoc(docSnap.ref)));
+        await deleteDoc(doc(db,'promoCodes',code));
+        await loadPromoCodesAdmin();
+        alert('Promosyon kodu ve kullanım kayıtları silindi.');
+    }catch(error){
+        console.error('Promo kodu silinemedi:',error);
+        alert(firebaseError(error));
+    }
+};
+
+window.loadPromoCodesAdmin=async function(){
+    const list=document.getElementById('adminPromoList');
+    if(!list)return;
+    list.innerHTML='<div class="admin-empty-manager">🎟️ Promosyon kodları yükleniyor...</div>';
+
+    try{
+        const admin=await getAuthorizedAdmin().catch(()=>null);
+        if(!admin){list.innerHTML='<div class="admin-empty-manager">Bu bölüm için admin yetkisi gerekli.</div>';return;}
+
+        const [promoSnap,usageSnap]=await Promise.all([
+            getDocs(collection(db,'promoCodes')),
+            getDocs(collection(db,'promoCodeUsages'))
+        ]);
+
+        const usageMap=new Map();
+        usageSnap.docs.forEach(snap=>{
+            const data=snap.data();
+            const key=String(data.code||'');
+            const items=usageMap.get(key)||[];
+            items.push({id:snap.id,data});
+            usageMap.set(key,items);
+        });
+
+        const rows=[...promoSnap.docs].map(snap=>{
+            const data=snap.data();
+            const usedCount=Number(data.usedCount||0);
+            const maxUses=Number(data.maxUses||0);
+            return {
+                code:snap.id,
+                ...data,
+                usedCount,
+                remaining:Math.max(0,maxUses-usedCount),
+                usages:(usageMap.get(snap.id)||[]).sort((a,b)=>(b.data.usedAt?.toMillis?.()||0)-(a.data.usedAt?.toMillis?.()||0))
+            };
+        }).sort((a,b)=>(b.createdAt?.toMillis?.()||0)-(a.createdAt?.toMillis?.()||0));
+
+        if(!rows.length){list.innerHTML='<div class="admin-empty-manager">Henüz promosyon kodu oluşturulmadı.</div>';return;}
+
+        list.innerHTML=rows.map(row=>{
+            const active=row.active!==false;
+            const usageHtml=row.usages.length
+                ? row.usages.map(item=>`<div class="admin-row-meta">👤 ${escapeHtml(item.data.username || item.data.userEmail || 'Kullanıcı')} · ${safeDate(item.data.usedAt)} · ${Number(item.data.amount||0).toLocaleString('tr-TR')} Puan</div>`).join('')
+                : '<div class="admin-row-meta">Henüz kullanım kaydı yok.</div>';
+
+            return `<div class="admin-row promo-row">
+                <div class="admin-row-avatar">🎟️</div>
+                <div class="admin-row-main">
+                    <div class="admin-row-title">${escapeHtml(row.code)} <span class="admin-pill ${active?'ok':'off'}">${active?'AKTİF':'PASİF'}</span></div>
+                    <div class="admin-row-meta">${Number(row.amount||0).toLocaleString('tr-TR')} puan · Limit: ${Number(row.maxUses||0)} · Kullanıldı: ${row.usedCount}/${Number(row.maxUses||0)} · Kalan: ${row.remaining}</div>
+                    <div class="admin-row-meta">Oluşturan: ${escapeHtml(row.createdBy || 'Bilinmiyor')} · ${safeDate(row.createdAt)}</div>
+                    <div class="admin-row-meta">Kullanan kullanıcılar:</div>
+                    ${usageHtml}
+                </div>
+                <div class="admin-row-actions">
+                    <button class="admin-action ${active?'secondary':'ok'}" onclick="togglePromoCode('${row.code}',${active})">${active?'PASİF YAP':'AKTİF YAP'}</button>
+                    <button class="admin-action danger" onclick="deletePromoCode('${row.code}')">SİL</button>
+                </div>
+            </div>`;
+        }).join('');
+    }catch(error){
+        console.error('Promo kodları yüklenemedi:',error);
+        list.innerHTML='<div class="admin-empty-manager">Promosyon kodları yüklenemedi: '+escapeHtml(firebaseError(error))+'</div>';
+    }
+};
+
+window.applyProfilePromoCode=async function(event){
+    if(event && typeof event.preventDefault === 'function') event.preventDefault();
+
+    const user=auth.currentUser;
+    if(!user){openLogin();return;}
+
+    const promoInput=document.getElementById('promoCodeInput');
+    const code=normalizePromoCode((promoInput?.value || document.getElementById('profilePromoCode')?.value || ''));
+    const statusBox=document.getElementById('promoCodeStatus') || document.getElementById('profileStatus');
+    if(!code){showStatus('promoCodeStatus' || 'profileStatus','Lütfen bir promosyon kodu girin.');return;}
+
+    try{
+        const codeRef=doc(db,'promoCodes',code);
+        const codeSnap=await getDoc(codeRef);
+        if(!codeSnap.exists()){
+            showStatus('profileStatus','Bu promosyon kodu geçersiz veya aktif değil.');
+            return;
+        }
+
+        const promo=codeSnap.data();
+        if(promo.active===false){
+            showStatus('profileStatus','Bu promosyon kodu şu anda pasif durumda.');
+            return;
+        }
+
+        const maxUses=Number(promo.maxUses||0);
+        const usedCount=Number(promo.usedCount||0);
+        if(usedCount >= maxUses){
+            showStatus('profileStatus','Bu promosyon kodunun kullanım limiti doldu.');
+            return;
+        }
+
+        const usageId=`${code}_${user.uid}`;
+        const usageRef=doc(db,'promoCodeUsages',usageId);
+        const usageSnap=await getDoc(usageRef);
+        if(usageSnap.exists()){
+            showStatus('profileStatus','Bu promosyon kodunu daha önce kullandınız.');
+            return;
+        }
+
+        const userRef=doc(db,'users',user.uid);
+        const userSnap=await getDoc(userRef);
+        const profile=userSnap.exists()?userSnap.data():{};
+        const currentPoints=Number(profile.points||0);
+        const awardedAmount=Number(promo.amount||0);
+        const nextPoints=currentPoints + awardedAmount;
+        const nextLeague=getLeagueInfo(nextPoints);
+        const timestamp=serverTimestamp();
+
+        await runTransaction(db, async (transaction)=>{
+            const latestCodeSnap=await transaction.get(codeRef);
+            if(!latestCodeSnap.exists()) throw new Error('PROMO_CODE_NOT_FOUND');
+            const latestPromo=latestCodeSnap.data();
+            if(latestPromo.active===false) throw new Error('PROMO_INACTIVE');
+            const latestUsedCount=Number(latestPromo.usedCount||0);
+            const latestMaxUses=Number(latestPromo.maxUses||0);
+            if(latestUsedCount >= latestMaxUses) throw new Error('PROMO_LIMIT_REACHED');
+
+            const latestUsageSnap=await transaction.get(usageRef);
+            if(latestUsageSnap.exists()) throw new Error('PROMO_ALREADY_USED');
+
+            transaction.set(usageRef,{
+                code,
+                userId:user.uid,
+                username:profile.username || user.displayName || 'Kullanıcı',
+                userEmail:user.email || '',
+                amount:awardedAmount,
+                usedAt:timestamp
+            },{merge:true});
+
+            transaction.set(codeRef,{
+                ...latestPromo,
+                usedCount:latestUsedCount+1,
+                updatedAt:timestamp,
+                updatedBy:user.uid
+            },{merge:true});
+
+            transaction.set(userRef,{
+                points:nextPoints,
+                league:nextLeague.key,
+                leagueName:nextLeague.name,
+                pointsUpdatedAt:timestamp,
+                updatedAt:timestamp
+            },{merge:true});
+
+            transaction.set(doc(db,'leaderboard',user.uid),{
+                username:profile.username || user.displayName || 'Kullanıcı',
+                points:nextPoints,
+                league:nextLeague.key,
+                leagueName:nextLeague.name,
+                updatedAt:timestamp
+            },{merge:true});
+        });
+
+        if(promoInput) promoInput.value='';
+        const message=`${awardedAmount.toLocaleString('tr-TR')} puan promosyon kodu başarıyla kullanıldı.`;
+        showStatus('promoCodeStatus' || 'profileStatus', message, 'success');
+        if(typeof openAccount==='function'){
+            setTimeout(()=>{
+                closeModal('promoCodeModal');
+                openAccount();
+            }, 700);
+        }
+    }catch(error){
+        console.error('Promosyon kodu kullanılamadı:',error);
+        if(error?.message==='PROMO_LIMIT_REACHED'){
+            showStatus('promoCodeStatus' || 'profileStatus','Bu promosyon kodunun kullanım limiti doldu.');
+        }else if(error?.message==='PROMO_ALREADY_USED'){
+            showStatus('promoCodeStatus' || 'profileStatus','Bu promosyon kodunu daha önce kullandınız.');
+        }else{
+            showStatus('promoCodeStatus' || 'profileStatus',firebaseError(error));
+        }
+    }
+};
+
 window.adminManagersCache=[];
 window.resetAdminForm=function(){const email=document.getElementById('adminEmailInput');const active=document.getElementById('adminActiveInput');if(email)email.value='';if(active)active.checked=true;};
 window.loadAdminAdmins=async function(){
@@ -4916,7 +5320,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         <div class="plinko-board"><canvas id="plinkoCanvas" width="700" height="480"></canvas></div>
         <div class="plinko-multipliers"><span>0x</span><span>0.2x</span><span>0.5x</span><span>0.8x</span><span>1x</span><span>1.5x</span><span>2x</span><span>4x</span><span>10x</span></div>
         <div class="plinko-bets"><button type="button" class="plinko-bet active" data-bet="10">10 Puan</button><button type="button" class="plinko-bet" data-bet="25">25 Puan</button><button type="button" class="plinko-bet" data-bet="50">50 Puan</button></div>
-        <div class="plinko-form"><input class="plinko-input" id="plinkoBetInput" type="number" min="1" step="1" value="10" aria-label="Bahis puani"><button type="button" class="plinko-drop-button" id="plinkoDropButton" onclick="dropPlinkoBall()">TOPU BIRAK</button></div>
+        <div class="plinko-form"><button type="button" class="plinko-drop-button" id="plinkoDropButton" onclick="dropPlinkoBall()">TOPU BIRAK</button></div>
         <div class="plinko-status" id="plinkoStatus">Oynamak icin bir bahis sec.</div>
     </div>
 </div>
