@@ -1826,7 +1826,7 @@ window.openAccount = async function(){
             document.getElementById("accountUsername").textContent=data.username || user.displayName || "Kullanıcı";
             updateAccountPointsUI(data.points || 0);
             if(!verifiedAdminRole){
-                const profileRole=data.role || "user";
+                const profileRole = normalizeAdminRole(data);
                 document.getElementById("accountRole").textContent=profileRole === "owner" ? "Owner" : profileRole === "admin" ? "Yönetici" : "Standart Üye";
             }
             if(data.createdAt?.toDate){
@@ -2327,6 +2327,13 @@ window.handleLogin = async function(event){
 };
 
 window.currentAdminData=null;
+function normalizeAdminRole(data={}){
+    const rawRole = String(data.role || data.adminRole || '').trim().toLowerCase();
+    if(rawRole === 'owner' || rawRole === 'admin') return rawRole;
+    if(data.isAdmin === true || data.isAdmin === 'true') return 'admin';
+    if(data.isOwner === true || data.isOwner === 'true') return 'owner';
+    return 'user';
+}
 async function getAuthorizedAdmin(){
     const user=auth.currentUser;
     if(!user)return null;
@@ -2335,14 +2342,35 @@ async function getAuthorizedAdmin(){
         return {uid:user.uid,email:user.email||'sevkym@gmail.com',role:'owner',active:true};
     }
 
-    const adminSnap=await getDoc(doc(db,'admins',user.uid)).catch(()=>null);
-    if(adminSnap && adminSnap.exists()){
-        const data=adminSnap.data()||{};
-        const role=String(data.role || '').toLowerCase();
-        const isActive=data.active===true;
-        if(isActive && ['owner','admin'].includes(role)){
-            return {uid:user.uid,email:data.email||user.email||'',...data,role,active:true};
-        }
+    const [adminSnap, profileSnap]=await Promise.all([
+        getDoc(doc(db,'admins',user.uid)).catch(()=>null),
+        getDoc(doc(db,'users',user.uid)).catch(()=>null)
+    ]);
+
+    const adminData=(adminSnap && adminSnap.exists()) ? (adminSnap.data() || {}) : {};
+    const profileData=(profileSnap && profileSnap.exists()) ? (profileSnap.data() || {}) : {};
+    const mergedData={...profileData,...adminData};
+    const role=normalizeAdminRole(mergedData);
+    const isActive=(adminData.active !== false) && (profileData.isActive !== false) && (profileData.active !== false);
+
+    if(isActive && ['owner','admin'].includes(role)){
+        return {
+            uid:user.uid,
+            email:adminData.email || profileData.email || user.email || '',
+            ...mergedData,
+            role,
+            active:true
+        };
+    }
+
+    if(role === 'admin' || role === 'owner'){
+        return {
+            uid:user.uid,
+            email:adminData.email || profileData.email || user.email || '',
+            ...mergedData,
+            role,
+            active:isActive
+        };
     }
 
     return null;
@@ -2510,8 +2538,8 @@ window.loadAdminUsers=async function(){
         window.adminUsersCache=userSnap.docs.map(s=>{
             const d=s.data();
             const admin=adminMap.get(s.id);
-            const role=admin?.role || d.role || 'user';
-            const active=d.isActive!==false;
+            const role=admin?.role || normalizeAdminRole(d) || 'user';
+            const active=d.isActive!==false && d.active!==false;
             return {
                 id:s.id,
                 ...d,
