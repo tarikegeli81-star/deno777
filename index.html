@@ -559,19 +559,21 @@ footer{padding:22px 16px 12px;text-align:center;color:#7a8fa0;font-size:12px;lin
     .welcome{padding:8px 4px 12px}.welcome h1{font-size:24px;line-height:1.12;letter-spacing:-.8px}.welcome p{font-size:12.5px;line-height:1.45}
     .site-list{gap:12px}
     .site-card{
-        padding:10px 10px 9px;gap:4px;border-radius:18px;min-height:120px;
-        display:grid;grid-template-columns:20px 86px minmax(0,1fr) 76px;align-items:center;box-shadow:0 10px 22px rgba(0,0,0,.18);width:100%;max-width:100%;overflow:hidden
+        padding:10px 10px 9px;gap:7px;border-radius:18px;min-height:112px;
+        display:grid;grid-template-columns:auto minmax(0,1fr) 72px;align-items:center;
+        box-shadow:0 10px 22px rgba(0,0,0,.18);width:100%;max-width:100%;overflow:hidden
     }
-    .site-card > .star{grid-column:1;grid-row:1;align-self:center;justify-self:start;width:20px;height:20px;font-size:10px;flex-shrink:0}
+    .site-card > .star{display:none}
     .site-logo,.site-logo.image-logo{
-        grid-column:2;grid-row:1;position:relative;left:auto;top:auto;transform:none;display:flex;align-items:center;justify-content:center;
-        width:86px;max-width:86px;min-width:86px;height:auto;margin:0;opacity:1;z-index:2;justify-self:start
+        grid-column:1;grid-row:1;position:relative;left:auto;top:auto;transform:none;display:flex;align-items:center;justify-content:flex-start;
+        width:auto;max-width:100%;min-width:0;height:auto;margin:0;opacity:1;z-index:2;padding-left:0
     }
-    .site-logo.image-logo img{width:100%;max-width:80px;height:36px;object-fit:contain;display:block;filter:drop-shadow(0 5px 16px rgba(0,200,255,.35));transform:scale(2)}
+    .site-logo.image-logo img{width:auto;max-width:90px;height:28px;object-fit:contain;display:block;filter:drop-shadow(0 5px 16px rgba(0,200,255,.35));transform:scale(1.2)}
     .site-logo{font-size:15px;letter-spacing:-1px}
-    .site-info{grid-column:3;grid-row:1;display:flex;flex-direction:column;justify-content:center;min-width:0;text-align:left;align-items:flex-start;overflow:hidden;padding-right:4px;margin-left:2px;opacity:.96;transform:none}
-    .site-info h2{font-size:3.7px;line-height:1.02;margin-bottom:1px;font-weight:700;letter-spacing:-.04em}.site-info p{font-size:2.7px;line-height:1.03;opacity:.72}
-    .site-button{grid-column:4;grid-row:1;width:74px;min-width:74px;height:28px;font-size:7.2px;border-radius:10px;margin-top:0;display:flex;justify-content:center;align-items:center;margin-left:0;padding:0 8px;box-shadow:0 6px 16px rgba(0,200,255,.18)}
+    .site-info{display:flex;grid-column:2;grid-row:1;min-width:0;max-width:100%;gap:1px;align-items:flex-start;justify-content:center;flex-direction:column;overflow:hidden;padding-right:2px}
+    .site-info h2{font-size:3.7px;line-height:1.04;margin:0;letter-spacing:-.08px;color:#ecfeff;text-shadow:0 0 6px rgba(0,207,255,.35),0 0 9px rgba(54,223,255,.12)}
+    .site-info p{display:block;font-size:2.2px;line-height:1.12;margin:0;color:#cbf5ff;opacity:.9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 0 5px rgba(0,207,255,.18)}
+    .site-button{grid-column:3;grid-row:1;width:72px;min-width:72px;height:26px;font-size:6.7px;border-radius:10px;margin-top:0;display:flex;justify-content:center;align-items:center;margin-left:0;padding:0 7px;box-shadow:0 6px 16px rgba(0,200,255,.18)}
     .bottom-section{padding:22px 15px}
     .modal-overlay{padding:8px}.modal-box{width:min(450px,100%);max-height:calc(100dvh - 16px);padding:22px 18px;border-radius:22px}
     .modal-header{padding:0 20px 15px}.modal-icon{width:56px;height:56px;font-size:22px;margin-bottom:8px}
@@ -580,13 +582,14 @@ footer{padding:22px 16px 12px;text-align:center;color:#7a8fa0;font-size:12px;lin
     .primary-button{height:48px}
 }
 @media(max-width:390px){
-    .site-card{padding:8px 8px 7px;min-height:106px;grid-template-columns:18px 84px minmax(0,1fr) 68px;gap:4px;align-items:center}
-    .site-card > .star{width:18px;height:18px;font-size:9px}
-    .site-logo,.site-logo.image-logo{width:84px;max-width:84px;min-width:84px;height:auto;margin:0;justify-self:start;grid-column:2}
-    .site-logo.image-logo img{width:100%;max-width:74px;height:30px;transform:scale(2.1)}
-    .site-info{padding-right:2px;margin-left:2px;transform:none}
-    .site-info h2{font-size:3.5px;line-height:1.02}.site-info p{font-size:2.5px;line-height:1.03}
-    .site-button{width:66px;min-width:66px;height:24px;font-size:6.3px;display:flex;justify-content:center;align-items:center;padding:0 6px}
+    .site-card{padding:7px 7px 6px;min-height:104px;grid-template-columns:auto minmax(0,1fr) 62px;gap:2px;align-items:center}
+    .site-card > .star{display:none}
+    .site-logo,.site-logo.image-logo{width:auto;max-width:100%;min-width:0;height:auto;margin:0 0 0 8px;justify-self:start;grid-column:1;padding-left:0}
+    .site-logo.image-logo img{width:auto;max-width:125px;height:39px;transform:scale(1.2)}
+    .site-info{display:flex;grid-column:2;grid-row:1;gap:1px;padding-right:0;margin-left:30px}
+    .site-info h2{font-size:6.4px !important;line-height:1.03;color:#ecfeff;text-shadow:0 0 5px rgba(0,207,255,.3),0 0 8px rgba(54,223,255,.12)}
+    .site-info p{font-size:5px !important;line-height:1.08;color:#cbf5ff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 0 5px rgba(0,207,255,.14)}
+    .site-button{grid-column:3;width:62px;min-width:62px;height:24px;font-size:6px;display:flex;justify-content:center;align-items:center;padding:0 6px}
 }
 
 /* ===== DUYURU MERKEZİ 2.0 ===== */
@@ -5539,7 +5542,7 @@ document.addEventListener('change',event=>{
     if(event.target?.id==='socialTheme')updateSocialPreview();
 });
 
-window.renderPublicPlatforms=async function(){const c=document.getElementById('publicPlatformList');if(!c)return;try{const snap=await getDocs(collection(db,'platforms'));const docs=[...snap.docs].filter(s=>s.data().active!==false).sort((a,b)=>(Number(a.data().order)||0)-(Number(b.data().order)||0));if(!docs.length){c.innerHTML='<div class="admin-empty">Henüz günün sayfası eklenmemiş. Admin panelinden görsel ve link ekleyin.</div>';return;}c.innerHTML=docs.map(s=>{const d=s.data();const url=d.url&&/^https?:\/\//i.test(d.url)?d.url:'#';const img=d.logoImage||d.logoUrl;const nameFontSize=Number(d.nameFontSize)>0?Number(d.nameFontSize):22;const descriptionFontSize=Number(d.descriptionFontSize)>0?Number(d.descriptionFontSize):14;const logo=img?`<div class="site-logo image-logo"><img src="${escapeHtml(img)}" alt="${escapeHtml(d.name||'Platform')} logosu"></div>`:`<div class="site-logo">${escapeHtml(d.logo||'VIP')}</div>`;return `<a class="site-card-link" href="${escapeHtml(url)}" ${url!=='#'?'target="_blank" rel="noopener noreferrer"':''}><article class="site-card ${escapeHtml(d.theme||'blue')}"><div class="star">★</div><div class="site-info"><h2 style="font-size:${nameFontSize}px">${escapeHtml(d.name||'Platform')}</h2><p style="font-size:${descriptionFontSize}px">${escapeHtml(d.description||'Güncel platform bilgileri.')}</p></div>${logo}<span class="site-button">${url!=='#'?'GİRİŞ YAP':'DETAY'}</span></article></a>`;}).join('');}catch(e){console.warn(e);}};
+window.renderPublicPlatforms=async function(){const c=document.getElementById('publicPlatformList');if(!c)return;try{const snap=await getDocs(collection(db,'platforms'));const docs=[...snap.docs].filter(s=>s.data().active!==false).sort((a,b)=>(Number(a.data().order)||0)-(Number(b.data().order)||0));if(!docs.length){c.innerHTML='<div class="admin-empty">Henüz günün sayfası eklenmemiş. Admin panelinden görsel ve link ekleyin.</div>';return;}c.innerHTML=docs.map(s=>{const d=s.data();const url=d.url&&/^https?:\/\//i.test(d.url)?d.url:'#';const img=d.logoImage||d.logoUrl;const nameFontSize=Number(d.nameFontSize)>0?Number(d.nameFontSize):22;const descriptionFontSize=Number(d.descriptionFontSize)>0?Number(d.descriptionFontSize):14;const isMobileView=window.innerWidth<=600;const displayNameSize=isMobileView?Math.max(3.2,Math.round(nameFontSize*0.15)):nameFontSize;const displayDescriptionSize=isMobileView?Math.max(2.0,Math.round(descriptionFontSize*0.13)):descriptionFontSize;const logo=img?`<div class="site-logo image-logo"><img src="${escapeHtml(img)}" alt="${escapeHtml(d.name||'Platform')} logosu"></div>`:`<div class="site-logo">${escapeHtml(d.logo||'VIP')}</div>`;return `<a class="site-card-link" href="${escapeHtml(url)}" ${url!=='#'?'target="_blank" rel="noopener noreferrer"':''}><article class="site-card ${escapeHtml(d.theme||'blue')}"><div class="star">★</div><div class="site-info"><h2 style="font-size:${displayNameSize}px">${escapeHtml(d.name||'Platform')}</h2><p style="font-size:${displayDescriptionSize}px">${escapeHtml(d.description||'Güncel platform bilgileri.')}</p></div>${logo}<span class="site-button">${url!=='#'?'GİRİŞ YAP':'DETAY'}</span></article></a>`;}).join('');}catch(e){console.warn(e);}};
 window.renderPublicFeaturedHeroes=async function(){
     const wrap=document.getElementById('featuredHeroWrap');
     if(!wrap)return;
