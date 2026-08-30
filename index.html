@@ -559,19 +559,19 @@ footer{padding:22px 16px 12px;text-align:center;color:#7a8fa0;font-size:12px;lin
     .welcome{padding:8px 4px 12px}.welcome h1{font-size:24px;line-height:1.12;letter-spacing:-.8px}.welcome p{font-size:12.5px;line-height:1.45}
     .site-list{gap:12px}
     .site-card{
-        padding:10px 12px 8px;gap:6px;border-radius:18px;min-height:128px;
-        display:grid;grid-template-columns:22px minmax(0,1fr) 90px 84px;align-items:center;box-shadow:0 10px 22px rgba(0,0,0,.18);width:100%;max-width:100%;overflow:hidden
+        padding:10px 10px 9px;gap:5px;border-radius:18px;min-height:120px;
+        display:grid;grid-template-columns:22px 68px minmax(0,1fr) 76px;align-items:center;box-shadow:0 10px 22px rgba(0,0,0,.18);width:100%;max-width:100%;overflow:hidden
     }
-    .site-card > .star{grid-column:1;grid-row:1;align-self:center;justify-self:start;width:24px;height:24px;font-size:12px;flex-shrink:0}
-    .site-info{grid-column:2;grid-row:1;display:flex;flex-direction:column;justify-content:center;min-width:0;text-align:left;align-items:flex-start;overflow:hidden}
-    .site-info h2{font-size:7px;line-height:1.05;margin-bottom:1px;font-weight:800}.site-info p{font-size:5.2px;line-height:1.12;opacity:.8}
+    .site-card > .star{grid-column:1;grid-row:1;align-self:center;justify-self:start;width:22px;height:22px;font-size:11px;flex-shrink:0}
     .site-logo,.site-logo.image-logo{
-        grid-column:3;grid-row:1;position:relative;left:auto;top:auto;transform:none;display:flex;align-items:center;justify-content:center;
-        width:90px;max-width:90px;min-width:90px;height:auto;margin:0;opacity:1;z-index:2;justify-self:center
+        grid-column:2;grid-row:1;position:relative;left:auto;top:auto;transform:none;display:flex;align-items:center;justify-content:center;
+        width:64px;max-width:64px;min-width:64px;height:auto;margin:0;opacity:1;z-index:2;justify-self:center
     }
-    .site-logo.image-logo img{width:100%;max-width:76px;height:28px;max-height:28px;object-fit:contain;display:block;filter:drop-shadow(0 2px 10px rgba(0,200,255,.18));transform:scale(1.3)}
-    .site-logo{font-size:18px;letter-spacing:-1px}
-    .site-button{grid-column:4;grid-row:1;width:82px;min-width:82px;height:28px;font-size:8px;border-radius:10px;margin-top:0;display:flex;justify-content:center;align-items:center;margin-left:0}
+    .site-logo.image-logo img{width:100%;max-width:58px;height:26px;object-fit:contain;display:block;filter:drop-shadow(0 2px 10px rgba(0,200,255,.18));transform:scale(1.5)}
+    .site-logo{font-size:16px;letter-spacing:-1px}
+    .site-info{grid-column:3;grid-row:1;display:flex;flex-direction:column;justify-content:center;min-width:0;text-align:left;align-items:flex-start;overflow:hidden;padding-right:6px}
+    .site-info h2{font-size:6.6px;line-height:1.08;margin-bottom:1px;font-weight:800}.site-info p{font-size:4.7px;line-height:1.1;opacity:.8}
+    .site-button{grid-column:4;grid-row:1;width:74px;min-width:74px;height:28px;font-size:7.8px;border-radius:10px;margin-top:0;display:flex;justify-content:center;align-items:center;margin-left:0;padding:0 8px}
     .bottom-section{padding:22px 15px}
     .modal-overlay{padding:8px}.modal-box{width:min(450px,100%);max-height:calc(100dvh - 16px);padding:22px 18px;border-radius:22px}
     .modal-header{padding:0 20px 15px}.modal-icon{width:56px;height:56px;font-size:22px;margin-bottom:8px}
@@ -580,9 +580,13 @@ footer{padding:22px 16px 12px;text-align:center;color:#7a8fa0;font-size:12px;lin
     .primary-button{height:48px}
 }
 @media(max-width:390px){
-    .site-card{padding:8px 9px 7px;min-height:110px;grid-template-columns:20px minmax(0,1fr) 84px 78px;gap:5px;align-items:center}
-    .site-card > .star{width:20px;height:20px;font-size:10px}
-    .site-info h2{font-size:6.5px}.site-info p{font-size:5px}.site-logo,.site-logo.image-logo{width:84px;max-width:84px;min-width:84px;height:auto;margin:0;justify-self:center}.site-logo.image-logo img{width:100%;max-width:70px;height:24px;transform:scale(1.25)}.site-button{width:76px;min-width:76px;height:26px;font-size:7.6px;display:flex;justify-content:center;align-items:center}
+    .site-card{padding:8px 8px 7px;min-height:108px;grid-template-columns:18px 62px minmax(0,1fr) 70px;gap:4px;align-items:center}
+    .site-card > .star{width:18px;height:18px;font-size:9px}
+    .site-logo,.site-logo.image-logo{width:58px;max-width:58px;min-width:58px;height:auto;margin:0;justify-self:center}
+    .site-logo.image-logo img{width:100%;max-width:52px;height:22px;transform:scale(1.5)}
+    .site-info{padding-right:4px}
+    .site-info h2{font-size:6px;line-height:1.06}.site-info p{font-size:4.4px;line-height:1.08}
+    .site-button{width:68px;min-width:68px;height:24px;font-size:7px;display:flex;justify-content:center;align-items:center;padding:0 6px}
 }
 
 /* ===== DUYURU MERKEZİ 2.0 ===== */
