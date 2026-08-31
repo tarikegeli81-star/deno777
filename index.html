@@ -411,7 +411,7 @@ button{cursor:pointer}
 @media(max-width:560px){.benefits-bar{grid-template-columns:repeat(2,1fr);padding:10px;gap:8px}.benefit-item{padding:8px 7px;gap:7px;min-height:64px}.benefit-icon{font-size:18px}.benefit-item strong{font-size:8.5px}}
 
 footer{padding:22px 16px 12px;text-align:center;color:#7a8fa0;font-size:12px;line-height:1.5;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
-.footer-creator-button{background:none;border:none;color:#ff2b3a;font-weight:900;cursor:pointer;padding:0 2px;font:inherit;letter-spacing:.03em;transition:opacity .2s ease,transform .2s ease}
+.footer-creator-button{background:none;border:none;color:#00ffff;font-weight:900;cursor:pointer;padding:0 2px;font:inherit;letter-spacing:.03em;transition:opacity .2s ease,transform .2s ease}
 .footer-creator-button:hover{opacity:.9;transform:translateY(-1px)}
 @media(max-width:560px){footer{font-size:11px;line-height:1.4;padding:18px 12px 10px;gap:6px;display:flex;align-items:center;justify-content:center}.footer-creator-button{font-size:11px;letter-spacing:.02em}}
 
@@ -419,7 +419,6 @@ footer{padding:22px 16px 12px;text-align:center;color:#7a8fa0;font-size:12px;lin
 @media(max-width:900px){
     .main-layout{grid-template-columns:1fr}.side-column{position:static}.side-card{min-height:430px}.side-title{font-size:26px}.side-card.right{margin-top:0}.top-brand{width:100%;justify-content:center}
     .content{padding:0 4px}.site-card{grid-template-columns:52px minmax(0,1fr) 135px;gap:14px;padding:18px 18px}.site-info h2{font-size:18px}.site-info p{font-size:12px}.site-logo.image-logo,.site-logo{width:36%;min-width:170px}.site-logo.image-logo img{height:72px}.site-button{width:130px;height:46px}.vip-public-logo{width:145px;height:250px}
-    text-shadow:0 0 8px rgba(255,43,58,.35);
 }
 @media(max-width:560px){
     .top-bar{min-height:58px;gap:8px;padding:7px 10px;border-bottom-width:1px;box-shadow:0 10px 24px rgba(0,0,0,.28)}
@@ -3861,57 +3860,322 @@ body{padding-bottom:0!important}.bottom-nav{display:none!important}.top-bar{posi
 }
 </style>
 
-<!-- MOBIL KIRMIZI CYBER EFEKTLERI GERI -->
-<style id="mobile-red-cyber-effects">
+<!-- MOBİL: SAYFA BOYUNCA GÖRÜNÜR KIRMIZI CYBER ARKA PLAN -->
+<style id="mobile-red-cyber-background-final">
 @media (max-width:700px){
-  html,body{background:#060608!important}
 
-  /* Sayfanın arka planına ince ve naif kırmızı teknoloji çizgileri */
+  html,body{
+    background:#050608 !important;
+  }
+
   body{
+    position:relative !important;
+    isolation:isolate !important;
+    overflow-x:hidden !important;
+  }
+
+  /*
+   * Arka plan ayrı bir sabit katmanda çizilir.
+   * Böylece mevcut .page / header arka plan kuralları efekti ezemez.
+   */
+  body::before{
+    content:"" !important;
+    position:fixed !important;
+    inset:0 !important;
+    width:100vw !important;
+    height:100vh !important;
+    pointer-events:none !important;
+    z-index:-1 !important;
+    opacity:1 !important;
+    background-color:#050608 !important;
     background-image:
-      radial-gradient(circle at 8% 10%,rgba(255,35,48,.16),transparent 23%),
-      radial-gradient(circle at 96% 34%,rgba(255,25,40,.12),transparent 22%),
-      radial-gradient(circle at 4% 82%,rgba(255,30,45,.12),transparent 24%),
-      repeating-linear-gradient(135deg,transparent 0 92px,rgba(255,45,55,.055) 93px 94px,transparent 95px 185px),
-      repeating-linear-gradient(45deg,transparent 0 145px,rgba(255,45,55,.035) 146px 147px,transparent 148px 290px),
-      #060608!important;
-    background-size:100% 850px,100% 950px,100% 1000px,100% 520px,100% 760px,auto!important;
+      /* Sol üst uzun teknolojik çizgiler */
+      linear-gradient(135deg,
+        transparent 0 10%,
+        transparent 10.05% 10.20%,
+        rgba(255,35,45,.68) 10.21% 10.36%,
+        transparent 10.37% 100%),
+      linear-gradient(135deg,
+        transparent 0 18%,
+        rgba(255,35,45,.32) 18.01% 18.09%,
+        transparent 18.10% 100%),
+
+      /* Sağ üst çizgiler */
+      linear-gradient(45deg,
+        transparent 0 77%,
+        rgba(255,35,45,.52) 77.01% 77.14%,
+        transparent 77.15% 100%),
+
+      /* Sol alt çizgiler */
+      linear-gradient(45deg,
+        transparent 0 15%,
+        rgba(255,30,40,.56) 15.01% 15.15%,
+        transparent 15.16% 100%),
+
+      /* Sağ alt çizgiler */
+      linear-gradient(135deg,
+        transparent 0 83%,
+        rgba(255,35,45,.48) 83.01% 83.13%,
+        transparent 83.14% 100%),
+
+      /* İnce koyu kırmızı geometrik hatlar */
+      repeating-linear-gradient(135deg,
+        transparent 0 112px,
+        rgba(255,45,55,.10) 113px 114px,
+        transparent 115px 230px),
+
+      /* Kırmızı parlama noktaları */
+      radial-gradient(circle at 8% 17%, rgba(255,25,40,.95) 0 2px, rgba(255,25,40,.28) 3px, transparent 16px),
+      radial-gradient(circle at 93% 28%, rgba(255,25,40,.78) 0 2px, rgba(255,25,40,.20) 3px, transparent 15px),
+      radial-gradient(circle at 6% 74%, rgba(255,25,40,.85) 0 2px, rgba(255,25,40,.22) 3px, transparent 17px),
+      radial-gradient(circle at 95% 88%, rgba(255,25,40,.90) 0 2px, rgba(255,25,40,.25) 3px, transparent 18px),
+
+      /* Köşelerde hafif kırmızı glow */
+      radial-gradient(ellipse at 0% 0%, rgba(255,20,35,.16), transparent 30%),
+      radial-gradient(ellipse at 100% 100%, rgba(255,20,35,.13), transparent 30%),
+      #050608 !important;
+
+    background-size:
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      360px 360px,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      auto !important;
+
+    background-repeat:no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+                      repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+                      no-repeat, no-repeat, no-repeat !important;
+  }
+
+  /* Mevcut içerik arka plan katmanının üzerinde kalır. */
+  body > *{
+    position:relative;
+    z-index:1;
+  }
+
+  /* Sayfanın açık alanları cyber arka planını göstermeye devam etsin. */
+  .page,
+  main,
+  .page-wrapper,
+  .main-content{
+    background-color:transparent !important;
+  }
+}
+</style>
+
+
+<!-- FOOTER POWERED BY KIRMIZI -->
+<style id="footer-powered-red-restore">
+.footer-creator-button{
+  color:#ff2b3a !important;
+  text-shadow:0 0 8px rgba(255,43,58,.35) !important;
+}
+</style>
+
+<!-- MOBİL KIRMIZI CYBER ARKA PLAN RESTORE -->
+<style id="mobile-red-cyber-bg-restore">
+@media (max-width:700px){
+  body{background:#050608!important; isolation:isolate!important;}
+  #mobileRedCyberBg{
+    position:fixed!important;
+    inset:0!important;
+    z-index:0!important;
+    pointer-events:none!important;
+    display:block!important;
+    background:
+      repeating-linear-gradient(135deg, transparent 0 82px, rgba(255,45,55,.10) 83px 84px, transparent 85px 164px),
+      repeating-linear-gradient(45deg, transparent 0 138px, rgba(255,45,55,.055) 139px 140px, transparent 141px 278px),
+      linear-gradient(135deg, transparent 0 10%, rgba(255,35,45,.34) 10.1% 10.25%, transparent 10.35% 100%),
+      linear-gradient(315deg, transparent 0 13%, rgba(255,35,45,.25) 13.1% 13.22%, transparent 13.32% 100%),
+      radial-gradient(circle at 5% 18%, rgba(255,35,45,.65) 0 1px, transparent 2px),
+      radial-gradient(circle at 95% 35%, rgba(255,35,45,.55) 0 1px, transparent 2px),
+      radial-gradient(circle at 8% 76%, rgba(255,35,45,.60) 0 1px, transparent 2px),
+      radial-gradient(circle at 93% 91%, rgba(255,35,45,.55) 0 1px, transparent 2px),
+      radial-gradient(ellipse at 0% 10%, rgba(180,0,20,.18), transparent 28%),
+      radial-gradient(ellipse at 100% 82%, rgba(180,0,20,.15), transparent 30%),
+      #050608!important;
+    background-size:100% 164px,100% 278px,100% 620px,100% 780px,100% 430px,100% 520px,100% 610px,100% 700px,100% 900px,100% 1000px,auto!important;
     background-repeat:repeat-y!important;
   }
+  /* İçerik katmanlarının kendi position ayarları korunur. */
+  .page, main, .main-content, .page-wrapper, .site-wrapper, #app, #root{
+    background-color:transparent!important;
+  }
+}
+</style>
+<script id="mobile-red-cyber-bg-script">
+(function(){
+ function addBg(){
+   if(!window.matchMedia('(max-width:700px)').matches) return;
+   if(!document.getElementById('mobileRedCyberBg')){
+     var d=document.createElement('div');
+     d.id='mobileRedCyberBg';
+     d.setAttribute('aria-hidden','true');
+     document.body.insertBefore(d,document.body.firstChild);
+   }
+ }
+ if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',addBg);
+ else addBg();
+ window.addEventListener('resize',addBg);
+})();
+</script>
 
-  .page{background:transparent!important}
 
-  /* Üst alana görseldeki gibi daha naif kırmızı çizgiler */
+<!-- MOBİL ÜST KISIM CYBER ÇİZGİLER + NEON DENO BABA -->
+<style id="mobile-header-cyber-neon-final">
+@media (max-width:700px){
+
+  /* ÜST ALAN: mevcut siyah zeminin üzerinde naif kırmızı cyber çizgiler */
   .top-bar{
-    position:relative!important;
-    overflow:hidden!important;
-    isolation:isolate!important;
-  }
-  .top-bar::before{
-    content:""!important;
-    position:absolute!important;
-    inset:0!important;
-    z-index:0!important;
-    pointer-events:none!important;
-    opacity:.5!important;
+    position:relative !important;
+    isolation:isolate !important;
+    overflow:hidden !important;
     background:
-      linear-gradient(135deg,transparent 0 57%,rgba(255,45,55,.28) 57.1% 57.25%,transparent 57.35% 63%,rgba(255,45,55,.16) 63.1% 63.22%,transparent 63.32%),
-      linear-gradient(315deg,transparent 0 70%,rgba(255,45,55,.13) 70.1% 70.22%,transparent 70.32%),
-      repeating-linear-gradient(120deg,transparent 0 52px,rgba(255,45,55,.055) 53px 54px,transparent 55px 105px)!important;
+      radial-gradient(circle at 8% 18%, rgba(255,30,45,.28) 0 1px, transparent 2px),
+      radial-gradient(circle at 92% 22%, rgba(255,30,45,.22) 0 1px, transparent 2px),
+      linear-gradient(135deg, transparent 0 20%, rgba(255,35,48,.22) 20.1% 20.35%, transparent 20.6% 100%),
+      linear-gradient(315deg, transparent 0 25%, rgba(255,35,48,.14) 25.1% 25.25%, transparent 25.4% 100%),
+      linear-gradient(135deg, transparent 0 74%, rgba(255,35,48,.20) 74.1% 74.25%, transparent 74.4% 100%),
+      #07080d !important;
   }
+
+  /* ince diyagonal kırmızı çizgi dekorları */
+  .top-bar::before,
   .top-bar::after{
-    content:""!important;
-    position:absolute!important;
-    inset:0!important;
-    z-index:0!important;
-    pointer-events:none!important;
-    opacity:.55!important;
-    background:
-      radial-gradient(circle at 12% 18%,rgba(255,55,65,.72) 0 1px,transparent 2px),
-      radial-gradient(circle at 76% 14%,rgba(255,55,65,.52) 0 1px,transparent 2px),
-      radial-gradient(circle at 91% 39%,rgba(255,55,65,.42) 0 1px,transparent 2px)!important;
+    content:"" !important;
+    position:absolute !important;
+    pointer-events:none !important;
+    z-index:-1 !important;
+    opacity:.9 !important;
   }
-  .top-bar>*{position:relative!important;z-index:1!important}
+
+  .top-bar::before{
+    width:190px !important;
+    height:130px !important;
+    left:-45px !important;
+    top:-35px !important;
+    background:
+      linear-gradient(115deg,
+        transparent 0 38%,
+        rgba(255,30,45,.52) 38.5% 39.2%,
+        transparent 39.7% 52%,
+        rgba(255,30,45,.26) 52.5% 53%,
+        transparent 53.5% 66%,
+        rgba(255,30,45,.14) 66.5% 67%,
+        transparent 67.5% 100%) !important;
+    filter:drop-shadow(0 0 5px rgba(255,25,40,.18)) !important;
+  }
+
+  .top-bar::after{
+    width:210px !important;
+    height:140px !important;
+    right:-70px !important;
+    bottom:-55px !important;
+    background:
+      linear-gradient(115deg,
+        transparent 0 26%,
+        rgba(255,30,45,.18) 26.5% 27%,
+        transparent 27.5% 42%,
+        rgba(255,30,45,.38) 42.5% 43.2%,
+        transparent 43.7% 58%,
+        rgba(255,30,45,.16) 58.5% 59%,
+        transparent 59.5% 100%) !important;
+    filter:drop-shadow(0 0 5px rgba(255,25,40,.16)) !important;
+  }
+
+  /* Başlık elemanları çizgilerin üstünde */
+  .top-bar > *{
+    position:relative !important;
+    z-index:1 !important;
+  }
+
+  /* NEON DENO BABA */
+  .top-brand{
+    position:relative !important;
+    isolation:isolate !important;
+  }
+
+  .top-brand strong{
+    color:#f7fbff !important;
+    font-weight:1000 !important;
+    text-shadow:
+      0 0 2px rgba(255,255,255,.95),
+      0 0 6px rgba(92,220,255,.88),
+      0 0 13px rgba(0,175,255,.68),
+      0 0 24px rgba(0,115,255,.38) !important;
+    -webkit-text-stroke:.7px rgba(110,225,255,.72) !important;
+  }
+
+  .top-brand strong span{
+    color:#ff2637 !important;
+    text-shadow:
+      0 0 2px rgba(255,155,165,.95),
+      0 0 7px rgba(255,45,60,.90),
+      0 0 16px rgba(255,20,40,.62),
+      0 0 28px rgba(255,20,40,.32) !important;
+    -webkit-text-stroke:.5px rgba(255,100,110,.72) !important;
+  }
+
+  /* Logonun arkasında hafif neon halo */
+  .top-brand::before{
+    content:"" !important;
+    position:absolute !important;
+    left:50% !important;
+    top:50% !important;
+    width:175px !important;
+    height:42px !important;
+    transform:translate(-50%,-50%) !important;
+    pointer-events:none !important;
+    z-index:-1 !important;
+    background:
+      radial-gradient(ellipse at 28% 50%, rgba(0,185,255,.16), transparent 57%),
+      radial-gradient(ellipse at 75% 50%, rgba(255,25,45,.15), transparent 58%) !important;
+    filter:blur(10px) !important;
+  }
+}
+</style>
+
+
+<!-- MOBİL: FOOTER SONRASI FAZLA BOŞ KAYDIRMAYI ENGELLE -->
+<style id="mobile-scroll-end-fix">
+@media (max-width:700px){
+  html, body{
+    padding-bottom:0 !important;
+    margin-bottom:0 !important;
+    min-height:0 !important;
+  }
+
+  /* Arka plan sabit kalır ama sayfa yüksekliğine dahil olmaz */
+  #mobileRedCyberBg{
+    position:fixed !important;
+    inset:0 !important;
+    height:100svh !important;
+    min-height:0 !important;
+  }
+
+  /* Gizli popup/modal alanları normal sayfa akışına girmesin */
+  .modal-overlay,
+  .popup-overlay,
+  .menu-overlay,
+  .drawer-overlay,
+  [class*="modal-overlay"]{
+    position:fixed !important;
+    inset:0 !important;
+  }
+
+  footer,
+  .footer{
+    padding-bottom:5px !important;
+    margin-bottom:0 !important;
+  }
 }
 </style>
 
