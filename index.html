@@ -11936,6 +11936,13 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     observer = new MutationObserver(function(){
       if(rebuilding) return;
+      const mutations=[...arguments[0]];
+      const hasRealChange=mutations.some(function(mutation){
+        return [...mutation.addedNodes,...mutation.removedNodes].some(function(node){
+          return node.nodeType===1 && node.dataset?.denoTickerCopy !== '1';
+        });
+      });
+      if(!hasRealChange) return;
       rebuilding = true;
       clearTimeout(window.__denoAnnouncementTimer);
       window.__denoAnnouncementTimer = setTimeout(function(){
@@ -11952,11 +11959,6 @@ document.addEventListener("DOMContentLoaded",()=>{
   }else{
     boot();
   }
-
-  /* Firebase yüklenmesinden sonra da kesin başlat */
-  [500,1200,2500,4500,7000].forEach(function(ms){
-    setTimeout(boot,ms);
-  });
 
   window.addEventListener('resize',run);
 })();
