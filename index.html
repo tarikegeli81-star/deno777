@@ -11175,7 +11175,8 @@ document.addEventListener('input',event=>{
 window.startAnnouncementTicker=function(){
   const track=document.getElementById('publicAnnouncementTrack');
   if(!track)return;
-  track.style.setProperty('animation','announcementMove 20s linear infinite','important');
+  const isMobile=window.matchMedia('(max-width:700px)').matches;
+  track.style.setProperty('animation',isMobile?'none':'announcementMove 20s linear infinite','important');
   track.style.removeProperty('transform');
   track.classList.remove('announcement-ticker-ready');
   void track.offsetWidth;
