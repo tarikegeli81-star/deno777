@@ -3860,323 +3860,2060 @@ body{padding-bottom:0!important}.bottom-nav{display:none!important}.top-bar{posi
 }
 </style>
 
-<!-- MOBİL: SAYFA BOYUNCA GÖRÜNÜR KIRMIZI CYBER ARKA PLAN -->
-<style id="mobile-red-cyber-background-final">
-@media (max-width:700px){
+<!-- MASAÜSTÜ: MOBİLDEKİ KISA YOLLARI AYNI ŞEKİLDE 3 ÇİZGİ MENÜYE TAŞI -->
+<style id="desktop-mobile-style-shortcuts">
+@media (min-width:701px){
+#bottomNavigation,.bottom-nav#bottomNavigation{display:none!important;visibility:hidden!important;pointer-events:none!important}
+.top-bar{position:sticky!important}
+#mobileMenuToggle{position:absolute!important;left:26px!important;top:50%!important;transform:translateY(-50%)!important;z-index:1002!important;display:flex!important;align-items:center!important;justify-content:center!important;width:52px!important;height:52px!important;padding:0!important;border-radius:14px!important;border:1px solid rgba(255,48,62,.82)!important;background:linear-gradient(135deg,rgba(45,8,14,.96),rgba(10,12,20,.98))!important;color:#f2f4f7!important;font-size:29px!important;line-height:1!important;box-shadow:0 0 18px rgba(255,28,45,.22),inset 0 0 16px rgba(255,28,45,.06)!important;transition:.22s ease!important}
+#mobileMenuToggle:hover{border-color:rgba(255,70,82,1)!important;color:#fff!important;box-shadow:0 0 24px rgba(255,28,45,.34),inset 0 0 20px rgba(255,28,45,.10)!important;transform:translateY(-50%) scale(1.04)!important}
+#publicSocialLinks.top-group.left{padding-left:70px!important}
+#mobileQuickOverlay{display:block!important;position:fixed!important;inset:0!important;z-index:9998!important;background:rgba(0,0,0,.82)!important;backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:.24s ease!important}
+#mobileQuickOverlay.open{opacity:1!important;visibility:visible!important;pointer-events:auto!important}
+#mobileQuickMenu{display:block!important;position:fixed!important;left:14px!important;top:14px!important;bottom:14px!important;width:340px!important;max-width:calc(100vw - 28px)!important;z-index:9999!important;transform:translateX(-115%)!important;transition:transform .26s cubic-bezier(.2,.8,.2,1)!important;overflow:hidden auto!important;border-radius:20px!important;border:1px solid rgba(255,48,62,.78)!important;background:radial-gradient(circle at 105% 18%,rgba(255,28,45,.12),transparent 32%),radial-gradient(circle at 10% 0%,rgba(255,45,55,.11),transparent 30%),linear-gradient(145deg,#0c0d14 0%,#090b12 48%,#05070c 100%)!important;box-shadow:22px 0 65px rgba(0,0,0,.84),0 0 28px rgba(255,30,45,.14),inset 0 1px 0 rgba(255,255,255,.025)!important}
+#mobileQuickMenu.open{transform:translateX(0)!important}
+#mobileQuickMenu::before{content:""!important;position:absolute!important;left:0!important;right:0!important;top:0!important;height:2px!important;z-index:10!important;background:linear-gradient(90deg,transparent 0%,#ff2638 15%,#ff2638 70%,transparent 100%)!important;box-shadow:0 0 14px rgba(255,35,50,.8)!important}
+.mq-head{position:relative!important;padding:24px 20px 16px!important;background:linear-gradient(90deg,rgba(255,35,50,.075),transparent 70%),linear-gradient(180deg,rgba(255,255,255,.025),transparent)!important;border-bottom:1px solid rgba(255,255,255,.07)!important}
+.mq-head::after{content:""!important;position:absolute!important;left:20px!important;right:80px!important;bottom:0!important;height:1px!important;background:linear-gradient(90deg,#ff3445,rgba(255,255,255,.08),transparent)!important;box-shadow:0 0 8px rgba(255,30,45,.22)!important}
+.mq-title{color:#f6f7fa!important;font-size:18px!important;font-weight:900!important;letter-spacing:.08em!important;text-shadow:0 0 12px rgba(255,50,65,.16)!important}.mq-sub{margin-top:5px!important;color:#ff727c!important;font-size:8px!important;font-weight:800!important;letter-spacing:.14em!important}
+.mq-links{position:relative!important;padding:14px 14px 20px!important;background-image:radial-gradient(circle,rgba(255,48,62,.10) 1px,transparent 1.35px)!important;background-size:11px 11px!important;background-position:right bottom!important}
+.mq-link{position:relative!important;overflow:hidden!important;width:100%!important;min-height:48px!important;height:48px!important;margin:0 0 8px!important;padding:0 42px 0 16px!important;border:1px solid rgba(120,135,160,.22)!important;border-radius:11px!important;background:linear-gradient(100deg,rgba(255,255,255,.04),rgba(10,12,20,.88) 58%,rgba(255,38,52,.035))!important;color:#e4e8ee!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.025),0 4px 13px rgba(0,0,0,.18)!important;display:flex!important;align-items:center!important;gap:12px!important;font-size:11px!important;font-weight:850!important;letter-spacing:.025em!important;text-align:left!important}
+.mq-link::before{content:""!important;position:absolute!important;left:0!important;top:10px!important;bottom:10px!important;width:2px!important;border-radius:0 3px 3px 0!important;background:#ff3041!important;box-shadow:0 0 9px rgba(255,35,50,.78)!important}.mq-link::after{content:"›"!important;position:absolute!important;right:14px!important;top:50%!important;transform:translateY(-53%)!important;color:rgba(255,75,88,.78)!important;font-size:23px!important;font-weight:300!important;line-height:1!important}
+.mq-link:hover{transform:translateX(3px)!important;border-color:rgba(255,52,67,.72)!important;background:linear-gradient(100deg,rgba(255,34,48,.14),rgba(12,13,20,.9) 70%)!important;box-shadow:0 0 16px rgba(255,25,42,.12),inset 0 0 16px rgba(255,25,42,.035)!important}.mq-link .mq-ico{width:26px!important;min-width:26px!important;font-size:18px!important;text-align:center!important;filter:drop-shadow(0 0 5px rgba(255,55,70,.18))!important}
+.mq-link.mq-red{margin-top:14px!important;border-color:rgba(255,48,62,.78)!important;color:#ffd9dd!important;background:linear-gradient(105deg,rgba(125,10,23,.26),rgba(12,10,16,.9))!important;box-shadow:0 0 17px rgba(255,25,43,.10),inset 0 0 18px rgba(255,25,43,.04)!important}.mq-link.mq-red::before{background:#ff5160!important}
+}
+</style>
 
-  html,body{
-    background:#050608 !important;
+
+<!-- MASAÜSTÜ KISA YOL PANELLERİ: POPUP YERİNE SAYFA İÇİNDE -->
+<style id="desktop-inline-shortcut-panels">
+@media (min-width:701px){
+  /* Sadece mobilde sayfa içinde açılan kısa yol içeriklerinin
+     masaüstü karşılığı. Diğer giriş/kayıt/admin popup'larına dokunulmaz. */
+  .modal-overlay.desktop-inline-shortcut{
+    position:relative !important;
+    inset:auto !important;
+    width:min(1100px, calc(100% - 40px)) !important;
+    min-height:0 !important;
+    margin:24px auto 32px !important;
+    padding:0 !important;
+    display:none !important;
+    align-items:stretch !important;
+    justify-content:stretch !important;
+    background:transparent !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    overflow:visible !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    z-index:5 !important;
+  }
+
+  .modal-overlay.desktop-inline-shortcut.active{
+    display:block !important;
+    animation:desktopInlineOpen .28s ease both !important;
+  }
+
+  .modal-overlay.desktop-inline-shortcut .modal-close{
+    position:absolute !important;
+    right:14px !important;
+    top:14px !important;
+    z-index:20 !important;
+  }
+
+  .modal-overlay.desktop-inline-shortcut .wheel-modal-box,
+  .modal-overlay.desktop-inline-shortcut .plinko-modal-box,
+  .modal-overlay.desktop-inline-shortcut .market-modal-box,
+  .modal-overlay.desktop-inline-shortcut .raffles-modal-box,
+  .modal-overlay.desktop-inline-shortcut .leaderboard-modal-box{
+    position:relative !important;
+    width:100% !important;
+    max-width:none !important;
+    max-height:none !important;
+    height:auto !important;
+    margin:0 !important;
+    overflow:visible !important;
+  }
+
+  @keyframes desktopInlineOpen{
+    from{opacity:0;transform:translateY(12px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+}
+</style>
+
+
+<!-- =========================================================
+     MASAÜSTÜNÜ MOBİL RENK DİLİYLE EŞLEŞTİR
+     Sadece görünüm katmanı: Firebase / HTML / JS değiştirilmez.
+     ========================================================= -->
+<style id="desktop-mobile-color-language">
+@media (min-width:701px){
+  :root{
+    --mobile-black:#080a0f;
+    --mobile-panel:#0c1018;
+    --mobile-red:#ff3042;
+    --mobile-red-soft:rgba(255,48,66,.16);
+    --mobile-line:rgba(255,48,66,.34);
+    --mobile-text:#edf1f6;
+    --mobile-muted:#9aa4b2;
   }
 
   body{
-    position:relative !important;
-    isolation:isolate !important;
-    overflow-x:hidden !important;
+    background:
+      radial-gradient(circle at 78% 8%,rgba(255,30,48,.055),transparent 20%),
+      radial-gradient(circle at 10% 74%,rgba(255,24,45,.04),transparent 23%),
+      linear-gradient(180deg,#090b10 0%,#07090e 48%,#06080d 100%) !important;
+    color:var(--mobile-text) !important;
   }
 
-  /*
-   * Arka plan ayrı bir sabit katmanda çizilir.
-   * Böylece mevcut .page / header arka plan kuralları efekti ezemez.
-   */
-  body::before{
+  .top-bar{
+    background:linear-gradient(180deg,rgba(11,13,20,.98),rgba(8,10,16,.94)) !important;
+    border-bottom:1px solid rgba(255,48,66,.42) !important;
+    box-shadow:0 10px 30px rgba(0,0,0,.32) !important;
+  }
+
+  .page{position:relative}
+
+  /* Mobildeki koyu/kırmızı çerçeveli duyuru dili */
+  .announcement{
+    background:
+      linear-gradient(90deg,rgba(45,12,18,.46),rgba(12,14,21,.94) 42%,rgba(9,11,17,.96)) !important;
+    border-color:rgba(255,48,66,.52) !important;
+    box-shadow:0 8px 24px rgba(0,0,0,.3),inset 0 0 24px rgba(255,35,48,.025) !important;
+  }
+  .announcement::before{
+    background:linear-gradient(90deg,rgba(255,45,60,.06),transparent 55%) !important;
+  }
+
+  /* Ana kategori/üst platform filtreleri */
+  .category-tabs,.categories,.platform-tabs,.top-filters,.filter-bar{
+    background:linear-gradient(100deg,#0b0d13,#10131c) !important;
+    border-color:rgba(255,48,66,.42) !important;
+  }
+  .category-tab,.category-button,.filter-btn,.platform-tab{
+    background:linear-gradient(135deg,rgba(255,255,255,.025),rgba(12,14,20,.9)) !important;
+    border-color:rgba(255,48,66,.18) !important;
+    color:#dce1e8 !important;
+  }
+  .category-tab.active,.category-button.active,.filter-btn.active,.platform-tab.active{
+    background:linear-gradient(110deg,rgba(126,16,30,.48),rgba(28,16,22,.94)) !important;
+    border-color:rgba(255,48,66,.68) !important;
+    box-shadow:inset 0 0 20px rgba(255,35,48,.06),0 0 16px rgba(255,35,48,.08) !important;
+    color:#fff !important;
+  }
+
+  /* Ana sayfa: mobildeki platform kart dili */
+  .site-card{
+    min-height:138px !important;
+    padding:16px 20px !important;
+    gap:20px !important;
+    border-radius:15px !important;
+    background:
+      linear-gradient(105deg,rgba(7,9,14,.98) 0%,rgba(16,18,26,.94) 48%,rgba(13,15,22,.96) 100%) !important;
+    border:1px solid rgba(255,48,66,.72) !important;
+    box-shadow:0 8px 22px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.025) !important;
+  }
+  .site-card::before{
+    inset:0 !important;
+    box-shadow:none !important;
+    background:
+      linear-gradient(112deg,transparent 0 25%,rgba(255,48,66,.52) 25.15%,transparent 25.35%) !important;
+    animation:none !important;
+    opacity:.7 !important;
+  }
+  .site-card::after{
+    background:
+      radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1.6px) right center/11px 11px no-repeat !important;
+    box-shadow:none !important;
+    animation:none !important;
+    opacity:.6 !important;
+  }
+  .site-card:hover{
+    transform:translateY(-2px) !important;
+    border-color:rgba(255,68,80,.95) !important;
+    box-shadow:0 12px 30px rgba(0,0,0,.42),0 0 18px rgba(255,35,48,.08) !important;
+  }
+
+  /* Mobildeki farklı platform renkleri */
+  .site-card.blue{
+    border-color:rgba(74,213,255,.88) !important;
+    background:linear-gradient(105deg,#080d14 0%,#0b2636 100%) !important;
+  }
+  .site-card.blue::before{
+    background:linear-gradient(112deg,transparent 0 25%,rgba(63,210,255,.62) 25.15%,transparent 25.35%) !important;
+  }
+  .site-card.blue::after{
+    background:radial-gradient(circle,rgba(90,220,255,.42) 1px,transparent 1.7px) right center/11px 11px no-repeat !important;
+  }
+
+  .site-card.gold{
+    border-color:rgba(255,170,49,.88) !important;
+    background:linear-gradient(105deg,#110c08 0%,#3a2111 100%) !important;
+  }
+  .site-card.gold::before{
+    background:linear-gradient(112deg,transparent 0 25%,rgba(255,176,51,.65) 25.15%,transparent 25.35%) !important;
+  }
+  .site-card.gold::after{
+    background:radial-gradient(circle,rgba(255,190,82,.43) 1px,transparent 1.7px) right center/11px 11px no-repeat !important;
+  }
+
+  .site-card.green{
+    border-color:rgba(57,224,133,.86) !important;
+    background:linear-gradient(105deg,#08110d 0%,#0c3223 100%) !important;
+  }
+  .site-card.green::before{
+    background:linear-gradient(112deg,transparent 0 25%,rgba(62,235,142,.64) 25.15%,transparent 25.35%) !important;
+  }
+  .site-card.green::after{
+    background:radial-gradient(circle,rgba(73,236,150,.43) 1px,transparent 1.7px) right center/11px 11px no-repeat !important;
+  }
+
+  .site-card.red{
+    border-color:rgba(255,62,62,.9) !important;
+    background:linear-gradient(105deg,#120809 0%,#3a1114 100%) !important;
+  }
+  .site-card.red::before{
+    background:linear-gradient(112deg,transparent 0 25%,rgba(255,65,70,.65) 25.15%,transparent 25.35%) !important;
+  }
+  .site-card.red::after{
+    background:radial-gradient(circle,rgba(255,75,78,.42) 1px,transparent 1.7px) right center/11px 11px no-repeat !important;
+  }
+
+  .site-card.purple,.site-card.violet{
+    border-color:rgba(214,80,255,.9) !important;
+    background:linear-gradient(105deg,#0f0914 0%,#291034 100%) !important;
+  }
+  .site-card.purple::before,.site-card.violet::before{
+    background:linear-gradient(112deg,transparent 0 25%,rgba(216,78,255,.65) 25.15%,transparent 25.35%) !important;
+  }
+
+  .site-logo{min-width:180px !important;color:#fff !important}
+  .site-logo.image-logo img{
+    height:68px !important;
+    filter:drop-shadow(0 2px 8px rgba(0,0,0,.55)) !important;
+  }
+
+  /* Giriş butonları mobildeki gibi koyu, ince ve rengini karttan alan */
+  .site-button{
+    min-width:142px !important;
+    height:48px !important;
+    border-radius:10px !important;
+    background:rgba(7,9,14,.52) !important;
+    border:1px solid rgba(255,67,79,.78) !important;
+    box-shadow:inset 0 0 18px rgba(255,38,50,.04),0 0 12px rgba(255,30,44,.05) !important;
+    color:#f3f4f6 !important;
+  }
+  .site-card.blue .site-button{border-color:rgba(70,213,255,.82) !important;box-shadow:inset 0 0 18px rgba(40,190,255,.06) !important}
+  .site-card.gold .site-button{border-color:rgba(255,177,55,.82) !important;box-shadow:inset 0 0 18px rgba(255,165,30,.06) !important}
+  .site-card.green .site-button{border-color:rgba(62,228,140,.82) !important;box-shadow:inset 0 0 18px rgba(50,225,130,.06) !important}
+  .site-card.red .site-button{border-color:rgba(255,74,78,.84) !important}
+  .site-card.purple .site-button,.site-card.violet .site-button{border-color:rgba(212,80,255,.84) !important}
+
+  /* Ana sayfadaki hero alanını da mobilin kırmızı/siyah diline yaklaştır */
+  .featured-hero{
+    border-color:rgba(255,48,66,.55) !important;
+    background:
+      radial-gradient(circle at 82% 30%,rgba(255,32,48,.10),transparent 23%),
+      linear-gradient(135deg,#090b11 0%,#130c12 48%,#0a0c12 100%) !important;
+    box-shadow:0 18px 42px rgba(0,0,0,.52),inset 0 0 0 1px rgba(255,48,66,.08) !important;
+  }
+  .featured-hero::before{
+    background:linear-gradient(90deg,rgba(8,9,14,.94),rgba(12,10,16,.76) 38%,rgba(10,8,12,.3)) !important;
+  }
+  .featured-hero::after{
+    background:radial-gradient(ellipse at center,rgba(255,40,55,.18),transparent 64%) !important;
+  }
+  .featured-hero-tag{
+    border-color:rgba(255,66,80,.64) !important;
+    background:rgba(68,13,23,.38) !important;
+    color:#ffd7dc !important;
+  }
+  .featured-hero-logo .logo-text strong,
+  .featured-hero-offer span{color:#ff4052 !important}
+  .featured-hero-btn{
+    border-color:rgba(255,55,70,.72) !important;
+    background:linear-gradient(135deg,rgba(126,18,32,.72),rgba(43,11,17,.94)) !important;
+  }
+}
+</style>
+
+
+<!-- =========================================================
+ DENO BABA MASAÜSTÜ = MOBİL TASARIM DİLİ
+ Görsel katman yalnızca CSS'tir. Firebase/JS/HTML işlevleri korunur.
+========================================================= -->
+<style id="desktop-exact-mobile-design">
+
+@media (min-width:701px){
+
+html,body{
+  background:#080a0f !important;
+}
+
+body{
+  position:relative !important;
+  background:
+    radial-gradient(circle at 96% 3%,rgba(255,22,42,.11),transparent 18%),
+    radial-gradient(circle at 3% 46%,rgba(255,25,42,.055),transparent 19%),
+    linear-gradient(180deg,#080a0f 0%,#090b11 50%,#06080d 100%) !important;
+}
+
+/* MOBİLDEKİ CYBER KIRMIZI ÇİZGİLİ ARKA PLAN */
+body::before{
+  content:"" !important;
+  position:fixed !important;
+  inset:0 !important;
+  pointer-events:none !important;
+  z-index:-1 !important;
+  opacity:.78 !important;
+  background:
+    linear-gradient(135deg,transparent 0 14%,rgba(255,35,50,.16) 14.05% 14.13%,transparent 14.2% 35%,rgba(255,35,50,.11) 35.05% 35.13%,transparent 35.2%),
+    linear-gradient(315deg,transparent 0 18%,rgba(255,35,50,.13) 18.05% 18.13%,transparent 18.2% 49%,rgba(255,35,50,.09) 49.05% 49.13%,transparent 49.2%),
+    radial-gradient(circle at 8% 86%,rgba(255,37,50,.58) 0 1px,transparent 2px),
+    radial-gradient(circle at 91% 10%,rgba(255,37,50,.45) 0 1px,transparent 2px),
+    radial-gradient(circle at 87% 79%,rgba(255,37,50,.35) 0 1px,transparent 2px);
+  background-size:100% 100%,100% 100%,19px 19px,23px 23px,31px 31px !important;
+}
+
+/* ANA SAYFA GENELİ */
+.page{
+  max-width:1440px !important;
+  padding:10px 18px 20px !important;
+  position:relative !important;
+}
+
+/* ÜST BAR - MOBİLDEKİ KIRMIZI/SİYAH DİL */
+.top-bar{
+  min-height:104px !important;
+  padding:8px 18px !important;
+  grid-template-columns:1fr auto 1fr !important;
+  align-items:center !important;
+  gap:18px !important;
+  position:relative !important;
+  overflow:visible !important;
+  border-bottom:1px solid rgba(255,48,62,.55) !important;
+  background:
+    linear-gradient(90deg,rgba(255,35,50,.055),transparent 18%,transparent 82%,rgba(255,35,50,.055)),
+    linear-gradient(180deg,#0d0f17,#090b11) !important;
+  box-shadow:0 10px 28px rgba(0,0,0,.42) !important;
+}
+
+.top-bar::before{
+  content:"" !important;
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:-1px !important;
+  height:1px !important;
+  background:linear-gradient(90deg,transparent,rgba(255,40,54,.72),transparent) !important;
+  box-shadow:0 0 12px rgba(255,32,48,.34) !important;
+}
+
+/* MOBİLDEKİ GİBİ İNCE KIRMIZI SOSYAL BUTONLAR */
+#publicSocialLinks.top-group.left{
+  padding-left:64px !important;
+  gap:12px !important;
+}
+
+#publicSocialLinks.top-group.left .top-button{
+  position:relative !important;
+  isolation:isolate !important;
+  overflow:hidden !important;
+  min-width:180px !important;
+  height:42px !important;
+  padding:0 18px !important;
+  border:1px solid rgba(255,48,66,.82) !important;
+  border-radius:12px !important;
+  color:#f4f4f6 !important;
+  background:
+    linear-gradient(90deg,rgba(255,35,52,.08),transparent 28%,rgba(255,255,255,.025) 52%,transparent 72%,rgba(255,35,52,.08)),
+    linear-gradient(135deg,rgba(43,7,12,.98),rgba(13,15,21,.99) 46%,rgba(31,5,10,.98)) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05),inset 0 -14px 24px rgba(0,0,0,.28),0 0 12px rgba(255,24,48,.12) !important;
+}
+
+#publicSocialLinks.top-group.left .top-button::before{
+  content:"" !important;
+  position:absolute !important;
+  z-index:-1 !important;
+  top:-55% !important;
+  right:-18px !important;
+  width:90px !important;
+  height:210% !important;
+  transform:rotate(24deg) !important;
+  background:repeating-linear-gradient(90deg,transparent 0 7px,rgba(255,35,54,.16) 7px 9px,transparent 9px 15px) !important;
+}
+
+#publicSocialLinks.top-group.left .top-button::after{
+  content:"" !important;
+  position:absolute !important;
+  z-index:-1 !important;
+  left:0 !important;
+  top:5px !important;
+  bottom:5px !important;
+  width:3px !important;
+  border-radius:0 4px 4px 0 !important;
+  background:linear-gradient(to bottom,transparent,#ff243c 18%,#ff6472 50%,#ff243c 82%,transparent) !important;
+  box-shadow:0 0 7px rgba(255,27,49,.75) !important;
+}
+
+.top-brand strong{
+  color:#eafcff !important;
+  text-shadow:0 0 8px rgba(68,219,255,.65),0 0 22px rgba(255,35,50,.16) !important;
+}
+
+/* DUYURULAR: MOBİLDEKİ AKAN KOYU/KIRMIZI KUTULAR */
+.announcement{
+  height:54px !important;
+  min-height:54px !important;
+  margin:10px 0 14px !important;
+  overflow:hidden !important;
+  border:1px solid rgba(255,47,61,.68) !important;
+  border-radius:12px !important;
+  background:linear-gradient(90deg,rgba(255,25,42,.10),rgba(8,10,16,.96) 18%,rgba(8,10,16,.98) 82%,rgba(255,25,42,.08)) !important;
+  box-shadow:0 0 14px rgba(255,25,42,.10),inset 0 1px 0 rgba(255,255,255,.035) !important;
+}
+
+.announcement-track{
+  display:flex !important;
+  align-items:center !important;
+  width:max-content !important;
+  min-width:max-content !important;
+  height:100% !important;
+  animation:denobabaAnnouncementScroll 22s linear infinite !important;
+}
+
+.announcement-item,.announcement a.announcement-item{
+  width:auto !important;
+  min-width:285px !important;
+  height:40px !important;
+  margin:0 5px !important;
+  padding:0 16px !important;
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  gap:10px !important;
+  border:1px solid rgba(255,255,255,.08) !important;
+  border-right:1px solid rgba(255,48,62,.30) !important;
+  border-radius:9px !important;
+  background:linear-gradient(90deg,rgba(255,35,50,.10),rgba(18,20,29,.92) 45%,rgba(255,35,50,.035)) !important;
+  box-shadow:none !important;
+  flex:none !important;
+}
+
+/* ANA 3 SÜTUN - ORTA MOBİL KARTLAR + YAN VIP */
+.main-layout{
+  grid-template-columns:250px minmax(0,1fr) 250px !important;
+  gap:16px !important;
+  align-items:start !important;
+}
+
+.side-column{
+  position:sticky !important;
+  top:118px !important;
+}
+
+/* SAĞ/SOL VIP KARTLARINI MOBİLİN KART DİLİNE ÇEVİR */
+.side-card,
+.side-card.right{
+  min-height:470px !important;
+  padding:18px 12px 14px !important;
+  border-radius:16px !important;
+  overflow:hidden !important;
+  position:relative !important;
+  background:
+    linear-gradient(180deg,rgba(15,37,45,.92),rgba(10,12,18,.98) 42%,rgba(42,17,24,.90)) !important;
+  border:1px solid rgba(51,218,231,.58) !important;
+  box-shadow:0 0 0 1px rgba(255,45,58,.08),0 14px 34px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.025) !important;
+}
+
+.side-card::before,
+.side-card.right::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  opacity:1 !important;
+  background:
+    linear-gradient(135deg,transparent 0 47%,rgba(52,225,235,.28) 47.1% 47.4%,transparent 47.5%),
+    radial-gradient(circle at 92% 12%,rgba(255,45,58,.45) 0 1px,transparent 2px) !important;
+}
+
+.side-card.right{
+  border-color:rgba(255,164,55,.58) !important;
+  background:linear-gradient(180deg,rgba(49,37,18,.88),rgba(11,12,17,.98) 45%,rgba(39,18,14,.92)) !important;
+}
+
+.side-card.right::before{
+  background:
+    linear-gradient(135deg,transparent 0 47%,rgba(255,174,54,.34) 47.1% 47.4%,transparent 47.5%),
+    radial-gradient(circle at 92% 12%,rgba(255,171,52,.42) 0 1px,transparent 2px) !important;
+}
+
+.side-badge{
+  border-color:rgba(255,48,62,.65) !important;
+  background:linear-gradient(135deg,rgba(83,15,25,.7),rgba(21,13,18,.95)) !important;
+  color:#ffd8dc !important;
+}
+
+.side-card.right .side-badge{
+  background:linear-gradient(135deg,rgba(103,61,11,.72),rgba(27,19,11,.96)) !important;
+  color:#ffe0a1 !important;
+  border-color:rgba(255,181,61,.58) !important;
+}
+
+.side-title{color:#f1f3f6 !important;text-shadow:none !important}
+.side-text{color:#aeb6c0 !important}
+.side-button,.side-card.right .side-button{
+  width:100% !important;
+  height:46px !important;
+  border-radius:10px !important;
+  background:rgba(8,10,15,.72) !important;
+  border:1px solid rgba(255,48,62,.72) !important;
+  box-shadow:inset 0 0 18px rgba(255,30,45,.04) !important;
+}
+.side-card.right .side-button{border-color:rgba(255,177,55,.72) !important}
+
+/* ORTA PLATFORM LİSTESİ: MOBİLDEKİ KART FORMU */
+.site-list{
+  gap:9px !important;
+  padding:0 !important;
+}
+
+.site-card{
+  height:112px !important;
+  min-height:112px !important;
+  padding:0 14px !important;
+  display:grid !important;
+  grid-template-columns:26% minmax(0,1fr) 22% !important;
+  align-items:center !important;
+  gap:12px !important;
+  border-radius:13px !important;
+  overflow:hidden !important;
+  position:relative !important;
+  background:linear-gradient(105deg,#0b0d13 0%,#17111a 58%,#1b1015 100%) !important;
+  border:1px solid rgba(255,58,72,.82) !important;
+  box-shadow:0 9px 22px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.025) !important;
+}
+
+.site-card::before{
+  content:"" !important;
+  position:absolute !important;
+  left:0 !important;
+  top:0 !important;
+  bottom:0 !important;
+  width:29% !important;
+  z-index:0 !important;
+  opacity:1 !important;
+  background:
+    linear-gradient(105deg,rgba(8,10,15,.98),rgba(19,18,25,.92)) !important;
+  clip-path:polygon(0 0,88% 0,100% 50%,88% 100%,0 100%) !important;
+  box-shadow:none !important;
+  animation:none !important;
+}
+
+.site-card::after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 0 0 47% !important;
+  z-index:0 !important;
+  opacity:.64 !important;
+  background:
+    radial-gradient(circle,rgba(255,87,99,.52) 1px,transparent 1.65px),
+    linear-gradient(120deg,transparent 0 38%,rgba(255,55,68,.08) 38.2% 38.6%,transparent 39%) !important;
+  background-size:11px 11px,100% 100% !important;
+  background-position:right center !important;
+  box-shadow:none !important;
+  animation:none !important;
+}
+
+.site-card.blue{
+  border-color:rgba(59,203,245,.88) !important;
+  background:linear-gradient(105deg,#081017,#0a2837 100%) !important;
+}
+.site-card.blue::after{
+  background:radial-gradient(circle,rgba(71,208,249,.52) 1px,transparent 1.65px) !important;
+  background-size:11px 11px !important;
+}
+.site-card.gold{
+  border-color:rgba(255,173,55,.9) !important;
+  background:linear-gradient(105deg,#120e09,#482914 100%) !important;
+}
+.site-card.gold::after{
+  background:radial-gradient(circle,rgba(255,187,72,.54) 1px,transparent 1.65px) !important;
+  background-size:11px 11px !important;
+}
+.site-card.green{
+  border-color:rgba(62,226,137,.9) !important;
+  background:linear-gradient(105deg,#08120d,#0a3824 100%) !important;
+}
+.site-card.green::after{
+  background:radial-gradient(circle,rgba(76,234,150,.54) 1px,transparent 1.65px) !important;
+  background-size:11px 11px !important;
+}
+.site-card.red{
+  border-color:rgba(255,66,70,.9) !important;
+  background:linear-gradient(105deg,#14090a,#481416 100%) !important;
+}
+.site-card.red::after{
+  background:radial-gradient(circle,rgba(255,79,82,.52) 1px,transparent 1.65px) !important;
+  background-size:11px 11px !important;
+}
+.site-card.purple,.site-card.violet{
+  border-color:rgba(205,78,245,.88) !important;
+  background:linear-gradient(105deg,#100914,#30113c 100%) !important;
+}
+.site-card.purple::after,.site-card.violet::after{
+  background:radial-gradient(circle,rgba(213,92,250,.52) 1px,transparent 1.65px) !important;
+  background-size:11px 11px !important;
+}
+
+.site-card > *{position:relative !important;z-index:2 !important}
+.site-card .site-logo,.site-card .site-logo.image-logo{
+  width:100% !important;
+  min-width:0 !important;
+  justify-content:center !important;
+}
+.site-card .site-logo.image-logo img{
+  width:100% !important;
+  max-width:145px !important;
+  height:48px !important;
+  object-fit:contain !important;
+}
+
+.site-card .site-info{
+  gap:5px !important;
+  min-width:0 !important;
+}
+.site-card .site-info h2{
+  font-size:13px !important;
+  line-height:1.1 !important;
+}
+.site-card .site-info p{
+  font-size:8px !important;
+  line-height:1.15 !important;
+}
+.site-card .site-badge-mobile{
+  font-size:7px !important;
+  padding:3px 7px !important;
+  border-radius:5px !important;
+  margin-bottom:1px !important;
+}
+
+.site-button{
+  width:100% !important;
+  min-width:0 !important;
+  height:42px !important;
+  padding:0 10px !important;
+  border-radius:9px !important;
+  background:rgba(6,8,13,.48) !important;
+  border:1px solid rgba(255,64,76,.78) !important;
+  color:#f4f4f5 !important;
+  font-size:10px !important;
+  box-shadow:inset 0 0 18px rgba(255,35,48,.035) !important;
+}
+.site-card.blue .site-button{border-color:rgba(69,210,249,.82) !important}
+.site-card.gold .site-button{border-color:rgba(255,182,62,.84) !important}
+.site-card.green .site-button{border-color:rgba(64,230,141,.84) !important}
+.site-card.purple .site-button,.site-card.violet .site-button{border-color:rgba(211,85,250,.84) !important}
+
+/* ESKİ MAVİ CAM / NEON GÖRÜNTÜLERİNİ TEMİZLE */
+.featured-hero,
+.welcome{
+  display:none !important;
+}
+
+footer{
+  border-top:1px solid rgba(255,48,62,.28) !important;
+  background:linear-gradient(180deg,transparent,rgba(20,5,9,.22)) !important;
+}
+}
+</style>
+
+
+<!-- EKSİK KALAN MASAÜSTÜ: ÜST SAĞ BUTONLAR + KIRMIZI CYBER ARKA PLAN -->
+<style id="desktop-mobile-design-fix-v2">
+@media (min-width:701px){
+
+  /* Arka planı gerçekten görünür katmana al */
+  html{
+    background:#07090e !important;
+  }
+
+  body{
+    background:
+      linear-gradient(135deg,transparent 0 11%,rgba(255,34,48,.30) 11.05% 11.14%,transparent 11.22% 31%,rgba(255,34,48,.18) 31.05% 31.13%,transparent 31.2%),
+      linear-gradient(315deg,transparent 0 13%,rgba(255,34,48,.20) 13.05% 13.13%,transparent 13.2% 39%,rgba(255,34,48,.13) 39.05% 39.13%,transparent 39.2%),
+      radial-gradient(circle at 4% 14%,rgba(255,31,47,.85) 0 1.5px,transparent 2.5px),
+      radial-gradient(circle at 94% 27%,rgba(255,31,47,.72) 0 1.3px,transparent 2.4px),
+      radial-gradient(circle at 8% 74%,rgba(255,31,47,.65) 0 1px,transparent 2px),
+      radial-gradient(circle at 90% 91%,rgba(255,31,47,.72) 0 1.2px,transparent 2.2px),
+      #07090e !important;
+    background-size:100% 100%,100% 100%,24px 24px,31px 31px,37px 37px,29px 29px,auto !important;
+  }
+
+  /* Sayfa arka planının kırmızı çizgileri örtmesini engelle */
+  .top-bar,
+  .page,
+  footer{
+    background-color:transparent !important;
+  }
+
+  .top-bar{
+    background:
+      linear-gradient(135deg,transparent 0 17%,rgba(255,43,58,.15) 17.1% 17.2%,transparent 17.3% 79%,rgba(255,43,58,.12) 79.1% 79.2%,transparent 79.3%),
+      linear-gradient(180deg,rgba(11,13,19,.94),rgba(8,10,16,.88)) !important;
+    background-size:100% 100%,auto !important;
+  }
+
+  .page{
+    background:
+      linear-gradient(135deg,transparent 0 8%,rgba(255,40,55,.16) 8.05% 8.12%,transparent 8.2% 27%,rgba(255,40,55,.10) 27.05% 27.12%,transparent 27.2%),
+      linear-gradient(315deg,transparent 0 14%,rgba(255,40,55,.12) 14.05% 14.12%,transparent 14.2% 45%,rgba(255,40,55,.09) 45.05% 45.12%,transparent 45.2%) !important;
+    background-size:100% 100%,100% 100% !important;
+  }
+
+  /* KIRMIZI IŞIKLI ÇİZGİLER */
+  .page::before{
     content:"" !important;
     position:fixed !important;
     inset:0 !important;
-    width:100vw !important;
-    height:100vh !important;
+    z-index:0 !important;
     pointer-events:none !important;
-    z-index:-1 !important;
-    opacity:1 !important;
-    background-color:#050608 !important;
-    background-image:
-      /* Sol üst uzun teknolojik çizgiler */
-      linear-gradient(135deg,
-        transparent 0 10%,
-        transparent 10.05% 10.20%,
-        rgba(255,35,45,.68) 10.21% 10.36%,
-        transparent 10.37% 100%),
-      linear-gradient(135deg,
-        transparent 0 18%,
-        rgba(255,35,45,.32) 18.01% 18.09%,
-        transparent 18.10% 100%),
-
-      /* Sağ üst çizgiler */
-      linear-gradient(45deg,
-        transparent 0 77%,
-        rgba(255,35,45,.52) 77.01% 77.14%,
-        transparent 77.15% 100%),
-
-      /* Sol alt çizgiler */
-      linear-gradient(45deg,
-        transparent 0 15%,
-        rgba(255,30,40,.56) 15.01% 15.15%,
-        transparent 15.16% 100%),
-
-      /* Sağ alt çizgiler */
-      linear-gradient(135deg,
-        transparent 0 83%,
-        rgba(255,35,45,.48) 83.01% 83.13%,
-        transparent 83.14% 100%),
-
-      /* İnce koyu kırmızı geometrik hatlar */
-      repeating-linear-gradient(135deg,
-        transparent 0 112px,
-        rgba(255,45,55,.10) 113px 114px,
-        transparent 115px 230px),
-
-      /* Kırmızı parlama noktaları */
-      radial-gradient(circle at 8% 17%, rgba(255,25,40,.95) 0 2px, rgba(255,25,40,.28) 3px, transparent 16px),
-      radial-gradient(circle at 93% 28%, rgba(255,25,40,.78) 0 2px, rgba(255,25,40,.20) 3px, transparent 15px),
-      radial-gradient(circle at 6% 74%, rgba(255,25,40,.85) 0 2px, rgba(255,25,40,.22) 3px, transparent 17px),
-      radial-gradient(circle at 95% 88%, rgba(255,25,40,.90) 0 2px, rgba(255,25,40,.25) 3px, transparent 18px),
-
-      /* Köşelerde hafif kırmızı glow */
-      radial-gradient(ellipse at 0% 0%, rgba(255,20,35,.16), transparent 30%),
-      radial-gradient(ellipse at 100% 100%, rgba(255,20,35,.13), transparent 30%),
-      #050608 !important;
-
-    background-size:
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      360px 360px,
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      auto !important;
-
-    background-repeat:no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
-                      repeat, no-repeat, no-repeat, no-repeat, no-repeat,
-                      no-repeat, no-repeat, no-repeat !important;
+    opacity:.72 !important;
+    background:
+      linear-gradient(135deg,transparent 0 12%,transparent 12.1% 12.55%,rgba(255,39,53,.95) 12.65% 12.72%,rgba(255,39,53,.16) 12.85% 13.05%,transparent 13.18%),
+      linear-gradient(315deg,transparent 0 16%,transparent 16.1% 16.45%,rgba(255,39,53,.80) 16.55% 16.62%,rgba(255,39,53,.12) 16.75% 16.95%,transparent 17.08%),
+      linear-gradient(135deg,transparent 0 66%,rgba(255,42,56,.55) 66.08% 66.14%,transparent 66.22%),
+      linear-gradient(315deg,transparent 0 73%,rgba(255,42,56,.46) 73.08% 73.14%,transparent 73.22%) !important;
+    filter:drop-shadow(0 0 3px rgba(255,35,50,.35)) !important;
   }
 
-  /* Mevcut içerik arka plan katmanının üzerinde kalır. */
-  body > *{
+  .page > *,
+  .top-bar > *,
+  footer > *{
     position:relative;
     z-index:1;
   }
 
-  /* Sayfanın açık alanları cyber arka planını göstermeye devam etsin. */
-  .page,
-  main,
-  .page-wrapper,
-  .main-content{
-    background-color:transparent !important;
+  /* ÜST SAĞ PROFİL VE ÇIKIŞ BUTONLARI GERİ GELDİ */
+  .top-group.right{
+    display:flex !important;
+    justify-content:flex-end !important;
+    align-items:center !important;
+    gap:12px !important;
+    min-width:max-content !important;
+    padding-right:8px !important;
   }
-}
-</style>
 
-
-<!-- FOOTER POWERED BY KIRMIZI -->
-<style id="footer-powered-red-restore">
-.footer-creator-button{
-  color:#ff2b3a !important;
-  text-shadow:0 0 8px rgba(255,43,58,.35) !important;
-}
-</style>
-
-<!-- MOBİL KIRMIZI CYBER ARKA PLAN RESTORE -->
-<style id="mobile-red-cyber-bg-restore">
-@media (max-width:700px){
-  body{background:#050608!important; isolation:isolate!important;}
-  #mobileRedCyberBg{
-    position:fixed!important;
-    inset:0!important;
-    z-index:0!important;
-    pointer-events:none!important;
-    display:block!important;
-    background:
-      repeating-linear-gradient(135deg, transparent 0 82px, rgba(255,45,55,.10) 83px 84px, transparent 85px 164px),
-      repeating-linear-gradient(45deg, transparent 0 138px, rgba(255,45,55,.055) 139px 140px, transparent 141px 278px),
-      linear-gradient(135deg, transparent 0 10%, rgba(255,35,45,.34) 10.1% 10.25%, transparent 10.35% 100%),
-      linear-gradient(315deg, transparent 0 13%, rgba(255,35,45,.25) 13.1% 13.22%, transparent 13.32% 100%),
-      radial-gradient(circle at 5% 18%, rgba(255,35,45,.65) 0 1px, transparent 2px),
-      radial-gradient(circle at 95% 35%, rgba(255,35,45,.55) 0 1px, transparent 2px),
-      radial-gradient(circle at 8% 76%, rgba(255,35,45,.60) 0 1px, transparent 2px),
-      radial-gradient(circle at 93% 91%, rgba(255,35,45,.55) 0 1px, transparent 2px),
-      radial-gradient(ellipse at 0% 10%, rgba(180,0,20,.18), transparent 28%),
-      radial-gradient(ellipse at 100% 82%, rgba(180,0,20,.15), transparent 30%),
-      #050608!important;
-    background-size:100% 164px,100% 278px,100% 620px,100% 780px,100% 430px,100% 520px,100% 610px,100% 700px,100% 900px,100% 1000px,auto!important;
-    background-repeat:repeat-y!important;
-  }
-  /* İçerik katmanlarının kendi position ayarları korunur. */
-  .page, main, .main-content, .page-wrapper, .site-wrapper, #app, #root{
-    background-color:transparent!important;
-  }
-}
-</style>
-<script id="mobile-red-cyber-bg-script">
-(function(){
- function addBg(){
-   if(!window.matchMedia('(max-width:700px)').matches) return;
-   if(!document.getElementById('mobileRedCyberBg')){
-     var d=document.createElement('div');
-     d.id='mobileRedCyberBg';
-     d.setAttribute('aria-hidden','true');
-     document.body.insertBefore(d,document.body.firstChild);
-   }
- }
- if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',addBg);
- else addBg();
- window.addEventListener('resize',addBg);
-})();
-</script>
-
-
-<!-- MOBİL ÜST KISIM CYBER ÇİZGİLER + NEON DENO BABA -->
-<style id="mobile-header-cyber-neon-final">
-@media (max-width:700px){
-
-  /* ÜST ALAN: mevcut siyah zeminin üzerinde naif kırmızı cyber çizgiler */
-  .top-bar{
+  .top-group.right .top-button{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
     position:relative !important;
+    overflow:hidden !important;
     isolation:isolate !important;
+    height:46px !important;
+    min-width:150px !important;
+    padding:0 20px !important;
+    border-radius:12px !important;
+    font-size:14px !important;
+    font-weight:900 !important;
+    letter-spacing:.2px !important;
+    color:#f4f5f7 !important;
+    background:
+      linear-gradient(135deg,rgba(255,255,255,.025),transparent 45%),
+      linear-gradient(135deg,#11141c,#080a10) !important;
+    border:1px solid rgba(255,48,66,.82) !important;
+    box-shadow:
+      inset 0 0 18px rgba(255,30,46,.055),
+      0 0 15px rgba(255,28,45,.08) !important;
+  }
+
+  .top-group.right .top-button::before{
+    content:"" !important;
+    position:absolute !important;
+    inset:0 !important;
+    z-index:-1 !important;
+    opacity:.65 !important;
+    background:
+      linear-gradient(115deg,transparent 0 55%,rgba(255,40,56,.18) 55.2% 55.8%,transparent 56%),
+      repeating-linear-gradient(115deg,transparent 0 13px,rgba(255,45,60,.12) 13px 15px,transparent 15px 25px) !important;
+  }
+
+  /* Profil butonu */
+  .top-group.right .top-button.user-account{
+    border-color:rgba(255,48,66,.78) !important;
+    background:
+      linear-gradient(135deg,rgba(92,13,24,.42),rgba(10,12,18,.98)) !important;
+  }
+
+  /* Çıkış / giriş butonu */
+  .top-group.right #topRegisterButton{
+    min-width:145px !important;
+    border-color:rgba(255,63,63,.92) !important;
+    background:
+      linear-gradient(135deg,rgba(91,10,17,.72),rgba(19,8,12,.98)) !important;
+    color:#fff !important;
+  }
+
+  .top-group.right .top-button:hover{
+    transform:translateY(-1px) !important;
+    border-color:#ff5664 !important;
+    box-shadow:0 0 18px rgba(255,35,52,.16),inset 0 0 20px rgba(255,35,52,.08) !important;
+  }
+}
+</style>
+
+
+<style id="desktop-background-fix-v3">
+@media (min-width:701px){
+  /* Arka plandaki kırmızı noktaları tamamen kaldır */
+  body{
+    background:
+      linear-gradient(135deg,transparent 0 11%,rgba(255,34,48,.30) 11.05% 11.14%,transparent 11.22% 31%,rgba(255,34,48,.18) 31.05% 31.13%,transparent 31.2%),
+      linear-gradient(315deg,transparent 0 13%,rgba(255,34,48,.20) 13.05% 13.13%,transparent 13.2% 39%,rgba(255,34,48,.13) 39.05% 39.13%,transparent 39.2%),
+      #07090e !important;
+    background-size:100% 100%,100% 100%,auto !important;
+  }
+
+  body::before{
+    background:
+      linear-gradient(135deg,transparent 0 14%,rgba(255,35,50,.16) 14.05% 14.13%,transparent 14.2% 35%,rgba(255,35,50,.11) 35.05% 35.13%,transparent 35.2%),
+      linear-gradient(315deg,transparent 0 18%,rgba(255,35,50,.13) 18.05% 18.13%,transparent 18.2% 49%,rgba(255,35,50,.09) 49.05% 49.13%,transparent 49.2%) !important;
+    background-size:100% 100%,100% 100% !important;
+  }
+
+  /* Üst bara da aynı kırmızı cyber çizgileri işle */
+  .top-bar{
     overflow:hidden !important;
     background:
-      radial-gradient(circle at 8% 18%, rgba(255,30,45,.28) 0 1px, transparent 2px),
-      radial-gradient(circle at 92% 22%, rgba(255,30,45,.22) 0 1px, transparent 2px),
-      linear-gradient(135deg, transparent 0 20%, rgba(255,35,48,.22) 20.1% 20.35%, transparent 20.6% 100%),
-      linear-gradient(315deg, transparent 0 25%, rgba(255,35,48,.14) 25.1% 25.25%, transparent 25.4% 100%),
-      linear-gradient(135deg, transparent 0 74%, rgba(255,35,48,.20) 74.1% 74.25%, transparent 74.4% 100%),
-      #07080d !important;
+      linear-gradient(135deg,transparent 0 12%,rgba(255,43,58,.34) 12.05% 12.13%,transparent 12.22% 34%,rgba(255,43,58,.20) 34.05% 34.13%,transparent 34.22% 71%,rgba(255,43,58,.16) 71.05% 71.13%,transparent 71.22%),
+      linear-gradient(315deg,transparent 0 18%,rgba(255,43,58,.25) 18.05% 18.13%,transparent 18.22% 52%,rgba(255,43,58,.14) 52.05% 52.13%,transparent 52.22%),
+      linear-gradient(180deg,rgba(11,13,19,.97),rgba(8,10,16,.94)) !important;
+    background-size:100% 100%,100% 100%,auto !important;
   }
 
-  /* ince diyagonal kırmızı çizgi dekorları */
-  .top-bar::before,
   .top-bar::after{
     content:"" !important;
     position:absolute !important;
+    inset:0 !important;
     pointer-events:none !important;
-    z-index:-1 !important;
-    opacity:.9 !important;
-  }
-
-  .top-bar::before{
-    width:190px !important;
-    height:130px !important;
-    left:-45px !important;
-    top:-35px !important;
     background:
-      linear-gradient(115deg,
-        transparent 0 38%,
-        rgba(255,30,45,.52) 38.5% 39.2%,
-        transparent 39.7% 52%,
-        rgba(255,30,45,.26) 52.5% 53%,
-        transparent 53.5% 66%,
-        rgba(255,30,45,.14) 66.5% 67%,
-        transparent 67.5% 100%) !important;
-    filter:drop-shadow(0 0 5px rgba(255,25,40,.18)) !important;
+      linear-gradient(105deg,transparent 0 20%,rgba(255,45,60,.16) 20.1% 20.18%,transparent 20.28% 63%,rgba(255,45,60,.12) 63.1% 63.18%,transparent 63.28%),
+      linear-gradient(285deg,transparent 0 28%,rgba(255,45,60,.12) 28.1% 28.18%,transparent 28.28% 79%,rgba(255,45,60,.10) 79.1% 79.18%,transparent 79.28%) !important;
+    z-index:0 !important;
   }
 
-  .top-bar::after{
-    width:210px !important;
-    height:140px !important;
-    right:-70px !important;
-    bottom:-55px !important;
-    background:
-      linear-gradient(115deg,
-        transparent 0 26%,
-        rgba(255,30,45,.18) 26.5% 27%,
-        transparent 27.5% 42%,
-        rgba(255,30,45,.38) 42.5% 43.2%,
-        transparent 43.7% 58%,
-        rgba(255,30,45,.16) 58.5% 59%,
-        transparent 59.5% 100%) !important;
-    filter:drop-shadow(0 0 5px rgba(255,25,40,.16)) !important;
-  }
-
-  /* Başlık elemanları çizgilerin üstünde */
   .top-bar > *{
     position:relative !important;
-    z-index:1 !important;
+    z-index:2 !important;
   }
+}
+</style>
 
-  /* NEON DENO BABA */
+
+<style id="desktop-logo-vip-red-v4">
+@media (min-width:701px){
+
+  /* DENO BABA logosu: mobildeki neon/cyber karaktere yaklaştır */
   .top-brand{
     position:relative !important;
-    isolation:isolate !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-width:260px !important;
   }
 
-  .top-brand strong{
-    color:#f7fbff !important;
-    font-weight:1000 !important;
-    text-shadow:
-      0 0 2px rgba(255,255,255,.95),
-      0 0 6px rgba(92,220,255,.88),
-      0 0 13px rgba(0,175,255,.68),
-      0 0 24px rgba(0,115,255,.38) !important;
-    -webkit-text-stroke:.7px rgba(110,225,255,.72) !important;
-  }
-
-  .top-brand strong span{
-    color:#ff2637 !important;
-    text-shadow:
-      0 0 2px rgba(255,155,165,.95),
-      0 0 7px rgba(255,45,60,.90),
-      0 0 16px rgba(255,20,40,.62),
-      0 0 28px rgba(255,20,40,.32) !important;
-    -webkit-text-stroke:.5px rgba(255,100,110,.72) !important;
-  }
-
-  /* Logonun arkasında hafif neon halo */
   .top-brand::before{
     content:"" !important;
     position:absolute !important;
-    left:50% !important;
-    top:50% !important;
-    width:175px !important;
-    height:42px !important;
-    transform:translate(-50%,-50%) !important;
+    width:220px !important;
+    height:58px !important;
+    border:1px solid rgba(255,43,58,.28) !important;
+    border-left-color:rgba(255,43,58,.72) !important;
+    border-right-color:rgba(255,43,58,.72) !important;
+    border-radius:14px !important;
+    transform:skewX(-10deg) !important;
+    box-shadow:
+      0 0 18px rgba(255,35,50,.10),
+      inset 0 0 16px rgba(255,35,50,.035) !important;
     pointer-events:none !important;
-    z-index:-1 !important;
+  }
+
+  .top-brand strong{
+    position:relative !important;
+    z-index:2 !important;
+    color:#f3f7fb !important;
+    font-size:clamp(24px,2.15vw,34px) !important;
+    font-weight:950 !important;
+    letter-spacing:.14em !important;
+    text-shadow:
+      0 0 5px rgba(255,255,255,.45),
+      0 0 13px rgba(255,43,58,.72),
+      0 0 26px rgba(255,25,45,.28) !important;
+  }
+
+  .top-brand strong::first-letter{
+    color:#ff4254 !important;
+  }
+
+  /* Sol ve sağ VIP alanlarını daha güçlü kırmızı/siyah cyber tasarıma çevir */
+  .side-card,
+  .side-card.right{
     background:
-      radial-gradient(ellipse at 28% 50%, rgba(0,185,255,.16), transparent 57%),
-      radial-gradient(ellipse at 75% 50%, rgba(255,25,45,.15), transparent 58%) !important;
-    filter:blur(10px) !important;
+      linear-gradient(180deg,rgba(74,8,17,.42) 0%,rgba(18,9,15,.97) 27%,rgba(9,11,17,.99) 58%,rgba(57,8,15,.46) 100%) !important;
+    border-color:rgba(255,52,66,.78) !important;
+    box-shadow:
+      0 0 0 1px rgba(255,45,60,.08),
+      0 14px 34px rgba(0,0,0,.48),
+      0 0 24px rgba(255,28,45,.07),
+      inset 0 1px 0 rgba(255,255,255,.025) !important;
+  }
+
+  .side-card::before,
+  .side-card.right::before{
+    background:
+      linear-gradient(135deg,transparent 0 20%,rgba(255,45,59,.18) 20.1% 20.25%,transparent 20.4% 52%,rgba(255,45,59,.10) 52.1% 52.25%,transparent 52.4%),
+      linear-gradient(315deg,transparent 0 15%,rgba(255,45,59,.14) 15.1% 15.25%,transparent 15.4% 63%,rgba(255,45,59,.08) 63.1% 63.25%,transparent 63.4%) !important;
+  }
+
+  .side-card::after,
+  .side-card.right::after{
+    content:"" !important;
+    position:absolute !important;
+    left:0 !important;
+    right:0 !important;
+    top:0 !important;
+    height:2px !important;
+    background:linear-gradient(90deg,transparent 0%,#ff3144 18%,#ff6874 50%,#ff3144 82%,transparent 100%) !important;
+    box-shadow:0 0 12px rgba(255,38,55,.72) !important;
+  }
+
+  .side-badge,
+  .side-card.right .side-badge{
+    border-color:rgba(255,61,74,.72) !important;
+    background:
+      linear-gradient(135deg,rgba(105,12,25,.78),rgba(24,8,13,.96)) !important;
+    color:#ffd9dd !important;
+    box-shadow:inset 0 0 14px rgba(255,35,50,.06) !important;
+  }
+
+  .side-title,
+  .side-card.right .side-title{
+    color:#fff5f6 !important;
+    text-shadow:0 0 10px rgba(255,44,58,.12) !important;
+  }
+
+  .side-text,
+  .side-card.right .side-text{
+    color:#c6aeb2 !important;
+  }
+
+  .side-button,
+  .side-card.right .side-button{
+    border-color:rgba(255,55,68,.84) !important;
+    background:
+      linear-gradient(110deg,rgba(90,11,22,.58),rgba(10,11,16,.90)) !important;
+    color:#fff !important;
+    box-shadow:
+      inset 0 0 18px rgba(255,35,50,.05),
+      0 0 12px rgba(255,30,45,.05) !important;
+  }
+
+  .side-button:hover,
+  .side-card.right .side-button:hover{
+    border-color:#ff6a76 !important;
+    background:
+      linear-gradient(110deg,rgba(130,14,29,.70),rgba(17,10,15,.96)) !important;
+    box-shadow:0 0 18px rgba(255,30,48,.14),inset 0 0 18px rgba(255,35,50,.08) !important;
+  }
+
+  .side-card .side-logo,
+  .side-card.right .side-logo{
+    filter:drop-shadow(0 0 8px rgba(255,38,54,.16)) !important;
   }
 }
 </style>
 
 
-<!-- MOBİL: FOOTER SONRASI FAZLA BOŞ KAYDIRMAYI ENGELLE -->
-<style id="mobile-scroll-end-fix">
-@media (max-width:700px){
-  html, body{
-    padding-bottom:0 !important;
-    margin-bottom:0 !important;
-    min-height:0 !important;
+<style id="desktop-center-platform-mobile-exact-v5">
+@media (min-width:701px){
+  /* ORTA PLATFORM KARTLARI: MOBİLDEKİ KOMPakt YAPIYI MASAÜSTÜNE TAŞI */
+  .site-list{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:10px !important;
+    width:100% !important;
+  }
+  .site-card{
+    width:100% !important;
+    min-height:96px !important;
+    height:96px !important;
+    padding:0 12px !important;
+    display:grid !important;
+    grid-template-columns:34% minmax(0,1fr) 19% !important;
+    gap:8px !important;
+    align-items:center !important;
+    border-radius:12px !important;
+    overflow:hidden !important;
   }
 
-  /* Arka plan sabit kalır ama sayfa yüksekliğine dahil olmaz */
-  #mobileRedCyberBg{
-    position:fixed !important;
-    inset:0 !important;
-    height:100svh !important;
-    min-height:0 !important;
+  /* Mobildeki logo bölmesi */
+  .site-card::before{
+    width:34% !important;
+    clip-path:polygon(0 0,87% 0,100% 50%,87% 100%,0 100%) !important;
+    background:linear-gradient(105deg,rgba(5,7,12,.99),rgba(24,20,28,.96)) !important;
   }
 
-  /* Gizli popup/modal alanları normal sayfa akışına girmesin */
-  .modal-overlay,
-  .popup-overlay,
-  .menu-overlay,
-  .drawer-overlay,
-  [class*="modal-overlay"]{
-    position:fixed !important;
-    inset:0 !important;
+  /* Mobildeki sağ taraftaki ince desen */
+  .site-card::after{
+    inset:0 0 0 43% !important;
+    opacity:.68 !important;
+    background:
+      radial-gradient(circle,rgba(255,87,99,.48) 1px,transparent 1.55px),
+      linear-gradient(125deg,transparent 0 57%,rgba(255,55,68,.09) 57.15% 57.45%,transparent 57.6%) !important;
+    background-size:10px 10px,100% 100% !important;
+    background-position:right center !important;
   }
 
-  footer,
-  .footer{
-    padding-bottom:5px !important;
-    margin-bottom:0 !important;
+  /* Logo mobildeki gibi daha belirgin */
+  .site-card .site-logo,
+  .site-card .site-logo.image-logo{
+    width:100% !important;
+    height:100% !important;
+    min-width:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding:0 18px 0 4px !important;
+  }
+  .site-card .site-logo.image-logo img{
+    width:100% !important;
+    max-width:170px !important;
+    height:58px !important;
+    object-fit:contain !important;
+  }
+
+  /* Orta bilgi kısmı mobildeki küçük ve düzenli yapı */
+  .site-card .site-info{
+    width:100% !important;
+    min-width:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    justify-content:center !important;
+    gap:4px !important;
+    padding:0 4px !important;
+  }
+  .site-card .site-info h2{
+    margin:0 !important;
+    font-size:13px !important;
+    line-height:1.1 !important;
+    font-weight:900 !important;
+  }
+  .site-card .site-info p{
+    margin:0 !important;
+    max-width:100% !important;
+    font-size:8px !important;
+    line-height:1.2 !important;
+    color:#b7bec8 !important;
+  }
+  .site-card .site-badge-mobile{
+    margin:0 0 1px !important;
+    padding:3px 7px !important;
+    border-radius:5px !important;
+    font-size:7px !important;
+    line-height:1 !important;
+    letter-spacing:.05em !important;
+  }
+
+  /* Sağdaki giriş butonu: mobildeki ince görünüm */
+  .site-card .site-button{
+    width:100% !important;
+    min-width:0 !important;
+    height:38px !important;
+    padding:0 7px !important;
+    border-radius:8px !important;
+    font-size:9px !important;
+    font-weight:900 !important;
+    letter-spacing:.03em !important;
+    white-space:nowrap !important;
+    background:rgba(6,8,13,.50) !important;
+  }
+
+  /* Kart renklerine göre mobil desen/çizgi renkleri */
+  .site-card.blue::after{
+    background:radial-gradient(circle,rgba(71,208,249,.50) 1px,transparent 1.55px) !important;
+    background-size:10px 10px !important;
+  }
+  .site-card.gold::after{
+    background:radial-gradient(circle,rgba(255,187,72,.52) 1px,transparent 1.55px) !important;
+    background-size:10px 10px !important;
+  }
+  .site-card.green::after{
+    background:radial-gradient(circle,rgba(76,234,150,.52) 1px,transparent 1.55px) !important;
+    background-size:10px 10px !important;
+  }
+  .site-card.purple::after,
+  .site-card.violet::after{
+    background:radial-gradient(circle,rgba(213,92,250,.52) 1px,transparent 1.55px) !important;
+    background-size:10px 10px !important;
+  }
+
+  /* Mobildeki gibi hover abartılı olmasın */
+  .site-card:hover{
+    transform:translateY(-1px) !important;
   }
 }
+</style>
+
+
+<style id="desktop-center-cards-mobile-match-v6">
+@media (min-width:701px){
+
+  /* ORTA PLATFORM LİSTESİ — MOBİLDEKİ GÖRÜNÜM */
+  .site-list{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:10px !important;
+    width:100% !important;
+  }
+
+  .site-card{
+    position:relative !important;
+    display:grid !important;
+    grid-template-columns:27% minmax(0,1fr) 18% !important;
+    align-items:center !important;
+    gap:0 !important;
+    width:100% !important;
+    height:88px !important;
+    min-height:88px !important;
+    padding:0 !important;
+    overflow:hidden !important;
+    border-radius:12px !important;
+  }
+
+  /* Soldaki mobil tarzı koyu, çapraz logo alanı */
+  .site-card::before{
+    content:"" !important;
+    position:absolute !important;
+    z-index:1 !important;
+    inset:0 auto 0 0 !important;
+    width:30% !important;
+    height:100% !important;
+    clip-path:polygon(0 0,88% 0,100% 50%,88% 100%,0 100%) !important;
+    background:
+      linear-gradient(110deg,rgba(4,7,12,.98),rgba(20,18,27,.94)) !important;
+    box-shadow:18px 0 28px rgba(0,0,0,.32) !important;
+  }
+
+  /* Sağ taraftaki mobil tarzı noktalı alan */
+  .site-card::after{
+    content:"" !important;
+    position:absolute !important;
+    z-index:0 !important;
+    inset:0 !important;
+    opacity:.72 !important;
+    background-position:right center !important;
+    background-repeat:repeat-y !important;
+    background-size:auto 9px !important;
+    pointer-events:none !important;
+  }
+
+  /* Kart içeriği desenin üstünde */
+  .site-card > *{
+    position:relative !important;
+    z-index:2 !important;
+  }
+
+  /* LOGO */
+  .site-card .site-logo,
+  .site-card .site-logo.image-logo{
+    grid-column:1 !important;
+    width:100% !important;
+    height:88px !important;
+    padding:0 18px 0 12px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-width:0 !important;
+  }
+
+  .site-card .site-logo.image-logo img{
+    width:100% !important;
+    max-width:150px !important;
+    height:48px !important;
+    object-fit:contain !important;
+  }
+
+  /* ORTA BİLGİ ALANI */
+  .site-card .site-info{
+    grid-column:2 !important;
+    width:100% !important;
+    min-width:0 !important;
+    height:88px !important;
+    padding:10px 10px 8px 8px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    justify-content:center !important;
+    gap:4px !important;
+  }
+
+  .site-card .site-badge-mobile{
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    margin:0 !important;
+    padding:3px 8px !important;
+    min-height:16px !important;
+    border-radius:5px !important;
+    font-size:7px !important;
+    line-height:1 !important;
+    font-weight:900 !important;
+    letter-spacing:.05em !important;
+  }
+
+  .site-card .site-info h2{
+    margin:0 !important;
+    font-size:12px !important;
+    line-height:1.1 !important;
+    font-weight:900 !important;
+    white-space:normal !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+
+  .site-card .site-info p{
+    margin:0 !important;
+    font-size:7px !important;
+    line-height:1.2 !important;
+    font-weight:800 !important;
+    white-space:normal !important;
+  }
+
+  /* SAĞDAKİ MOBİL TARZ GİRİŞ YAP BUTONU */
+  .site-card .site-button{
+    grid-column:3 !important;
+    width:calc(100% - 16px) !important;
+    height:34px !important;
+    min-width:0 !important;
+    margin:0 8px 0 0 !important;
+    padding:0 6px !important;
+    border-radius:7px !important;
+    font-size:8px !important;
+    line-height:1 !important;
+    font-weight:950 !important;
+    letter-spacing:.02em !important;
+    white-space:nowrap !important;
+    background:rgba(7,9,14,.38) !important;
+    backdrop-filter:none !important;
+  }
+
+  /* MOR — BETVALO */
+  .site-card.purple::after,
+  .site-card.violet::after{
+    background-image:
+      radial-gradient(circle,rgba(230,104,245,.62) 1.25px,transparent 1.7px) !important;
+  }
+
+  /* MAVİ — ROYSBET */
+  .site-card.blue::after{
+    background-image:
+      radial-gradient(circle,rgba(72,200,244,.60) 1.25px,transparent 1.7px) !important;
+  }
+
+  /* KIRMIZI — MILAN */
+  .site-card.red::after{
+    background-image:
+      radial-gradient(circle,rgba(255,79,85,.60) 1.25px,transparent 1.7px) !important;
+  }
+
+  /* ALTIN — BETJUVE / LUNABET */
+  .site-card.gold::after,
+  .site-card.orange::after{
+    background-image:
+      radial-gradient(circle,rgba(255,190,77,.62) 1.25px,transparent 1.7px) !important;
+  }
+
+  /* YEŞİL — JOJOBET */
+  .site-card.green::after{
+    background-image:
+      radial-gradient(circle,rgba(77,224,147,.60) 1.25px,transparent 1.7px) !important;
+  }
+
+  /* Mobil görünümdeki gibi sade hover */
+  .site-card:hover{
+    transform:none !important;
+  }
+
+  .site-card:hover .site-button{
+    transform:none !important;
+  }
+}
+</style>
+
+
+<style id="desktop-platform-cards-rebuilt-v7">
+@media (min-width:701px){
+
+  /* Önceki masaüstü override'larını etkisiz bırakıp mobil kart mantığını birebir kur */
+  .site-list{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:9px !important;
+    width:100% !important;
+  }
+
+  .site-card-link{
+    display:block !important;
+    width:100% !important;
+    height:88px !important;
+    text-decoration:none !important;
+  }
+
+  .site-card{
+    --dot: rgba(255,90,105,.55);
+    --accent: #ff4050;
+    position:relative !important;
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:stretch !important;
+    justify-content:initial !important;
+    gap:0 !important;
+    width:100% !important;
+    height:88px !important;
+    min-height:88px !important;
+    padding:0 !important;
+    border-radius:11px !important;
+    overflow:hidden !important;
+    isolation:isolate !important;
+  }
+
+  /* Sol koyu çapraz alan */
+  .site-card::before{
+    content:"" !important;
+    position:absolute !important;
+    z-index:0 !important;
+    left:0 !important;
+    top:0 !important;
+    width:31% !important;
+    height:100% !important;
+    clip-path:polygon(0 0,86% 0,100% 50%,86% 100%,0 100%) !important;
+    background:linear-gradient(105deg,#080a10 0%,#11151d 70%,rgba(25,20,28,.96) 100%) !important;
+    box-shadow:18px 0 24px rgba(0,0,0,.34) !important;
+    pointer-events:none !important;
+  }
+
+  /* Sadece sağ bölgede noktalı desen */
+  .site-card::after{
+    content:"" !important;
+    position:absolute !important;
+    z-index:-1 !important;
+    left:31% !important;
+    right:0 !important;
+    top:0 !important;
+    bottom:0 !important;
+    opacity:.82 !important;
+    background-image:radial-gradient(circle,var(--dot) 1.35px,transparent 1.7px) !important;
+    background-size:10px 10px !important;
+    background-position:right center !important;
+    pointer-events:none !important;
+  }
+
+  .site-card .star{
+    display:none !important;
+  }
+
+  /* Gerçek logo her zaman solda */
+  .site-card .site-logo,
+  .site-card .site-logo.image-logo{
+    position:relative !important;
+    z-index:2 !important;
+    order:1 !important;
+    flex:0 0 31% !important;
+    width:31% !important;
+    height:88px !important;
+    min-width:0 !important;
+    padding:0 16px 0 13px !important;
+    margin:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    background:transparent !important;
+    border:none !important;
+    border-radius:0 !important;
+    font-size:18px !important;
+  }
+
+  .site-card .site-logo.image-logo img{
+    display:block !important;
+    width:100% !important;
+    max-width:155px !important;
+    height:52px !important;
+    object-fit:contain !important;
+  }
+
+  /* Bilgi bölümü */
+  .site-card .site-info{
+    position:relative !important;
+    z-index:2 !important;
+    order:2 !important;
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    width:auto !important;
+    height:88px !important;
+    padding:11px 12px 8px 8px !important;
+    margin:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    justify-content:center !important;
+    gap:4px !important;
+    background:transparent !important;
+    text-align:left !important;
+  }
+
+  .site-card .site-info h2{
+    margin:0 !important;
+    font-size:12px !important;
+    line-height:1.12 !important;
+    font-weight:900 !important;
+    white-space:normal !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+
+  .site-card .site-info p{
+    margin:0 !important;
+    font-size:7px !important;
+    line-height:1.2 !important;
+    font-weight:800 !important;
+    white-space:normal !important;
+    opacity:.9 !important;
+  }
+
+  .site-card .site-badge-mobile{
+    margin:0 0 1px 0 !important;
+    padding:3px 8px !important;
+    min-height:16px !important;
+    border-radius:5px !important;
+    font-size:7px !important;
+    line-height:1 !important;
+  }
+
+  /* Sağdaki giriş butonu */
+  .site-card .site-button{
+    position:relative !important;
+    z-index:3 !important;
+    order:3 !important;
+    align-self:center !important;
+    flex:0 0 19% !important;
+    width:19% !important;
+    min-width:110px !important;
+    height:36px !important;
+    margin:0 12px 0 0 !important;
+    padding:0 8px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    border-radius:7px !important;
+    background:rgba(7,9,14,.34) !important;
+    font-size:9px !important;
+    font-weight:950 !important;
+    white-space:nowrap !important;
+    box-sizing:border-box !important;
+  }
+
+  /* Platform renkleri */
+  .site-card.blue{--dot:rgba(73,207,249,.62);--accent:#32caff}
+  .site-card.purple,.site-card.violet{--dot:rgba(224,101,247,.64);--accent:#cf59f4}
+  .site-card.red{--dot:rgba(255,74,83,.64);--accent:#ff4652}
+  .site-card.gold,.site-card.orange{--dot:rgba(255,191,72,.66);--accent:#f4af36}
+  .site-card.green{--dot:rgba(72,226,144,.64);--accent:#3ee48f}
+
+  .site-card:hover{transform:none !important;}
+  .site-card .site-button:hover{transform:none !important;}
+}
+</style>
+
+
+<!-- v9: ORTA PLATFORM KARTLARI TEK KIRMIZI TASARIM -->
+<style id="platform-unified-red-v9">
+@media (min-width:701px){
+  .site-list{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:9px !important;
+  }
+
+  /* TÜM PLATFORM KARTLARI AYNI TASARIM */
+  .site-list .site-card,
+  .site-list .site-card.blue,
+  .site-list .site-card.purple,
+  .site-list .site-card.violet,
+  .site-list .site-card.red,
+  .site-list .site-card.gold,
+  .site-list .site-card.orange,
+  .site-list .site-card.green{
+    position:relative !important;
+    display:flex !important;
+    align-items:center !important;
+    width:100% !important;
+    height:88px !important;
+    min-height:88px !important;
+    padding:0 !important;
+    margin:0 !important;
+    overflow:hidden !important;
+    border:1px solid rgba(255,54,70,.78) !important;
+    border-radius:12px !important;
+    background:
+      linear-gradient(90deg,rgba(9,12,19,.99) 0%,rgba(16,18,27,.98) 47%,rgba(38,16,23,.96) 100%) !important;
+    box-shadow:
+      inset 0 0 22px rgba(255,25,45,.045),
+      0 0 0 1px rgba(255,40,55,.06) !important;
+    isolation:isolate !important;
+  }
+
+  /* Eski renkli arka planları tamamen kapat */
+  .site-list .site-card::before{
+    content:"" !important;
+    position:absolute !important;
+    left:0 !important;
+    top:0 !important;
+    bottom:0 !important;
+    width:31% !important;
+    z-index:0 !important;
+    display:block !important;
+    clip-path:polygon(0 0,86% 0,100% 50%,86% 100%,0 100%) !important;
+    background:
+      linear-gradient(105deg,rgba(5,7,12,1),rgba(18,19,27,.98) 72%,rgba(39,14,22,.92)) !important;
+    border:none !important;
+    box-shadow:none !important;
+    pointer-events:none !important;
+  }
+
+  .site-list .site-card::after{
+    content:"" !important;
+    position:absolute !important;
+    top:0 !important;
+    right:0 !important;
+    bottom:0 !important;
+    left:auto !important;
+    width:48% !important;
+    z-index:-1 !important;
+    display:block !important;
+    opacity:.52 !important;
+    background-image:
+      radial-gradient(circle,rgba(255,70,84,.85) 1.15px,transparent 1.7px) !important;
+    background-size:10px 10px !important;
+    background-position:right center !important;
+    background-repeat:repeat !important;
+    pointer-events:none !important;
+  }
+
+  /* Yuvarlak ikon / yıldız kesinlikle görünmesin */
+  .site-list .site-card .star{
+    display:none !important;
+  }
+
+  /* SOL: LOGO */
+  .site-list .site-card .site-logo,
+  .site-list .site-card .site-logo.image-logo{
+    position:relative !important;
+    z-index:2 !important;
+    flex:0 0 31% !important;
+    width:31% !important;
+    height:88px !important;
+    min-width:0 !important;
+    margin:0 !important;
+    padding:0 18px 0 14px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    background:transparent !important;
+    border:none !important;
+    border-radius:0 !important;
+  }
+
+  .site-list .site-card .site-logo.image-logo img{
+    width:100% !important;
+    max-width:170px !important;
+    height:54px !important;
+    object-fit:contain !important;
+    display:block !important;
+  }
+
+  /* ORTA: BİLGİLER */
+  .site-list .site-card .site-info{
+    position:relative !important;
+    z-index:2 !important;
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    height:88px !important;
+    padding:9px 16px 8px 8px !important;
+    margin:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    justify-content:center !important;
+    gap:4px !important;
+    background:transparent !important;
+    text-align:left !important;
+  }
+
+  .site-list .site-card .site-badge-mobile{
+    display:inline-flex !important;
+    margin:0 !important;
+    padding:3px 8px !important;
+    border:1px solid rgba(255,71,82,.72) !important;
+    border-radius:5px !important;
+    color:#ffb0b6 !important;
+    background:rgba(94,13,25,.20) !important;
+    font-size:7px !important;
+    line-height:1 !important;
+    min-height:16px !important;
+    box-shadow:0 0 8px rgba(255,30,47,.08) !important;
+  }
+
+  .site-list .site-card .site-info h2{
+    margin:0 !important;
+    color:#f5f5f6 !important;
+    font-size:12px !important;
+    line-height:1.12 !important;
+    font-weight:900 !important;
+  }
+
+  .site-list .site-card .site-info p{
+    margin:0 !important;
+    color:rgba(255,255,255,.65) !important;
+    font-size:7px !important;
+    line-height:1.2 !important;
+    font-weight:800 !important;
+  }
+
+  /* SAĞ: GİRİŞ YAP */
+  .site-list .site-card .site-button{
+    position:relative !important;
+    z-index:3 !important;
+    flex:0 0 19% !important;
+    width:19% !important;
+    min-width:125px !important;
+    height:40px !important;
+    margin:0 14px 0 0 !important;
+    padding:0 10px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    border:1px solid rgba(255,65,78,.82) !important;
+    border-radius:8px !important;
+    background:linear-gradient(135deg,rgba(62,10,18,.28),rgba(16,13,20,.72)) !important;
+    color:#f5f5f5 !important;
+    font-size:9px !important;
+    font-weight:950 !important;
+    letter-spacing:.03em !important;
+    box-shadow:inset 0 0 12px rgba(255,30,45,.06) !important;
+  }
+
+  .site-list .site-card .site-button:hover{
+    transform:none !important;
+    background:rgba(112,18,28,.35) !important;
+  }
+
+  .site-list .site-card:hover{
+    transform:none !important;
+    border-color:#ff3b4b !important;
+  }
+}
+</style>
+
+
+<!-- FINAL COMPACT DENOBABA LOGO OVERRIDE -->
+<style id="final-compact-denobaba-logo">
+.top-brand{min-width:260px!important;display:flex!important;align-items:center!important;justify-content:center!important;pointer-events:none!important}
+.top-brand>div{display:block!important}
+.denobaba-new-logo{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:5px!important;line-height:1!important;padding:2px 8px!important}
+.denobaba-name{display:flex!important;align-items:baseline!important;justify-content:center!important;white-space:nowrap!important;font-family:Arial,Helvetica,sans-serif!important;font-size:40px!important;font-weight:1000!important;letter-spacing:-2.1px!important;font-style:italic!important;transform:skewX(-5deg)!important}
+.deno-part{color:#f4fbff!important;text-shadow:0 0 3px rgba(255,255,255,.95),0 0 10px rgba(70,215,255,.8),0 0 22px rgba(35,180,255,.42)!important}
+.baba-part{color:#ff3d4e!important;text-shadow:0 0 5px rgba(255,72,84,.9),0 0 15px rgba(255,25,48,.72),0 0 28px rgba(255,10,35,.35)!important;margin-left:1px!important}
+.denobaba-sub{display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;width:100%!important}
+.denobaba-sub i{display:block!important;width:24px!important;height:1px!important;background:linear-gradient(90deg,transparent,#ff3142)!important;box-shadow:0 0 7px rgba(255,35,53,.6)!important}
+.denobaba-sub i:last-child{background:linear-gradient(90deg,#ff3142,transparent)!important}
+.denobaba-sub span{color:#b9f6ff!important;font-size:8px!important;font-weight:1000!important;letter-spacing:5px!important;padding-left:5px!important;text-shadow:0 0 8px rgba(0,229,255,.75)!important}
+.top-brand strong,.top-brand small{display:none!important}
+@media(max-width:700px){.top-brand{min-width:0!important}.denobaba-new-logo{gap:3px!important;padding:0!important}.denobaba-name{font-size:25px!important;letter-spacing:-1.2px!important}.denobaba-sub{gap:6px!important}.denobaba-sub i{width:16px!important}.denobaba-sub span{font-size:6px!important;letter-spacing:3px!important;padding-left:3px!important}}
+@media(min-width:701px) and (max-width:1150px){.denobaba-name{font-size:34px!important}.denobaba-sub span{font-size:7px!important}}
+</style>
+
+<!-- LOGO ÇERÇEVESİ: LOGOYA TAM OTURAN DİNAMİK ÇERÇEVE -->
+<style id="denobaba-logo-frame-fit">
+.top-brand::before,
+.top-brand::after{
+  display:none !important;
+  content:none !important;
+}
+
+.top-brand{
+  min-width:0 !important;
+  width:auto !important;
+}
+
+.denobaba-new-logo{
+  position:relative !important;
+  isolation:isolate !important;
+  padding:8px 18px 7px !important;
+}
+
+.denobaba-new-logo::before{
+  content:"" !important;
+  position:absolute !important;
+  z-index:-1 !important;
+  inset:0 !important;
+  display:block !important;
+  border:1px solid rgba(255,48,64,.72) !important;
+  border-radius:13px !important;
+  transform:none !important;
+  box-sizing:border-box !important;
+  box-shadow:
+    0 0 13px rgba(255,28,47,.12),
+    inset 0 0 12px rgba(255,30,45,.025) !important;
+  pointer-events:none !important;
+}
+
+/* Eski alt-sağ ekstra çizgiyi tamamen kaldır */
+.denobaba-new-logo::after{
+  content:none !important;
+  display:none !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+@media(max-width:700px){
+  .denobaba-new-logo{
+    padding:6px 13px 5px !important;
+  }
+  .denobaba-new-logo::before{
+    border-radius:10px !important;
+    transform:none !important;
+  }
+  .denobaba-new-logo::after{
+    content:none !important;
+    display:none !important;
+  }
+}
+</style>
+
+
+<!-- VIP PANELLERİ EŞİTLEME: SOL PANEL, SAĞ PANEL İLE AYNI -->
+<style id="vip-panels-match-v1">
+@media (min-width:701px){
+  .left-ad,
+  .right-ad{
+    position:relative !important;
+    overflow:hidden !important;
+    border:1px solid rgba(255,48,64,.78) !important;
+    border-radius:18px !important;
+    background:
+      linear-gradient(180deg,rgba(68,10,19,.58),rgba(12,12,19,.96) 58%,rgba(26,8,14,.92)) !important;
+    box-shadow:
+      inset 0 0 28px rgba(255,30,45,.045),
+      0 0 18px rgba(255,20,40,.035) !important;
+  }
+
+  /* İki VIP alanında da aynı kırmızı diyagonal çizgiler */
+  .left-ad::before,
+  .right-ad::before{
+    content:"" !important;
+    position:absolute !important;
+    inset:0 !important;
+    display:block !important;
+    pointer-events:none !important;
+    background:
+      linear-gradient(135deg,transparent 0 46%,rgba(255,42,57,.17) 46.1% 46.25%,transparent 46.4% 100%),
+      linear-gradient(135deg,transparent 0 74%,rgba(255,42,57,.12) 74.1% 74.22%,transparent 74.35% 100%) !important;
+  }
+
+  /* Sol panelde varsa eski farklı efektleri kapat */
+  .left-ad::after,
+  .right-ad::after{
+    opacity:.75 !important;
+  }
+
+  .left-ad .vip-badge,
+  .right-ad .vip-badge{
+    position:relative !important;
+    z-index:2 !important;
+    border:1px solid rgba(255,68,81,.88) !important;
+    background:linear-gradient(180deg,rgba(105,16,27,.50),rgba(30,9,15,.70)) !important;
+    color:#fff !important;
+    box-shadow:0 0 10px rgba(255,28,47,.10) !important;
+  }
+
+  .left-ad .ad-title,
+  .right-ad .ad-title{
+    position:relative !important;
+    z-index:2 !important;
+  }
+
+  .left-ad .ad-subtitle,
+  .right-ad .ad-subtitle{
+    position:relative !important;
+    z-index:2 !important;
+  }
+
+  .left-ad .ad-logo,
+  .right-ad .ad-logo{
+    position:relative !important;
+    z-index:2 !important;
+  }
+
+  .left-ad .ad-button,
+  .right-ad .ad-button{
+    position:relative !important;
+    z-index:2 !important;
+    border:1px solid rgba(255,55,70,.82) !important;
+    background:linear-gradient(135deg,rgba(84,10,20,.42),rgba(19,13,20,.86)) !important;
+    color:#f7f7f7 !important;
+  }
+}
+</style>
+
+
+<style id="force-left-vip-red-v2">
+@media (min-width:701px){
+  /* Sol VIP ve içindeki tüm eski mavi katmanları kesin olarak kırmızıya çevir */
+  .left-ad,
+  .left-ad *,
+  .left-vip,
+  .left-vip *{
+    border-color:rgba(255,48,64,.78) !important;
+  }
+
+  .left-ad,
+  .left-vip{
+    background:
+      linear-gradient(180deg,rgba(68,10,19,.58),rgba(12,12,19,.97) 58%,rgba(26,8,14,.94)) !important;
+  }
+
+  /* Sol taraftaki olası mavi overlay/pseudo katmanlarını kırmızılaştır */
+  .left-ad::before,
+  .left-ad::after,
+  .left-vip::before,
+  .left-vip::after{
+    background-color:transparent !important;
+  }
+
+  .left-ad::before,
+  .left-vip::before{
+    background:
+      linear-gradient(135deg,transparent 0 46%,rgba(255,42,57,.17) 46.1% 46.25%,transparent 46.4% 100%),
+      linear-gradient(135deg,transparent 0 74%,rgba(255,42,57,.12) 74.1% 74.22%,transparent 74.35% 100%) !important;
+  }
+
+  /* Mavi glow ve gradientleri yok et */
+  .left-ad .ad-content,
+  .left-ad .ad-inner,
+  .left-ad .ad-logo,
+  .left-vip .ad-content,
+  .left-vip .ad-inner,
+  .left-vip .ad-logo{
+    background-color:transparent !important;
+    box-shadow:none !important;
+  }
+
+  .left-ad .vip-badge,
+  .left-vip .vip-badge{
+    background:linear-gradient(180deg,rgba(105,16,27,.50),rgba(30,9,15,.70)) !important;
+    border-color:rgba(255,68,81,.88) !important;
+  }
+}
+</style>
+
+
+<style id="vip-left-right-exact-match-v3">
+@media (min-width:701px){
+  /* GERÇEK SOL VIP KARTI */
+  #vipLeftCard{
+    --platform-rgb1:255,48,64 !important;
+    --platform-rgb2:190,18,35 !important;
+    --platform-rgb3:120,10,24 !important;
+    --platform-rgb4:255,70,85 !important;
+    background:
+      linear-gradient(180deg,
+        rgba(72,10,20,.60) 0%,
+        rgba(18,11,18,.96) 55%,
+        rgba(35,8,15,.96) 100%) !important;
+    border-color:rgba(255,48,64,.82) !important;
+    box-shadow:
+      0 0 0 1px rgba(255,48,64,.20),
+      0 8px 32px rgba(255,20,40,.12),
+      inset 0 1px 0 rgba(255,255,255,.07) !important;
+  }
+
+  #vipLeftCard::before{
+    content:"" !important;
+    inset:0 !important;
+    border-radius:inherit !important;
+    background:
+      linear-gradient(135deg,
+        transparent 0 32%,
+        rgba(255,48,64,.13) 32.1% 32.35%,
+        transparent 32.5% 100%),
+      linear-gradient(135deg,
+        transparent 0 70%,
+        rgba(255,48,64,.10) 70.1% 70.25%,
+        transparent 70.4% 100%) !important;
+    opacity:1 !important;
+    z-index:0 !important;
+  }
+
+  #vipLeftCard::after{
+    background:
+      radial-gradient(ellipse,
+        rgba(255,35,55,.08),
+        transparent 68%) !important;
+  }
+
+  #vipLeftCard .side-badge{
+    background:linear-gradient(
+      180deg,
+      rgba(105,16,27,.56),
+      rgba(30,9,15,.78)
+    ) !important;
+    color:#ffffff !important;
+    border-color:rgba(255,68,81,.88) !important;
+    box-shadow:
+      0 0 10px rgba(255,28,47,.12),
+      inset 0 0 6px rgba(255,255,255,.04) !important;
+  }
+
+  #vipLeftCard .side-title{
+    color:#f4f4f6 !important;
+    text-shadow:0 0 6px rgba(255,48,64,.10) !important;
+  }
+
+  #vipLeftCard .side-text{
+    color:#d8d2d5 !important;
+    text-shadow:none !important;
+  }
+
+  #vipLeftCard .side-button{
+    background:linear-gradient(
+      135deg,
+      rgba(84,10,20,.46),
+      rgba(19,13,20,.90)
+    ) !important;
+    color:#f7f7f7 !important;
+    border-color:rgba(255,55,70,.84) !important;
+    box-shadow:
+      0 8px 20px rgba(255,20,40,.08),
+      inset 0 0 14px rgba(255,30,45,.025) !important;
+  }
+
+  #vipLeftCard .side-button:hover{
+    background:linear-gradient(
+      135deg,
+      rgba(120,15,29,.62),
+      rgba(30,10,18,.96)
+    ) !important;
+    border-color:rgba(255,70,84,.95) !important;
+    box-shadow:
+      0 10px 28px rgba(255,20,40,.16) !important;
+  }
+}
+</style>
+
+
+<!-- DENO BABA UNIFIED SIDE PAGE THEME: VISUAL ONLY / NO JS OR FIREBASE CHANGES -->
+<style id="denobaba-unified-side-theme-v1">
+/* Ortak modal zemini */
+.modal-overlay{
+  background:rgba(2,5,10,.82)!important;
+  backdrop-filter:blur(9px)!important;
+}
+.modal-overlay:has(.wheel-modal-box),
+.modal-overlay:has(.plinko-modal-box),
+.modal-overlay:has(.market-modal-box),
+.modal-overlay:has(.raffles-modal-box),
+.modal-overlay:has(.leaderboard-modal-box),
+.modal-overlay:has(.account-modal-box),
+.modal-overlay:has(.profile-modal-box),
+.modal-overlay:has(.password-change-box),
+.modal-overlay:has(.admin-panel-box),
+.modal-overlay:has(.press-request-box){
+  background:
+    linear-gradient(rgba(3,7,14,.88),rgba(3,7,14,.93)),
+    repeating-linear-gradient(135deg,transparent 0 118px,rgba(255,38,55,.12) 119px 121px,transparent 122px 245px)!important;
+}
+
+/* Ana ortak kutu dili */
+.wheel-modal-box,.plinko-modal-box,.market-modal-box,.raffles-modal-box,.leaderboard-modal-box,
+.account-modal-box,.profile-modal-box,.password-change-box,.admin-panel-box,.press-request-box{
+  background:linear-gradient(145deg,rgba(24,10,16,.97),rgba(9,12,19,.985) 48%,rgba(30,8,15,.96))!important;
+  border:1px solid rgba(255,45,62,.82)!important;
+  box-shadow:0 0 0 1px rgba(255,40,58,.08),0 20px 70px rgba(0,0,0,.58),0 0 32px rgba(255,22,42,.09)!important;
+}
+.wheel-modal-box::before,.plinko-modal-box::before,.market-modal-box::before,.raffles-modal-box::before,.leaderboard-modal-box::before,
+.account-modal-box::before,.profile-modal-box::before,.password-change-box::before,.press-request-box::before{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:.55;
+  background:linear-gradient(135deg,transparent 0 24%,rgba(255,45,62,.12) 24.1% 24.25%,transparent 24.4% 100%),linear-gradient(135deg,transparent 0 82%,rgba(255,45,62,.08) 82.1% 82.2%,transparent 82.3% 100%)!important;
+}
+
+/* Başlıklar */
+.wheel-hero h2,.plinko-hero h2,.leaderboard-hero h2,.account-header h2,.profile-modal-box h2,.password-change-box h2,.market-modal-box h2,.raffles-modal-box h2,.press-request-box h2,.admin-panel-header h2{
+  color:#f5f7fa!important;text-shadow:0 0 14px rgba(255,45,62,.18)!important;
+}
+.wheel-hero p,.plinko-hero p,.leaderboard-hero p,.account-header p,.profile-help,.password-change-help,.market-card p,.raffle-card p,.raffle-date{color:#aaaab2!important}
+
+/* Ortak kırmızı kartlar */
+.market-card,.raffle-card,.leader-card,.leader-row,.account-card,.admin-detail-card,.admin-row,.admin-form,.admin-empty,.market-empty,.raffle-empty{
+  background:linear-gradient(100deg,rgba(17,18,27,.96),rgba(41,12,19,.70))!important;
+  border-color:rgba(255,52,68,.22)!important;
+}
+.market-card:hover,.raffle-card:hover,.leader-row:hover{border-color:rgba(255,62,78,.62)!important;box-shadow:0 8px 24px rgba(255,24,44,.08)!important}
+
+/* Çark */
+.wheel-disc{background:#14131b!important;border-color:#ff384d!important;box-shadow:0 12px 32px rgba(0,0,0,.5),0 0 26px rgba(255,35,52,.12),inset 0 0 0 3px rgba(255,255,255,.10)!important}
+.wheel-center{background:linear-gradient(135deg,#ff4055,#8e1220)!important;color:#fff!important}
+.wheel-spin-button,.plinko-drop-button,.market-buy,.raffle-join,.profile-save,.password-change-save{
+  background:linear-gradient(135deg,#7e101e,#ff394d)!important;color:#fff!important;border:1px solid rgba(255,92,104,.7)!important;box-shadow:0 8px 24px rgba(255,35,52,.15)!important;
+}
+.wheel-odds span,.plinko-bet{background:rgba(255,255,255,.035)!important;border-color:rgba(255,55,72,.22)!important;color:#ddd!important}
+.plinko-bet.active{border-color:#ff4055!important;color:#ff8b96!important;background:rgba(255,35,52,.10)!important}
+.plinko-board{background:#090b12!important;border-color:rgba(255,48,64,.55)!important;box-shadow:inset 0 0 32px rgba(255,35,52,.06)!important}
+.plinko-input{background:#0b0c13!important;border-color:rgba(255,55,72,.32)!important}
+
+/* Liderlik */
+.leaderboard-hero-icon,.account-avatar{background:linear-gradient(135deg,rgba(120,15,30,.65),rgba(45,9,17,.75))!important;border-color:rgba(255,65,80,.62)!important;box-shadow:0 0 22px rgba(255,30,48,.12)!important}
+.leader-card.first,.leader-row.me{background:linear-gradient(135deg,rgba(255,45,62,.13),rgba(255,193,7,.05))!important;border-color:rgba(255,70,84,.55)!important}
+.leader-avatar{background:linear-gradient(135deg,#4b101c,#140f17)!important;border-color:rgba(255,70,84,.35)!important}
+.leader-card.first .leader-avatar{background:linear-gradient(135deg,#b41f31,#4a1019)!important}
+.leader-points,.market-price,.raffle-prize{color:#ff6675!important}
+
+/* Hesap ve profil */
+.account-action{background:rgba(255,255,255,.035)!important;border-color:rgba(255,58,75,.24)!important}
+.account-action:hover{background:rgba(255,40,58,.10)!important;border-color:rgba(255,72,87,.62)!important}
+.account-action.gold{background:linear-gradient(135deg,#6d101e,#c42737)!important;color:#fff!important}
+.account-card-label,.admin-detail-label{color:#ad7780!important}
+.admin-account-button,.account-status{color:#ff8a96!important;border-color:rgba(255,60,78,.32)!important}
+
+/* Admin: aynı tasarım ama işlevlere dokunmadan */
+.admin-panel-header{border-bottom-color:rgba(255,55,72,.24)!important;background:linear-gradient(90deg,rgba(64,10,19,.46),rgba(10,12,19,.35))!important}
+.admin-panel-icon{background:linear-gradient(135deg,#7f101e,#ff3c50)!important;box-shadow:0 8px 25px rgba(255,35,52,.16)!important}
+.admin-owner-badge{background:rgba(255,42,58,.10)!important;border-color:rgba(255,55,72,.32)!important;color:#ff8b96!important}
+.admin-sidebar{border-right-color:rgba(255,55,72,.20)!important;background:linear-gradient(180deg,rgba(48,9,17,.42),rgba(6,9,15,.28))!important}
+.admin-nav{color:#aaaab2!important}
+.admin-nav:hover{background:rgba(255,42,58,.08)!important;color:#fff!important}
+.admin-nav.active{background:linear-gradient(135deg,rgba(126,16,30,.56),rgba(255,42,58,.13))!important;border-color:rgba(255,62,78,.46)!important;color:#ff8a96!important}
+.admin-content{background:radial-gradient(circle at 90% 0,rgba(255,30,48,.06),transparent 32%)!important}
+.admin-view-title{color:#fff!important}.admin-view-subtitle{color:#aaaab2!important}
+.admin-field input,.admin-field textarea,.admin-field select{background:#0b0c13!important;border-color:rgba(255,55,72,.28)!important;color:#fff!important}
+.admin-field input:focus,.admin-field textarea:focus,.admin-field select:focus{border-color:#ff4a5d!important;box-shadow:0 0 0 3px rgba(255,45,62,.09)!important}
+.admin-primary-btn,.admin-save-btn,.admin-form-actions button.primary{background:linear-gradient(135deg,#7d101e,#e72c41)!important;border-color:#ff5667!important;color:#fff!important}
+.admin-secondary-btn,.admin-form-actions button{border-color:rgba(255,58,75,.38)!important;background:rgba(255,40,58,.06)!important;color:#eee!important}
+
+/* Kapat ve küçük butonlar */
+.modal-close{border-color:rgba(255,65,80,.52)!important;background:rgba(45,8,16,.84)!important;color:#fff!important;box-shadow:0 0 14px rgba(255,30,48,.08)!important}
 </style>
 
 </head>
@@ -4189,8 +5926,11 @@ body{padding-bottom:0!important}.bottom-nav{display:none!important}.top-bar{posi
         <a href="#" class="top-button instagram social-fallback">◎ DENO BAHİS KANALI</a>
     </div>
 
-    <div class="top-brand">
-        <div><strong>DENO<span>BABA</span></strong><small>Ö Z E L</small></div>
+    <div class="top-brand" aria-label="DenoBaba Özel">
+        <div class="denobaba-new-logo">
+            <div class="denobaba-name"><span class="deno-part">DENO</span><span class="baba-part">BABA</span></div>
+            <div class="denobaba-sub"><i></i><span>ÖZEL</span><i></i></div>
+        </div>
     </div>
 
     <div class="top-group right">
@@ -9437,5 +11177,167 @@ document.addEventListener("DOMContentLoaded",()=>{
 })();
 </script>
 
+
+<!-- MASAÜSTÜ KISA YOLLARINI SAYFA İÇİ PANEL OLARAK AÇ -->
+<script id="desktop-inline-shortcut-script">
+(function(){
+  const inlineIds = new Set([
+    'leaderboardModal',
+    'wheelModal',
+    'plinkoModal',
+    'marketModal',
+    'rafflesModal'
+  ]);
+
+  function isDesktop(){
+    return window.matchMedia('(min-width:701px)').matches;
+  }
+
+  function setupInlinePanels(){
+    inlineIds.forEach(function(id){
+      const modal = document.getElementById(id);
+      if(modal) modal.classList.add('desktop-inline-shortcut');
+    });
+  }
+
+  function scrollToInlinePanel(id){
+    if(!isDesktop() || !inlineIds.has(id)) return;
+    const modal = document.getElementById(id);
+    if(!modal) return;
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        const top = modal.getBoundingClientRect().top + window.scrollY - 95;
+        window.scrollTo({top:Math.max(0, top), behavior:'smooth'});
+      });
+    });
+  }
+
+  function patchModalFunctions(){
+    if(typeof window.openModal !== 'function') return;
+
+    if(window.__desktopInlineShortcutPatched) return;
+    window.__desktopInlineShortcutPatched = true;
+
+    const originalOpenModal = window.openModal;
+    const originalCloseModal = window.closeModal;
+    const originalCloseAllModals = window.closeAllModals;
+
+    window.openModal = function(id){
+      const result = originalOpenModal.apply(this, arguments);
+      if(isDesktop() && inlineIds.has(id)){
+        const modal = document.getElementById(id);
+        if(modal){
+          document.body.style.overflow = '';
+          scrollToInlinePanel(id);
+        }
+      }
+      return result;
+    };
+
+    window.closeModal = function(id){
+      const result = originalCloseModal.apply(this, arguments);
+      if(isDesktop() && inlineIds.has(id)){
+        document.body.style.overflow = '';
+      }
+      return result;
+    };
+
+    window.closeAllModals = function(){
+      const result = originalCloseAllModals.apply(this, arguments);
+      if(isDesktop()) document.body.style.overflow = '';
+      return result;
+    };
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', function(){
+      setupInlinePanels();
+      patchModalFunctions();
+    });
+  }else{
+    setupInlinePanels();
+    patchModalFunctions();
+  }
+
+  window.addEventListener('resize', function(){
+    if(!isDesktop()){
+      document.querySelectorAll('.desktop-inline-shortcut.active').forEach(function(m){
+        // Sınıf kalır; mobilin kendi mevcut CSS'i tekrar devreye girer.
+      });
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
+<!-- UNIFIED RED CENTER PLATFORM CARDS -->
+<style id="unified-red-platform-cards-v8">
+@media (min-width:701px){
+  .site-list{display:flex!important;flex-direction:column!important;gap:10px!important;width:100%!important;}
+  .site-card-link{display:block!important;width:100%!important;text-decoration:none!important;}
+  .site-card{
+    position:relative!important;
+    display:flex!important;align-items:center!important;
+    width:100%!important;height:98px!important;min-height:98px!important;
+    padding:0!important;margin:0!important;
+    overflow:hidden!important;isolation:isolate!important;
+    border:1px solid rgba(255,53,67,.82)!important;
+    border-radius:13px!important;
+    background:
+      linear-gradient(90deg,rgba(10,13,22,.99) 0%,rgba(17,16,25,.98) 43%,rgba(35,16,23,.97) 100%)!important;
+    box-shadow:0 0 0 1px rgba(255,40,55,.06),0 8px 26px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.025)!important;
+    transform:none!important;
+  }
+  .site-card::before{
+    content:""!important;position:absolute!important;inset:0!important;z-index:-2!important;pointer-events:none!important;
+    background:
+      linear-gradient(90deg,transparent 0 44%,rgba(120,15,25,.10) 62%,rgba(255,32,50,.12) 100%),
+      repeating-linear-gradient(90deg,transparent 0 73%,rgba(255,58,71,.15) 73.5% 74%,transparent 74.5% 100%)!important;
+    opacity:.8!important;
+  }
+  .site-card::after{
+    content:""!important;position:absolute!important;z-index:-1!important;pointer-events:none!important;
+    right:0!important;top:0!important;width:48%!important;height:100%!important;
+    background-image:radial-gradient(circle,rgba(255,76,92,.56) 1.2px,transparent 1.75px)!important;
+    background-size:10px 10px!important;background-position:right center!important;
+    mask-image:linear-gradient(90deg,transparent,rgba(0,0,0,.65) 20%,#000 100%)!important;
+    opacity:.72!important;
+  }
+  .site-card .star{display:none!important;}
+  .site-card .site-logo,.site-card .site-logo.image-logo{
+    position:relative!important;z-index:2!important;flex:0 0 30%!important;width:30%!important;
+    height:98px!important;padding:0 22px 0 24px!important;margin:0!important;
+    display:flex!important;align-items:center!important;justify-content:center!important;
+    background:linear-gradient(105deg,rgba(8,10,16,.98),rgba(18,17,25,.92))!important;
+    clip-path:polygon(0 0,88% 0,100% 50%,88% 100%,0 100%)!important;
+    border:0!important;border-radius:0!important;
+  }
+  .site-card .site-logo.image-logo img{width:100%!important;max-width:165px!important;height:54px!important;object-fit:contain!important;}
+  .site-card .site-info{
+    position:relative!important;z-index:2!important;flex:1 1 auto!important;min-width:0!important;
+    height:98px!important;padding:13px 18px 10px 12px!important;margin:0!important;
+    display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:5px!important;
+    background:transparent!important;text-align:left!important;
+  }
+  .site-card .site-badge-mobile{
+    display:inline-flex!important;margin:0!important;padding:3px 9px!important;min-height:17px!important;
+    border:1px solid rgba(255,65,80,.72)!important;border-radius:5px!important;
+    background:rgba(80,12,22,.28)!important;color:#ff9ba5!important;
+    box-shadow:0 0 10px rgba(255,37,57,.12)!important;font-size:7px!important;line-height:1!important;
+  }
+  .site-card .site-info h2{margin:0!important;color:#f4f4f6!important;font-size:13px!important;line-height:1.12!important;font-weight:900!important;}
+  .site-card .site-info p{margin:0!important;color:rgba(245,230,233,.72)!important;font-size:7px!important;line-height:1.25!important;font-weight:800!important;}
+  .site-card .site-button{
+    position:relative!important;z-index:4!important;flex:0 0 18%!important;min-width:138px!important;
+    height:39px!important;margin:0 15px 0 0!important;padding:0 10px!important;
+    display:flex!important;align-items:center!important;justify-content:center!important;
+    border:1px solid rgba(255,72,86,.85)!important;border-radius:8px!important;
+    background:linear-gradient(180deg,rgba(44,19,27,.72),rgba(15,13,20,.80))!important;
+    color:#fff!important;font-size:9px!important;font-weight:950!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 0 14px rgba(255,28,46,.08)!important;
+  }
+  .site-card:hover{transform:translateY(-1px)!important;border-color:#ff5968!important;box-shadow:0 0 20px rgba(255,40,55,.14),0 10px 28px rgba(0,0,0,.32)!important;}
+  .site-card:hover .site-button{background:linear-gradient(180deg,rgba(95,20,31,.82),rgba(27,13,19,.9))!important;}
+}
+</style>
