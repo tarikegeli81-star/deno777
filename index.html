@@ -6694,6 +6694,10 @@ footer,
   .platform-logo-size-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
 }
 </style>
+<style>
+.custom-page-logo{display:block;object-fit:contain;max-width:none;max-height:none}
+@media(max-width:700px){.page-logo-size-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}
+</style>
 </head>
 
 <body class="app-loading">
@@ -6705,10 +6709,11 @@ footer,
     </div>
 
     <div class="top-brand" aria-label="DenoBaba Özel">
-        <div class="denobaba-new-logo">
+        <div class="denobaba-new-logo" id="defaultPageLogo">
             <div class="denobaba-name"><span class="deno-part">DENO</span><span class="baba-part">BABA</span></div>
             <div class="denobaba-sub"><i></i><span>ÖZEL</span><i></i></div>
         </div>
+        <img id="customPageLogo" class="custom-page-logo" alt="Sayfa logosu" style="display:none">
     </div>
 
     <div class="top-group right">
@@ -7267,6 +7272,7 @@ footer,
 <button class="admin-nav" data-view="admins" onclick="showAdminView('admins',this)">🛡️ YÖNETİCİLER</button>
 <button class="admin-nav" data-view="promos" onclick="showAdminView('promos',this)">🎟️ PROMOSYON KODU</button>
 <button class="admin-nav" data-view="vip" onclick="showAdminView('vip',this)">⭐ VIP ALANLARI</button>
+<button class="admin-nav" data-view="pageLogo" onclick="showAdminView('pageLogo',this)">🎨 SAYFA LOGOSU</button>
 <button class="admin-nav" data-view="socials" onclick="showAdminView('socials',this)">🔗 ÜST MENÜ</button>
 <button class="admin-nav" data-view="market" onclick="showAdminView('market',this)">🛒 MARKET</button>
 <button class="admin-nav" data-view="raffles" onclick="showAdminView('raffles',this)">🎁 ÇEKİLİŞLER</button>
@@ -7453,6 +7459,19 @@ footer,
     <button class="admin-action secondary" onclick="loadPressRequests()">↻ YENİLE</button>
 </div>
 <div class="admin-list" id="adminPressRequestList"></div>
+</div>
+
+<div class="admin-view" id="adminViewPageLogo">
+<div class="admin-view-title">🎨 Sayfa Logosu</div>
+<div class="admin-view-subtitle">Ana sayfanın en üstündeki DenoBaba logosunu web ve mobil için ayrı yönetin.</div>
+<div class="admin-tool">
+  <input type="hidden" id="pageLogoUrl">
+  <input type="hidden" id="pageLogoStoragePath">
+  <div class="admin-field full"><label>LOGO GÖRSELİ</label><input class="admin-file" id="pageLogoFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif" onchange="previewPageLogo(this)"><div class="logo-preview" id="pageLogoPreview"></div></div>
+  <div class="admin-field full"><label>LOGO URL (İSTEĞE BAĞLI)</label><input class="admin-input" id="pageLogoExternalUrl" type="url" placeholder="https://.../logo.png"></div>
+  <div class="admin-field full"><label>LOGO BOYUTLARI (WEB / MOBİL px)</label><div class="page-logo-size-grid" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px"><input class="admin-input" id="pageLogoWebWidth" type="number" min="20" max="700" value="300" placeholder="Web genişlik"><input class="admin-input" id="pageLogoWebHeight" type="number" min="20" max="300" value="70" placeholder="Web yükseklik"><input class="admin-input" id="pageLogoMobileWidth" type="number" min="20" max="350" value="190" placeholder="Mobil genişlik"><input class="admin-input" id="pageLogoMobileHeight" type="number" min="20" max="180" value="48" placeholder="Mobil yükseklik"></div></div>
+  <div class="admin-form-actions"><button class="admin-action" onclick="savePageLogo()">💾 LOGOYU KAYDET</button><button class="admin-action secondary" onclick="removePageLogo()">🗑️ LOGOYU KALDIR</button></div>
+</div>
 </div>
 
 <div class="admin-view" id="adminViewSocials">
@@ -8610,7 +8629,7 @@ window.deletePressRequest = async function(id){
     }
 };
 
-window.showAdminView=async function(view,button){const a=await getAuthorizedAdmin().catch(()=>null);if(!a){closeModal('adminPanelModal');alert('Admin yetkiniz bulunmuyor.');return;}if(view==='admins'&&a.role!=='owner'){alert('Yönetici yönetimi yalnızca Owner hesabına açıktır.');return;}if(view==='promos'&&!(a.role==='owner'||a.role==='admin')){alert('Promosyon kodu bölümü yalnızca admin yetkisi olan hesaplara açıktır.');return;}window.currentAdminData=a;document.querySelectorAll('.admin-view').forEach(v=>v.classList.remove('active'));const target=document.getElementById('adminView'+view.charAt(0).toUpperCase()+view.slice(1));if(target)target.classList.add('active');document.querySelectorAll('.admin-nav').forEach(n=>n.classList.remove('active'));if(button)button.classList.add('active');if(view==='dashboard')loadAdminStats();if(view==='users')loadAdminUsers();if(view==='platforms')loadAdminPlatforms();if(view==='announcements')loadAdminAnnouncements();if(view==='popup')loadSitePopup();if(view==='featured')loadAdminFeaturedHeroes();if(view==='press')loadPressRequests();if(view==='admins')loadAdminAdmins();if(view==='promos')loadPromoCodesAdmin();if(view==='vip')loadVipAreas();if(view==='socials'){loadAdminSocials();updateSocialPreview();}if(view==='market'){loadMarketProducts();loadMarketOrders();}if(view==='raffles')loadRafflesAdmin();}
+window.showAdminView=async function(view,button){const a=await getAuthorizedAdmin().catch(()=>null);if(!a){closeModal('adminPanelModal');alert('Admin yetkiniz bulunmuyor.');return;}if(view==='admins'&&a.role!=='owner'){alert('Yönetici yönetimi yalnızca Owner hesabına açıktır.');return;}if(view==='promos'&&!(a.role==='owner'||a.role==='admin')){alert('Promosyon kodu bölümü yalnızca admin yetkisi olan hesaplara açıktır.');return;}window.currentAdminData=a;document.querySelectorAll('.admin-view').forEach(v=>v.classList.remove('active'));const target=document.getElementById('adminView'+view.charAt(0).toUpperCase()+view.slice(1));if(target)target.classList.add('active');document.querySelectorAll('.admin-nav').forEach(n=>n.classList.remove('active'));if(button)button.classList.add('active');if(view==='dashboard')loadAdminStats();if(view==='users')loadAdminUsers();if(view==='platforms')loadAdminPlatforms();if(view==='announcements')loadAdminAnnouncements();if(view==='popup')loadSitePopup();if(view==='featured')loadAdminFeaturedHeroes();if(view==='press')loadPressRequests();if(view==='admins')loadAdminAdmins();if(view==='promos')loadPromoCodesAdmin();if(view==='vip')loadVipAreas();if(view==='pageLogo')loadPageLogoSettings();if(view==='socials'){loadAdminSocials();updateSocialPreview();}if(view==='market'){loadMarketProducts();loadMarketOrders();}if(view==='raffles')loadRafflesAdmin();}
 window.loadAdminStats=async function(){
 try{
  const a=window.currentAdminData||await getAuthorizedAdmin(); if(!a)return;
@@ -8977,12 +8996,13 @@ function ensurePlatformBadgeField(){
   description.closest('.admin-field')?.after(field);
   const sizeField=document.createElement('div');
   sizeField.className='admin-field full';
-  sizeField.innerHTML='<label>LOGO BOYUTLARI (WEB / MOBİL px)</label><div class="platform-logo-size-grid" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px"><input class="admin-input" id="platformLogoWebWidth" type="number" min="20" max="500" value="165" placeholder="Web genişlik"><input class="admin-input" id="platformLogoWebHeight" type="number" min="20" max="300" value="54" placeholder="Web yükseklik"><input class="admin-input" id="platformLogoMobileWidth" type="number" min="20" max="200" value="50" placeholder="Mobil genişlik"><input class="admin-input" id="platformLogoMobileHeight" type="number" min="20" max="200" value="50" placeholder="Mobil yükseklik"></div>';
+  sizeField.innerHTML='<label>LOGO BOYUTLARI (WEB / MOBİL px)</label><div class="platform-logo-size-grid" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px"><input class="admin-input" id="platformLogoWebWidth" type="number" min="20" max="500" value="165" placeholder="Web genişlik"><input class="admin-input" id="platformLogoWebHeight" type="number" min="20" max="300" value="54" placeholder="Web yükseklik"><input class="admin-input" id="platformLogoMobileWidth" type="number" min="20" max="200" value="50" placeholder="Mobil genişlik"><input class="admin-input" id="platformLogoMobileHeight" type="number" min="20" max="200" value="50" placeholder="Mobil yükseklik"></div><button type="button" class="admin-action secondary" style="margin-top:8px" onclick="clearPlatformLogo()">🗑️ LOGOYU KALDIR, YAZIYI GÖSTER</button>';
   field.after(sizeField);
 }
 ensurePlatformBadgeField();
 
 window.resetPlatformForm=function(){ensurePlatformBadgeField();['platformEditId','platformLogoImage','platformLogoStoragePath','platformName','platformLogo','platformDescription','platformBadge','platformUrl','platformLogoUrl','platformNameFontSize','platformDescriptionFontSize'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});const defaults={platformLogoWebWidth:165,platformLogoWebHeight:54,platformLogoMobileWidth:50,platformLogoMobileHeight:50};Object.entries(defaults).forEach(([id,value])=>{const el=document.getElementById(id);if(el)el.value=value;});const file=document.getElementById('platformLogoFile');if(file)file.value='';const preview=document.getElementById('platformLogoPreview');if(preview)preview.innerHTML='';document.getElementById('platformTheme').value='blue';document.getElementById('platformOrder').value=1;document.getElementById('platformActive').checked=true;document.getElementById('platformNameFontSize').value=22;document.getElementById('platformDescriptionFontSize').value=14;};
+window.clearPlatformLogo=function(){const image=document.getElementById('platformLogoImage');const path=document.getElementById('platformLogoStoragePath');const file=document.getElementById('platformLogoFile');const preview=document.getElementById('platformLogoPreview');if(image)image.value='';if(path)path.value='';if(file)file.value='';if(preview)preview.innerHTML='<span>Logo kaldırıldı; kaydedince mevcut yazı gösterilecek.</span>';};
 window.previewPlatformLogo=function(input){const file=input?.files?.[0];const preview=document.getElementById('platformLogoPreview');if(!preview)return;if(!file){preview.innerHTML='';return;}if(!file.type.startsWith('image/')){alert('Lütfen PNG, JPG, WEBP veya GIF görsel seçin.');input.value='';preview.innerHTML='';return;}const reader=new FileReader();reader.onload=()=>{preview.innerHTML=`<img src="${reader.result}" alt="Logo önizleme"><span>${escapeHtml(file.name)} · Görsel kaydedilirken optimize edilecek.</span>`;};reader.readAsDataURL(file);};
 function compressLogoFile(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=reject;reader.onload=()=>{const img=new Image();img.onerror=reject;img.onload=()=>{const max=500;const scale=Math.min(1,max/Math.max(img.width,img.height));const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));const ctx=canvas.getContext('2d');ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0,canvas.width,canvas.height);let data=canvas.toDataURL('image/webp',0.82);if(data.length>900000){data=canvas.toDataURL('image/jpeg',0.72);}if(data.length>950000)reject(new Error('Logo görseli çok büyük. Daha küçük bir görsel seçin.'));else resolve(data);};img.src=reader.result;};reader.readAsDataURL(file);});}
 window.editPlatform=async function(id){try{const s=await getDoc(doc(db,'platforms',id));if(!s.exists())return;const d=s.data();ensurePlatformBadgeField();document.getElementById('platformEditId').value=id;document.getElementById('platformLogoImage').value=d.logoImage||'';document.getElementById('platformLogoStoragePath').value=d.logoStoragePath||'';document.getElementById('platformName').value=d.name||'';document.getElementById('platformLogo').value=d.logo||'';document.getElementById('platformLogoUrl').value=d.logoUrl||'';document.getElementById('platformDescription').value=d.description||'';document.getElementById('platformBadge').value=d.badge||'';document.getElementById('platformLogoWebWidth').value=Number(d.logoWebWidth)>0?Number(d.logoWebWidth):165;document.getElementById('platformLogoWebHeight').value=Number(d.logoWebHeight)>0?Number(d.logoWebHeight):54;document.getElementById('platformLogoMobileWidth').value=Number(d.logoMobileWidth)>0?Number(d.logoMobileWidth):50;document.getElementById('platformLogoMobileHeight').value=Number(d.logoMobileHeight)>0?Number(d.logoMobileHeight):50;document.getElementById('platformNameFontSize').value=Number(d.nameFontSize)>0?Number(d.nameFontSize):22;document.getElementById('platformDescriptionFontSize').value=Number(d.descriptionFontSize)>0?Number(d.descriptionFontSize):14;document.getElementById('platformUrl').value=d.url||'';document.getElementById('platformTheme').value=d.theme||'blue';document.getElementById('platformOrder').value=d.order||1;document.getElementById('platformActive').checked=d.active!==false;document.getElementById('platformLogoFile').value='';const preview=document.getElementById('platformLogoPreview');const src=d.logoImage||d.logoUrl||'';preview.innerHTML=src?`<img src="${escapeHtml(src)}" alt="Mevcut logo"><span>Mevcut logo</span>`:'';document.querySelector('.admin-content').scrollTo({top:0,behavior:'smooth'});}catch(e){alert(firebaseError(e));}};
@@ -9058,7 +9078,7 @@ window.savePlatform=async function(){
             });
 
             // Yeni logo başarıyla kaydedildiyse eski Storage dosyasını temizle.
-            if(file && oldStoragePath && oldStoragePath!==data.logoStoragePath){
+            if(oldStoragePath && oldStoragePath!==data.logoStoragePath){
                 try{await deleteObject(storageRef(storage,oldStoragePath));}
                 catch(deleteError){console.warn('Eski logo silinemedi:',deleteError);}
             }
@@ -11186,6 +11206,100 @@ window.renderPublicSocialLinks=async function(){
     }
 };
 
+function applyPageLogo(data){
+  window.__pageLogoData=data||{};
+  const fallback=document.getElementById('defaultPageLogo');
+  const image=document.getElementById('customPageLogo');
+  if(!fallback||!image)return;
+  const url=data?.url||'';
+  if(!url){fallback.style.display='';image.style.display='none';image.removeAttribute('src');return;}
+  const mobile=window.matchMedia('(max-width:700px)').matches;
+  const width=mobile?Number(data.mobileWidth)||190:Number(data.webWidth)||300;
+  const height=mobile?Number(data.mobileHeight)||48:Number(data.webHeight)||70;
+  image.src=url;
+  image.style.setProperty('width',Math.max(20,width)+'px','important');
+  image.style.setProperty('height',Math.max(20,height)+'px','important');
+  image.style.display='block';
+  fallback.style.display='none';
+}
+
+window.renderPageLogo=async function(){
+  try{
+    const snap=await getDoc(doc(db,'siteSettings','headerLogo'));
+    applyPageLogo(snap.exists()?snap.data():{});
+  }catch(error){console.warn('Sayfa logosu gösterilemedi:',error);}
+};
+window.addEventListener('resize',()=>applyPageLogo(window.__pageLogoData||{}));
+
+window.loadPageLogoSettings=async function(){
+  try{
+    const snap=await getDoc(doc(db,'siteSettings','headerLogo'));
+    const data=snap.exists()?snap.data():{};
+    document.getElementById('pageLogoUrl').value=data.url||'';
+    document.getElementById('pageLogoExternalUrl').value=data.externalUrl||'';
+    document.getElementById('pageLogoStoragePath').value=data.storagePath||'';
+    document.getElementById('pageLogoWebWidth').value=Number(data.webWidth)||300;
+    document.getElementById('pageLogoWebHeight').value=Number(data.webHeight)||70;
+    document.getElementById('pageLogoMobileWidth').value=Number(data.mobileWidth)||190;
+    document.getElementById('pageLogoMobileHeight').value=Number(data.mobileHeight)||48;
+    const preview=document.getElementById('pageLogoPreview');
+    preview.innerHTML=data.url?`<img src="${escapeHtml(data.url)}" alt="Mevcut sayfa logosu"><span>Mevcut logo</span>`:'';
+  }catch(error){console.warn('Sayfa logosu yüklenemedi:',error);}
+};
+
+window.previewPageLogo=function(input){
+  const file=input?.files?.[0];
+  const preview=document.getElementById('pageLogoPreview');
+  if(!preview)return;
+  if(!file){preview.innerHTML='';return;}
+  if(!file.type.startsWith('image/')){alert('Lütfen geçerli bir logo görseli seçin.');input.value='';return;}
+  const reader=new FileReader();
+  reader.onload=()=>{preview.innerHTML=`<img src="${reader.result}" alt="Logo önizleme"><span>${escapeHtml(file.name)}</span>`;};
+  reader.readAsDataURL(file);
+};
+
+window.savePageLogo=async function(){
+  const authorized=await getAuthorizedAdmin().catch(()=>null);
+  if(!authorized){alert('Admin yetkiniz bulunmuyor.');return;}
+  const file=document.getElementById('pageLogoFile')?.files?.[0]||null;
+  const oldPath=document.getElementById('pageLogoStoragePath').value.trim();
+  const data={
+    url:document.getElementById('pageLogoUrl').value.trim(),
+    externalUrl:document.getElementById('pageLogoExternalUrl').value.trim(),
+    storagePath:oldPath,
+    webWidth:Math.min(700,Math.max(20,Number(document.getElementById('pageLogoWebWidth').value)||300)),
+    webHeight:Math.min(300,Math.max(20,Number(document.getElementById('pageLogoWebHeight').value)||70)),
+    mobileWidth:Math.min(350,Math.max(20,Number(document.getElementById('pageLogoMobileWidth').value)||190)),
+    mobileHeight:Math.min(180,Math.max(20,Number(document.getElementById('pageLogoMobileHeight').value)||48))
+  };
+  if(data.externalUrl&&!/^https?:\/\//i.test(data.externalUrl)){alert('Logo URL http:// veya https:// ile başlamalı.');return;}
+  try{
+    if(file){
+      const safeName=file.name.toLowerCase().replace(/[^a-z0-9._-]+/g,'-').replace(/-+/g,'-').replace(/^-|-$/g,'')||'header-logo';
+      const path=`site-logos/${auth.currentUser.uid}_${Date.now()}_${safeName}`;
+      const result=await uploadBytes(storageRef(storage,path),file,{contentType:file.type,cacheControl:'public,max-age=3600'});
+      data.url=await getDownloadURL(result.ref);data.storagePath=path;
+    }else if(data.externalUrl){data.url=data.externalUrl;data.storagePath='';}
+    await setDoc(doc(db,'siteSettings','headerLogo'),{...data,updatedAt:serverTimestamp(),updatedBy:auth.currentUser.uid},{merge:true});
+    if((file||data.externalUrl)&&oldPath&&oldPath!==data.storagePath){try{await deleteObject(storageRef(storage,oldPath));}catch(error){console.warn('Eski sayfa logosu silinemedi:',error);}}
+    await loadPageLogoSettings();applyPageLogo(data);alert('Sayfa logosu başarıyla kaydedildi.');
+  }catch(error){console.error(error);alert(firebaseError(error));}
+};
+
+window.removePageLogo=async function(){
+  const authorized=await getAuthorizedAdmin().catch(()=>null);
+  if(!authorized){alert('Admin yetkiniz bulunmuyor.');return;}
+  try{
+    const snap=await getDoc(doc(db,'siteSettings','headerLogo'));
+    const data=snap.exists()?snap.data():{};
+    if(data.storagePath)try{await deleteObject(storageRef(storage,data.storagePath));}catch(error){console.warn('Sayfa logosu Storage kaydı silinemedi:',error);}
+    await setDoc(doc(db,'siteSettings','headerLogo'),{url:'',externalUrl:'',storagePath:'',updatedAt:serverTimestamp(),updatedBy:auth.currentUser.uid},{merge:true});
+    await loadPageLogoSettings();applyPageLogo({});
+    const file=document.getElementById('pageLogoFile');if(file)file.value='';
+    alert('Logo kaldırıldı; mevcut DenoBaba yazısı geri geldi.');
+  }catch(error){alert(firebaseError(error));}
+};
+
 document.addEventListener('input',event=>{
     if(['socialTitle','socialIcon'].includes(event.target?.id))updateSocialPreview();
 });
@@ -11402,6 +11516,7 @@ window.handleLogout = async function(){
 
 Promise.all([
     renderPublicPlatforms(),
+  renderPageLogo(),
     renderPublicFeaturedHeroes(),
     renderPublicAnnouncements(),
     renderPublicVipAreas(),
@@ -12102,8 +12217,11 @@ document.addEventListener("DOMContentLoaded",()=>{
         const orderA=value(a.fields?.order,0),orderB=value(b.fields?.order,0);
         return orderA-orderB || String(value(a.fields?.name,'')).localeCompare(String(value(b.fields?.name,'')),'tr');
       });
-      images.forEach((image,index)=>{
-        const fields=records[index]?.fields||{};
+      images.forEach(image=>{
+        const card=image.closest('.site-card');
+        const name=card?.querySelector('.site-info h2')?.textContent?.trim()||'';
+        const record=records.find(doc=>value(doc.fields?.name,'')===name);
+        const fields=record?.fields||{};
         const webWidth=Math.min(500,Math.max(20,value(fields.logoWebWidth,165)));
         const webHeight=Math.min(300,Math.max(20,value(fields.logoWebHeight,54)));
         const mobileWidth=Math.min(200,Math.max(20,value(fields.logoMobileWidth,50)));
