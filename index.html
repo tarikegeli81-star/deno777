@@ -33,7 +33,7 @@ button{cursor:pointer}
 .top-button.login{background:rgba(100,50,10,.4);border-color:rgba(200,150,50,.6);color:#fff;box-shadow:0 8px 18px rgba(200,150,0,.1),inset 0 0 12px rgba(255,200,100,.08)}
 .top-button.user-account{background:rgba(150,120,50,.4);border-color:rgba(200,170,100,.6);max-width:230px;overflow:hidden;text-overflow:ellipsis;box-shadow:0 8px 18px rgba(200,150,0,.1),inset 0 0 12px rgba(255,200,100,.08)}
 .top-brand{display:flex;align-items:center;justify-content:center;gap:12px;text-align:center;pointer-events:none;line-height:1;min-width:300px;position:relative}
-.top-brand strong{display:block;font-size:42px;letter-spacing:-1.5px;color:#fff;font-weight:900;text-shadow:0 0 6px rgba(0,255,255,.5),0 0 14px rgba(0,200,255,.4),0 0 24px rgba(0,200,255,.2);-webkit-text-stroke:1.5px rgba(0,200,255,.4);text-stroke:1.5px rgba(0,200,255,.4)}
+.top-brand strong{display:block;font-size:42px;letter-spacing:-1.5px;color:#fff;font-weight:900;text-shadow:0 0 6px rgba(0,255,255,.5),0 0 14px rgba(0,200,255,.4),0 0 24px rgba(0,200,255,.2);-webkit-text-stroke:1.5px rgba(0,200,255,.4)}
 .top-brand strong span{color:#00ffff;text-shadow:0 0 8px rgba(0,255,255,.7),0 0 16px rgba(0,200,255,.4)}
 .top-brand small{display:block;margin-top:7px;font-size:12px;letter-spacing:8px;color:#00ffff;font-weight:1000;text-shadow:0 0 10px rgba(0,255,255,.8),0 0 20px rgba(0,200,255,.45)}
 .page{width:min(1400px,100%);margin:auto;padding:20px 18px 0}
@@ -1107,6 +1107,10 @@ body{padding-bottom:108px}
 
 </style>
 <style>
+.side-card .side-button,
+.side-card.right .side-button,
+.side-card .side-empty-button,
+.side-card.right .side-empty-button{
     border:1px solid rgba(181,248,255,.72) !important;
     box-shadow:0 10px 24px rgba(0,125,220,.30),0 0 18px rgba(57,221,255,.38),inset 0 1px 0 rgba(255,255,255,.38) !important;
 }
@@ -5916,6 +5920,775 @@ footer{
 .modal-close{border-color:rgba(255,65,80,.52)!important;background:rgba(45,8,16,.84)!important;color:#fff!important;box-shadow:0 0 14px rgba(255,30,48,.08)!important}
 </style>
 
+
+
+
+
+
+
+
+
+
+
+<!-- SADECE MOBİL: PREMIUM PLATFORM GİRİŞ BUTONLARI + NEON YAZI -->
+<style id="mobile-platform-entry-buttons-v5">
+@media (max-width:700px){
+
+  .site-card .site-button,
+  .site-card .platform-button{
+    --btn:255,60,75;
+
+    position:relative !important;
+    isolation:isolate !important;
+    overflow:hidden !important;
+
+    width:68px !important;
+    min-width:68px !important;
+    height:27px !important;
+    padding:0 6px !important;
+    margin:0 0 0 auto !important;
+
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    border-radius:7px !important;
+    border:1px solid rgba(var(--btn),.70) !important;
+
+    background:
+      linear-gradient(135deg,
+        rgba(var(--btn),.12),
+        rgba(10,13,20,.92) 45%,
+        rgba(var(--btn),.07)
+      ) !important;
+
+    box-shadow:
+      0 0 5px rgba(var(--btn),.18),
+      inset 0 0 8px rgba(var(--btn),.05) !important;
+
+    /* GİRİŞ YAP YAZISI: PLATFORM RENGİNDE NEON */
+    color:rgb(var(--btn)) !important;
+    font-size:6.5px !important;
+    font-weight:900 !important;
+    letter-spacing:.28px !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
+
+    text-shadow:
+      0 0 2px rgba(var(--btn),1),
+      0 0 4px rgba(var(--btn),1),
+      0 0 8px rgba(var(--btn),.90),
+      0 0 13px rgba(var(--btn),.55) !important;
+
+    transition:
+      transform .2s ease,
+      box-shadow .2s ease,
+      background .2s ease,
+      border-color .2s ease,
+      filter .2s ease !important;
+  }
+
+  .site-card .site-button::before,
+  .site-card .platform-button::before{
+    content:"" !important;
+    position:absolute !important;
+    left:0 !important;
+    top:0 !important;
+    width:100% !important;
+    height:1px !important;
+    pointer-events:none !important;
+
+    background:
+      linear-gradient(90deg,
+        transparent,
+        rgba(var(--btn),.95),
+        transparent
+      ) !important;
+
+    box-shadow:0 0 6px rgba(var(--btn),.85) !important;
+  }
+
+  .site-card .site-button::after,
+  .site-card .platform-button::after{
+    content:"→" !important;
+    position:absolute !important;
+    right:6px !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+    pointer-events:none !important;
+
+    color:rgb(var(--btn)) !important;
+    font-size:9px !important;
+    font-weight:800 !important;
+    line-height:1 !important;
+
+    text-shadow:
+      0 0 3px rgba(var(--btn),1),
+      0 0 7px rgba(var(--btn),.9) !important;
+  }
+
+  .site-card .site-button:hover,
+  .site-card .site-button:active,
+  .site-card .platform-button:hover,
+  .site-card .platform-button:active{
+    transform:translateY(-1px) !important;
+    filter:brightness(1.12) !important;
+
+    background:
+      linear-gradient(135deg,
+        rgba(var(--btn),.22),
+        rgba(10,13,20,.92) 50%,
+        rgba(var(--btn),.12)
+      ) !important;
+
+    border-color:rgba(var(--btn),.95) !important;
+
+    box-shadow:
+      0 0 9px rgba(var(--btn),.35),
+      0 0 16px rgba(var(--btn),.12),
+      inset 0 0 10px rgba(var(--btn),.10) !important;
+  }
+
+  /* BETNALO — PEMBE */
+  .site-card.purple .site-button,
+  .site-card.pink .site-button,
+  .site-card.purple .platform-button,
+  .site-card.pink .platform-button{ --btn:245,70,180; }
+
+  /* ROYSBET — MAVİ */
+  .site-card.blue .site-button,
+  .site-card.cyan .site-button,
+  .site-card.blue .platform-button,
+  .site-card.cyan .platform-button{ --btn:45,190,255; }
+
+  /* MILAN — KIRMIZI */
+  .site-card.red .site-button,
+  .site-card.darkred .site-button,
+  .site-card.red .platform-button,
+  .site-card.darkred .platform-button{ --btn:255,65,75; }
+
+  /* BETJUVE — TURUNCU */
+  .site-card.gold .site-button,
+  .site-card.orange .site-button,
+  .site-card.gold .platform-button,
+  .site-card.orange .platform-button{ --btn:255,175,55; }
+
+  /* JOJOBET — YEŞİL */
+  .site-card.green .site-button,
+  .site-card.green .platform-button{ --btn:55,225,145; }
+
+  /* LUNABET — ALTIN */
+  .site-card.yellow .site-button,
+  .site-card.yellow .platform-button{ --btn:255,195,55; }
+}
+</style>
+
+
+<!-- SAYFA GENELİ KIRMIZI ÇİZGİLİ ARKA PLAN v6 -->
+<style id="global-red-line-background-v6">
+html{
+  min-height:100% !important;
+  background:#070b12 !important;
+}
+
+body{
+  min-height:100% !important;
+  background-color:#070b12 !important;
+  background-image:
+    linear-gradient(135deg, transparent 0%, transparent 47%, rgba(255,35,55,.16) 47.15%, rgba(255,35,55,.16) 47.28%, transparent 47.42%, transparent 100%),
+    linear-gradient(315deg, transparent 0%, transparent 51%, rgba(255,35,55,.11) 51.12%, rgba(255,35,55,.11) 51.25%, transparent 51.38%, transparent 100%),
+    linear-gradient(135deg, transparent 0%, transparent 73%, rgba(255,35,55,.13) 73.1%, rgba(255,35,55,.13) 73.22%, transparent 73.35%, transparent 100%) !important;
+  background-size:520px 520px, 760px 760px, 980px 980px !important;
+  background-position:0 0, 180px 240px, -260px 120px !important;
+  background-attachment:fixed !important;
+}
+
+/* Arka plan çizgilerini tüm sayfada görünür ve sabit tut */
+body::before{
+  content:"" !important;
+  position:fixed !important;
+  inset:0 !important;
+  z-index:-1 !important;
+  pointer-events:none !important;
+  opacity:1 !important;
+
+  background:
+    linear-gradient(135deg,
+      transparent 0%, transparent 18%,
+      rgba(255,40,55,.13) 18.1%, rgba(255,40,55,.13) 18.24%,
+      transparent 18.38%, transparent 100%),
+    linear-gradient(135deg,
+      transparent 0%, transparent 63%,
+      rgba(255,40,55,.12) 63.1%, rgba(255,40,55,.12) 63.24%,
+      transparent 63.38%, transparent 100%),
+    linear-gradient(315deg,
+      transparent 0%, transparent 28%,
+      rgba(255,40,55,.10) 28.1%, rgba(255,40,55,.10) 28.24%,
+      transparent 28.38%, transparent 100%) !important;
+
+  background-size:900px 900px, 1100px 1100px, 760px 760px !important;
+  background-position:-150px -40px, 320px 100px, 0 420px !important;
+}
+
+/* Üst barın siyah zeminine de ince kırmızı çizgiler */
+header,
+.top-bar,
+.header,
+.navbar,
+.site-header{
+  background-image:
+    linear-gradient(135deg, transparent 0%, transparent 24%, rgba(255,35,55,.17) 24.12%, rgba(255,35,55,.17) 24.28%, transparent 24.42%, transparent 100%),
+    linear-gradient(315deg, transparent 0%, transparent 67%, rgba(255,35,55,.12) 67.1%, rgba(255,35,55,.12) 67.25%, transparent 67.4%, transparent 100%) !important;
+  background-size:440px 180px, 560px 210px !important;
+}
+
+/* Ana içerik şeffaf kalsın ki çizgili zemin kaybolmasın */
+main,
+.main-content,
+.page-content,
+.content,
+.app-content{
+  background-color:transparent !important;
+}
+
+/* Alt bölümde çizgilerin devam etmesini garanti et */
+footer,
+.site-footer{
+  position:relative !important;
+  background-color:transparent !important;
+  background-image:
+    linear-gradient(135deg, transparent 0%, transparent 35%, rgba(255,35,55,.18) 35.12%, rgba(255,35,55,.18) 35.28%, transparent 35.42%, transparent 100%),
+    linear-gradient(315deg, transparent 0%, transparent 58%, rgba(255,35,55,.13) 58.12%, rgba(255,35,55,.13) 58.28%, transparent 58.42%, transparent 100%) !important;
+  background-size:600px 420px, 820px 520px !important;
+}
+
+/* Mobilde de aynı kırmızı çizgili atmosfer korunsun */
+@media (max-width:700px){
+  body{
+    background-size:340px 340px, 520px 520px, 700px 700px !important;
+    background-position:0 0, 80px 170px, -160px 90px !important;
+  }
+
+  body::before{
+    background-size:520px 520px, 700px 700px, 500px 500px !important;
+    background-position:-120px 0, 160px 160px, -100px 360px !important;
+  }
+
+  header,
+  .top-bar,
+  .header,
+  .navbar,
+  .site-header{
+    background-size:300px 150px, 380px 170px !important;
+  }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- MOBİL KIRMIZI TASARIM + MENÜ/TIKLAMA VE SAYFA BİTİŞ DÜZELTMESİ v11 -->
+<style id="mobile-red-geometry-v11">
+@media (max-width:700px){
+  html,body{
+    width:100% !important;
+    min-height:0 !important;
+    overflow-x:hidden !important;
+    background:#07080d !important;
+  }
+
+  body{
+    isolation:auto !important;
+    background:
+      radial-gradient(circle at 50% 0%,rgba(255,20,40,.05),transparent 30%),
+      linear-gradient(180deg,#090a10 0%,#05060a 100%) !important;
+  }
+
+  /* Dekor artık ayrı bir DOM katmanı değil: menü ve tıklamalara karışmaz */
+  .top-bar,
+  footer,
+  .page{
+    position:relative !important;
+    z-index:1 !important;
+  }
+
+  /* ÜST: keskin, şekilli kırmızı çizgiler */
+  .top-bar{
+    overflow:hidden !important;
+    background-color:rgba(7,8,13,.94) !important;
+    background-image:
+      linear-gradient(135deg,transparent 0 10%,rgba(255,28,47,.95) 10.08% 10.34%,transparent 10.45% 100%),
+      linear-gradient(135deg,transparent 0 20%,rgba(255,28,47,.42) 20.08% 20.22%,transparent 20.34% 100%),
+      linear-gradient(315deg,transparent 0 12%,rgba(255,28,47,.78) 12.08% 12.30%,transparent 12.42% 100%),
+      linear-gradient(315deg,transparent 0 28%,rgba(255,28,47,.32) 28.08% 28.20%,transparent 28.32% 100%)
+      !important;
+    background-size:430px 108px,540px 108px,460px 108px,620px 108px !important;
+    background-position:-135px 0,30px 0,90px 0,170px 0 !important;
+  }
+
+  /* SAYFA: içerik boyunca kontrollü geometrik çizgiler */
+  .page{
+    min-height:0 !important;
+    padding-bottom:0 !important;
+    overflow:visible !important;
+    background:
+      linear-gradient(135deg,transparent 0 7%,rgba(255,25,44,.72) 7.08% 7.20%,transparent 7.32% 100%),
+      linear-gradient(315deg,transparent 0 15%,rgba(255,25,44,.48) 15.08% 15.19%,transparent 15.30% 100%),
+      linear-gradient(135deg,transparent 0 48%,rgba(255,25,44,.50) 48.08% 48.20%,transparent 48.32% 100%),
+      linear-gradient(315deg,transparent 0 67%,rgba(255,25,44,.44) 67.08% 67.20%,transparent 67.32% 100%)
+      !important;
+    background-size:600px 820px,720px 900px,680px 1050px,760px 1150px !important;
+    background-position:-260px 120px,160px 360px,-300px 820px,120px 1050px !important;
+  }
+
+  /* ALT: footer bittikten sonra ekstra alan üretmeden güçlü tasarım */
+  footer{
+    min-height:0 !important;
+    margin:0 !important;
+    overflow:hidden !important;
+    background-color:#08090e !important;
+    background-image:
+      linear-gradient(135deg,transparent 0 14%,rgba(255,28,47,.96) 14.08% 14.34%,transparent 14.46% 100%),
+      linear-gradient(315deg,transparent 0 17%,rgba(255,28,47,.88) 17.08% 17.32%,transparent 17.44% 100%),
+      linear-gradient(135deg,transparent 0 63%,rgba(255,28,47,.62) 63.08% 63.24%,transparent 63.36% 100%)
+      !important;
+    background-size:440px 115px,520px 125px,680px 145px !important;
+    background-position:-100px 0,80px 0,150px 0 !important;
+    border-top:1px solid rgba(255,45,58,.32) !important;
+  }
+
+  /* Menü katmanlarını kesin olarak en üste al ve tıklanabilir bırak */
+  #mobileMenuToggle{
+    z-index:10050 !important;
+    pointer-events:auto !important;
+    touch-action:manipulation !important;
+  }
+
+  #mobileQuickOverlay{
+    position:fixed !important;
+    inset:0 !important;
+    z-index:10040 !important;
+    pointer-events:none !important;
+  }
+
+  #mobileQuickOverlay.open{
+    pointer-events:auto !important;
+  }
+
+  #mobileQuickMenu{
+    position:fixed !important;
+    z-index:10041 !important;
+    pointer-events:auto !important;
+    touch-action:pan-y !important;
+  }
+
+  .mq-link{
+    position:relative !important;
+    z-index:1 !important;
+    pointer-events:auto !important;
+    touch-action:manipulation !important;
+    cursor:pointer !important;
+  }
+
+  /* Açık menüde kısa yol tıklamasını doğrudan garanti altına al */
+  #mobileQuickMenu.open .mq-link{
+    pointer-events:auto !important;
+  }
+
+  /* Footer sonrası boşluğu engelle */
+  .page + footer{
+    margin-bottom:0 !important;
+  }
+
+  body > footer:last-of-type{
+    padding-bottom:10px !important;
+  }
+}
+</style>
+
+<script id="mobile-hamburger-click-fix-v11">
+(function(){
+  function bind(){
+    var toggle=document.getElementById('mobileMenuToggle');
+    var menu=document.getElementById('mobileQuickMenu');
+    var overlay=document.getElementById('mobileQuickOverlay');
+    if(!toggle || !menu || !overlay) return;
+
+    /* Mevcut çalışan sistemi değiştirmeden, yalnızca tıklama güvenliği */
+    menu.querySelectorAll('.mq-link').forEach(function(btn){
+      if(btn.dataset.v11Bound) return;
+      btn.dataset.v11Bound='1';
+      btn.addEventListener('touchend',function(e){
+        if(e.defaultPrevented) return;
+        e.preventDefault();
+        btn.click();
+      },{passive:false});
+    });
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',function(){setTimeout(bind,250);},{once:true});
+  }else{
+    setTimeout(bind,250);
+  }
+})();
+</script>
+
+
+<!-- MOBİL PLATFORM LOGO BOYUT DÜZELTMESİ -->
+<style id="mobile-platform-logo-size-fix">
+@media (max-width:700px){
+  /* Admin tarafından eklenen platform logosu */
+  .platform-logo,
+  .platform-card .logo,
+  .platform-card .platform-logo,
+  .platform-image,
+  .platform-card img[src]{
+    transform:scale(1.18);
+    transform-origin:center left;
+  }
+
+  /* Logo alanı biraz daha geniş bırakılır, metin düzeni bozulmaz */
+  .platform-logo-wrap,
+  .platform-card .logo-wrap,
+  .platform-card .platform-logo-wrap{
+    overflow:visible !important;
+  }
+}
+</style>
+
+
+<!-- MOBİL KISA YOLLAR MENÜ ARKA PLAN TASARIMI v12 -->
+<style id="mobile-quick-menu-background-v12">
+@media (max-width:700px){
+  /* Açılan menünün tamamına güçlü, katmanlı arka plan */
+  #mobileQuickMenu{
+    overflow:hidden !important;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(255,35,55,.20), transparent 30%),
+      radial-gradient(circle at 100% 45%, rgba(255,18,42,.14), transparent 34%),
+      linear-gradient(145deg, rgba(38,8,14,.98) 0%, rgba(10,12,22,.99) 34%, rgba(5,7,12,1) 100%) !important;
+    border:1px solid rgba(255,47,61,.92) !important;
+    box-shadow:
+      0 0 0 1px rgba(255,20,40,.08) inset,
+      0 0 28px rgba(255,18,38,.16),
+      0 18px 45px rgba(0,0,0,.58) !important;
+  }
+
+  /* Panel içindeki kırmızı geometrik çizgiler */
+  #mobileQuickMenu::before{
+    content:"" !important;
+    position:absolute !important;
+    inset:0 !important;
+    z-index:0 !important;
+    pointer-events:none !important;
+    opacity:1 !important;
+    background:
+      linear-gradient(135deg, transparent 0 16%, rgba(255,28,48,.75) 16.12% 16.32%, transparent 16.45% 100%),
+      linear-gradient(315deg, transparent 0 28%, rgba(255,28,48,.55) 28.12% 28.28%, transparent 28.42% 100%),
+      linear-gradient(135deg, transparent 0 72%, rgba(255,28,48,.42) 72.12% 72.28%, transparent 72.42% 100%);
+    background-size:430px 310px, 510px 360px, 620px 470px;
+    background-position:-120px -20px, 90px 180px, -70px 420px;
+  }
+
+  /* Noktalı cyber dokusu */
+  #mobileQuickMenu::after{
+    content:"" !important;
+    position:absolute !important;
+    inset:88px 12px 20px 12px !important;
+    z-index:0 !important;
+    pointer-events:none !important;
+    opacity:.42 !important;
+    background-image:radial-gradient(circle, rgba(255,35,52,.68) 1.1px, transparent 1.6px) !important;
+    background-size:13px 13px !important;
+    mask-image:linear-gradient(to bottom, transparent, #000 10%, #000 88%, transparent) !important;
+    -webkit-mask-image:linear-gradient(to bottom, transparent, #000 10%, #000 88%, transparent) !important;
+  }
+
+  /* Menü içeriği dekorun üzerinde */
+  #mobileQuickMenu > *{
+    position:relative !important;
+    z-index:2 !important;
+  }
+
+  /* Başlık alanını da biraz daha premium yap */
+  #mobileQuickMenu .mq-title,
+  #mobileQuickMenu h1,
+  #mobileQuickMenu h2,
+  #mobileQuickMenu h3{
+    text-shadow:0 0 14px rgba(255,50,65,.20) !important;
+  }
+
+  /* Kısa yol kartlarının sade görünmesini engelle */
+  #mobileQuickMenu .mq-link{
+    background:
+      linear-gradient(90deg, rgba(255,24,43,.16), transparent 34%),
+      rgba(12,15,25,.88) !important;
+    border-color:rgba(255,56,68,.30) !important;
+    box-shadow:inset 2px 0 0 rgba(255,35,53,.85), 0 5px 16px rgba(0,0,0,.16) !important;
+  }
+
+  #mobileQuickMenu .mq-link:last-child{
+    background:
+      linear-gradient(90deg, rgba(255,18,38,.28), transparent 42%),
+      rgba(30,10,16,.92) !important;
+    border-color:rgba(255,45,59,.82) !important;
+    box-shadow:inset 2px 0 0 rgba(255,35,53,1), 0 0 18px rgba(255,20,38,.08) !important;
+  }
+}
+</style>
+
+
+<!-- MOBİL PREMIUM MENÜ TASARIMI v13 -->
+<style id="mobile-quick-menu-premium-v13">
+@media (max-width:700px){
+  #mobileQuickMenu{
+    background:
+      radial-gradient(circle at 8% 4%, rgba(255,36,53,.25), transparent 28%),
+      radial-gradient(circle at 100% 88%, rgba(255,26,42,.14), transparent 34%),
+      linear-gradient(145deg, #23090f 0%, #10111c 34%, #07090f 70%, #08090e 100%) !important;
+  }
+
+  /* Ana sayfadaki stile yakın, daha güçlü geometrik neon çizgiler */
+  #mobileQuickMenu::before{
+    opacity:1 !important;
+    background:
+      linear-gradient(135deg, transparent 0 11%, rgba(255,29,49,.95) 11.1% 11.48%, transparent 11.6% 100%),
+      linear-gradient(315deg, transparent 0 20%, rgba(255,29,49,.72) 20.1% 20.36%, transparent 20.5% 100%),
+      linear-gradient(135deg, transparent 0 58%, rgba(255,29,49,.58) 58.1% 58.32%, transparent 58.46% 100%),
+      linear-gradient(315deg, transparent 0 74%, rgba(255,29,49,.48) 74.1% 74.28%, transparent 74.42% 100%) !important;
+    background-size:390px 280px, 500px 340px, 610px 430px, 540px 390px !important;
+    background-position:-155px 70px, 45px 250px, -190px 470px, 120px 600px !important;
+  }
+
+  #mobileQuickMenu .mq-title,
+  #mobileQuickMenu h1,
+  #mobileQuickMenu h2,
+  #mobileQuickMenu h3{
+    color:#f2f5fa !important;
+    letter-spacing:4px !important;
+    text-shadow:
+      0 0 6px rgba(255,255,255,.16),
+      0 0 14px rgba(255,37,52,.32) !important;
+  }
+
+  /* Başlığın altındaki çizgiyi neonlaştır */
+  #mobileQuickMenu .mq-subtitle,
+  #mobileQuickMenu .mq-title + *,
+  #mobileQuickMenu h1 + *,
+  #mobileQuickMenu h2 + *,
+  #mobileQuickMenu h3 + *{
+    color:#ff9aa3 !important;
+    letter-spacing:2px !important;
+  }
+
+  #mobileQuickMenu .mq-link{
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease !important;
+    background:
+      linear-gradient(100deg, rgba(255,30,49,.18), transparent 35%),
+      linear-gradient(90deg, rgba(16,20,34,.96), rgba(11,14,24,.88)) !important;
+    box-shadow:
+      inset 2px 0 0 rgba(255,42,57,.95),
+      inset 0 1px 0 rgba(255,255,255,.025),
+      0 6px 18px rgba(0,0,0,.22) !important;
+  }
+
+  #mobileQuickMenu .mq-link:active{
+    transform:scale(.985) translateX(2px) !important;
+    border-color:rgba(255,58,70,.95) !important;
+    box-shadow:
+      inset 3px 0 0 #ff2b3e,
+      0 0 16px rgba(255,25,45,.18) !important;
+  }
+
+  /* Son giriş kartı daha premium ama mevcut sistem aynı */
+  #mobileQuickMenu .mq-link:last-child{
+    box-shadow:
+      inset 2px 0 0 #ff3345,
+      0 0 18px rgba(255,25,45,.12),
+      0 7px 20px rgba(0,0,0,.25) !important;
+  }
+}
+</style>
+
+
+<!-- MOBİL MENÜ BUTONLARI İÇİN HAFİF ÇİZGİSEL TASARIM v14 -->
+<style id="mobile-menu-button-lines-v14">
+@media (max-width:700px){
+  #mobileQuickMenu .mq-link{
+    position:relative !important;
+    overflow:hidden !important;
+    isolation:isolate !important;
+  }
+
+  /* Butonların içine çok hafif kırmızı geometrik çizgiler */
+  #mobileQuickMenu .mq-link::before{
+    content:"" !important;
+    position:absolute !important;
+    inset:0 !important;
+    z-index:-1 !important;
+    pointer-events:none !important;
+    opacity:.38 !important;
+    background:
+      linear-gradient(135deg,
+        transparent 0 22%,
+        rgba(255,42,57,.70) 22.15% 22.65%,
+        transparent 22.8% 100%),
+      linear-gradient(315deg,
+        transparent 0 12%,
+        rgba(255,42,57,.42) 12.15% 12.45%,
+        transparent 12.6% 100%),
+      linear-gradient(135deg,
+        transparent 0 76%,
+        rgba(255,42,57,.35) 76.15% 76.4%,
+        transparent 76.55% 100%) !important;
+    background-size:230px 70px, 270px 85px, 310px 100px !important;
+    background-position:-75px 0, 65px -18px, 105px 8px !important;
+  }
+
+  /* Sağ tarafta küçük cyber çizgi detayı */
+  #mobileQuickMenu .mq-link::after{
+    content:"" !important;
+    position:absolute !important;
+    top:12px !important;
+    right:42px !important;
+    width:42px !important;
+    height:1px !important;
+    z-index:0 !important;
+    pointer-events:none !important;
+    background:linear-gradient(90deg, transparent, rgba(255,43,58,.52), transparent) !important;
+    box-shadow:0 16px 0 rgba(255,43,58,.24), 0 32px 0 rgba(255,43,58,.13) !important;
+    transform:rotate(-18deg) !important;
+  }
+
+  /* Giriş Yap butonunda çizgiler biraz daha canlı */
+  #mobileQuickMenu .mq-link:last-child::before{
+    opacity:.55 !important;
+  }
+
+  /* Tıklama anında tasarım canlanır */
+  #mobileQuickMenu .mq-link:active::before{
+    opacity:.75 !important;
+  }
+}
+</style>
+
+
+<!-- MOBİL MENÜ KIRMIZI NEON YAZI TASARIMI v15 -->
+<style id="mobile-menu-neon-text-v15">
+@media (max-width:700px){
+
+  /* Menüdeki tüm kısa yol yazıları kırmızı neon */
+  #mobileQuickMenu .mq-link,
+  #mobileQuickMenu .mq-link span,
+  #mobileQuickMenu .mq-link strong,
+  #mobileQuickMenu .mq-link b,
+  #mobileQuickMenu .mq-link .label,
+  #mobileQuickMenu .mq-link .mq-link-text{
+    color:#ff4351 !important;
+    text-shadow:
+      0 0 2px rgba(255,255,255,.20),
+      0 0 5px rgba(255,38,54,.82),
+      0 0 11px rgba(255,20,42,.58),
+      0 0 18px rgba(255,20,42,.24) !important;
+  }
+
+  /* Ok işaretleri daha parlak kırmızı neon */
+  #mobileQuickMenu .mq-link .mq-arrow,
+  #mobileQuickMenu .mq-link .arrow,
+  #mobileQuickMenu .mq-link > i:last-child,
+  #mobileQuickMenu .mq-link::selection{
+    color:#ff5663 !important;
+    text-shadow:
+      0 0 5px rgba(255,42,57,1),
+      0 0 14px rgba(255,22,43,.85) !important;
+  }
+
+  /* İkonların mevcut renklerini koru; yazılar neon olsun */
+  #mobileQuickMenu .mq-link .mq-icon,
+  #mobileQuickMenu .mq-link .icon,
+  #mobileQuickMenu .mq-link .menu-icon{
+    text-shadow:0 0 10px rgba(255,48,62,.30) !important;
+  }
+
+  /* Giriş Yap satırı daha güçlü neon */
+  #mobileQuickMenu .mq-link:last-child,
+  #mobileQuickMenu .mq-link:last-child span,
+  #mobileQuickMenu .mq-link:last-child strong,
+  #mobileQuickMenu .mq-link:last-child b{
+    color:#ff3344 !important;
+    text-shadow:
+      0 0 3px rgba(255,255,255,.20),
+      0 0 7px rgba(255,34,50,1),
+      0 0 15px rgba(255,20,40,.78),
+      0 0 25px rgba(255,10,30,.40) !important;
+  }
+}
+</style>
+
+
+<!-- MOBİL MENÜ BAŞLIK NEON TASARIMI v16 -->
+<style id="mobile-menu-heading-neon-v16">
+@media (max-width:700px){
+
+  /* Ana MENÜ başlığı */
+  #mobileQuickMenu .mq-title,
+  #mobileQuickMenu .menu-title,
+  #mobileQuickMenu h1,
+  #mobileQuickMenu h2,
+  #mobileQuickMenu h3{
+    color:#ff4050 !important;
+    text-shadow:
+      0 0 3px rgba(255,255,255,.28),
+      0 0 7px rgba(255,35,53,.95),
+      0 0 16px rgba(255,24,45,.72),
+      0 0 28px rgba(255,15,35,.36) !important;
+    letter-spacing:5px !important;
+  }
+
+  /* HIZLI ERİŞİM MENÜSÜ alt başlığı */
+  #mobileQuickMenu .mq-subtitle,
+  #mobileQuickMenu .menu-subtitle,
+  #mobileQuickMenu .quick-subtitle{
+    color:#ff6974 !important;
+    text-shadow:
+      0 0 3px rgba(255,45,60,.75),
+      0 0 9px rgba(255,25,45,.58),
+      0 0 17px rgba(255,20,40,.28) !important;
+    letter-spacing:2.5px !important;
+  }
+
+  /* Başlık bölümüne hafif neon çizgi */
+  #mobileQuickMenu .mq-subtitle::after,
+  #mobileQuickMenu .menu-subtitle::after,
+  #mobileQuickMenu .quick-subtitle::after{
+    content:"" !important;
+    display:block !important;
+    width:120px !important;
+    height:1px !important;
+    margin-top:10px !important;
+    background:linear-gradient(90deg,
+      transparent,
+      rgba(255,42,57,.95),
+      rgba(255,42,57,.28),
+      transparent) !important;
+    box-shadow:
+      0 0 5px rgba(255,35,50,.75),
+      0 0 13px rgba(255,20,40,.38) !important;
+  }
+}
+</style>
+
 </head>
 
 <body class="app-loading">
@@ -8189,11 +8962,21 @@ window.toggleUserActive=async function(uid,current){
 };
 
 window.adminPlatformsCache=[];
+function ensurePlatformBadgeField(){
+  if(document.getElementById('platformBadge'))return;
+  const description=document.getElementById('platformDescription');
+  if(!description)return;
+  const field=document.createElement('div');
+  field.className='admin-field';
+  field.innerHTML='<label>KART ROZETİ</label><select class="admin-select" id="platformBadge"><option value="">Rozet yok</option><option value="🔥 POPÜLER">🔥 POPÜLER</option><option value="☆ ÖNERİLEN">☆ ÖNERİLEN</option><option value="⚡ YENİ">⚡ YENİ</option><option value="🎁 BONUSLU">🎁 BONUSLU</option><option value="🛡 GÜVENİLİR">🛡 GÜVENİLİR</option><option value="✿ CASINO">✿ CASINO</option></select>';
+  description.closest('.admin-field')?.after(field);
+}
+ensurePlatformBadgeField();
 
-window.resetPlatformForm=function(){['platformEditId','platformLogoImage','platformLogoStoragePath','platformName','platformLogo','platformDescription','platformUrl','platformLogoUrl','platformNameFontSize','platformDescriptionFontSize'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});const file=document.getElementById('platformLogoFile');if(file)file.value='';const preview=document.getElementById('platformLogoPreview');if(preview)preview.innerHTML='';document.getElementById('platformTheme').value='blue';document.getElementById('platformOrder').value=1;document.getElementById('platformActive').checked=true;document.getElementById('platformNameFontSize').value=22;document.getElementById('platformDescriptionFontSize').value=14;};
+window.resetPlatformForm=function(){ensurePlatformBadgeField();['platformEditId','platformLogoImage','platformLogoStoragePath','platformName','platformLogo','platformDescription','platformBadge','platformUrl','platformLogoUrl','platformNameFontSize','platformDescriptionFontSize'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});const file=document.getElementById('platformLogoFile');if(file)file.value='';const preview=document.getElementById('platformLogoPreview');if(preview)preview.innerHTML='';document.getElementById('platformTheme').value='blue';document.getElementById('platformOrder').value=1;document.getElementById('platformActive').checked=true;document.getElementById('platformNameFontSize').value=22;document.getElementById('platformDescriptionFontSize').value=14;};
 window.previewPlatformLogo=function(input){const file=input?.files?.[0];const preview=document.getElementById('platformLogoPreview');if(!preview)return;if(!file){preview.innerHTML='';return;}if(!file.type.startsWith('image/')){alert('Lütfen PNG, JPG, WEBP veya GIF görsel seçin.');input.value='';preview.innerHTML='';return;}const reader=new FileReader();reader.onload=()=>{preview.innerHTML=`<img src="${reader.result}" alt="Logo önizleme"><span>${escapeHtml(file.name)} · Görsel kaydedilirken optimize edilecek.</span>`;};reader.readAsDataURL(file);};
 function compressLogoFile(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=reject;reader.onload=()=>{const img=new Image();img.onerror=reject;img.onload=()=>{const max=500;const scale=Math.min(1,max/Math.max(img.width,img.height));const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));const ctx=canvas.getContext('2d');ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0,canvas.width,canvas.height);let data=canvas.toDataURL('image/webp',0.82);if(data.length>900000){data=canvas.toDataURL('image/jpeg',0.72);}if(data.length>950000)reject(new Error('Logo görseli çok büyük. Daha küçük bir görsel seçin.'));else resolve(data);};img.src=reader.result;};reader.readAsDataURL(file);});}
-window.editPlatform=async function(id){try{const s=await getDoc(doc(db,'platforms',id));if(!s.exists())return;const d=s.data();document.getElementById('platformEditId').value=id;document.getElementById('platformLogoImage').value=d.logoImage||'';document.getElementById('platformLogoStoragePath').value=d.logoStoragePath||'';document.getElementById('platformName').value=d.name||'';document.getElementById('platformLogo').value=d.logo||'';document.getElementById('platformLogoUrl').value=d.logoUrl||'';document.getElementById('platformDescription').value=d.description||'';document.getElementById('platformNameFontSize').value=Number(d.nameFontSize)>0?Number(d.nameFontSize):22;document.getElementById('platformDescriptionFontSize').value=Number(d.descriptionFontSize)>0?Number(d.descriptionFontSize):14;document.getElementById('platformUrl').value=d.url||'';document.getElementById('platformTheme').value=d.theme||'blue';document.getElementById('platformOrder').value=d.order||1;document.getElementById('platformActive').checked=d.active!==false;document.getElementById('platformLogoFile').value='';const preview=document.getElementById('platformLogoPreview');const src=d.logoImage||d.logoUrl||'';preview.innerHTML=src?`<img src="${escapeHtml(src)}" alt="Mevcut logo"><span>Mevcut logo</span>`:'';document.querySelector('.admin-content').scrollTo({top:0,behavior:'smooth'});}catch(e){alert(firebaseError(e));}};
+window.editPlatform=async function(id){try{const s=await getDoc(doc(db,'platforms',id));if(!s.exists())return;const d=s.data();ensurePlatformBadgeField();document.getElementById('platformEditId').value=id;document.getElementById('platformLogoImage').value=d.logoImage||'';document.getElementById('platformLogoStoragePath').value=d.logoStoragePath||'';document.getElementById('platformName').value=d.name||'';document.getElementById('platformLogo').value=d.logo||'';document.getElementById('platformLogoUrl').value=d.logoUrl||'';document.getElementById('platformDescription').value=d.description||'';document.getElementById('platformBadge').value=d.badge||'';document.getElementById('platformNameFontSize').value=Number(d.nameFontSize)>0?Number(d.nameFontSize):22;document.getElementById('platformDescriptionFontSize').value=Number(d.descriptionFontSize)>0?Number(d.descriptionFontSize):14;document.getElementById('platformUrl').value=d.url||'';document.getElementById('platformTheme').value=d.theme||'blue';document.getElementById('platformOrder').value=d.order||1;document.getElementById('platformActive').checked=d.active!==false;document.getElementById('platformLogoFile').value='';const preview=document.getElementById('platformLogoPreview');const src=d.logoImage||d.logoUrl||'';preview.innerHTML=src?`<img src="${escapeHtml(src)}" alt="Mevcut logo"><span>Mevcut logo</span>`:'';document.querySelector('.admin-content').scrollTo({top:0,behavior:'smooth'});}catch(e){alert(firebaseError(e));}};
 window.savePlatform=async function(){
     const file=document.getElementById('platformLogoFile')?.files?.[0]||null;
     const nameFontSize=Number(document.getElementById('platformNameFontSize').value)||22;
@@ -8205,6 +8988,7 @@ window.savePlatform=async function(){
         logoUrl:document.getElementById('platformLogoUrl').value.trim(),
         logoStoragePath:document.getElementById('platformLogoStoragePath').value.trim(),
         description:document.getElementById('platformDescription').value.trim(),
+        badge:document.getElementById('platformBadge')?.value.trim()||'',
         nameFontSize:Math.min(60,Math.max(10,nameFontSize)),
         descriptionFontSize:Math.min(28,Math.max(10,descriptionFontSize)),
         url:document.getElementById('platformUrl').value.trim(),
@@ -9312,27 +10096,16 @@ window.movePlatform=async function(id,direction){
     const targetIndex=index+direction;
     if(targetIndex<0||targetIndex>=all.length)return;
 
-    const current=all[index];
-    const target=all[targetIndex];
-
-    const currentData=current.data||{};
-    const targetData=target.data||{};
-    const currentOrder=Number(currentData.order)||index+1;
-    const targetOrder=Number(targetData.order)||targetIndex+1;
+    const reordered=[...all];
+    const [moved]=reordered.splice(index,1);
+    reordered.splice(targetIndex,0,moved);
 
     try{
-        await Promise.all([
-            updateDoc(doc(db,'platforms',current.id),{
-                order:targetOrder,
+      await Promise.all(reordered.map((platform,newIndex)=>updateDoc(doc(db,'platforms',platform.id),{
+          order:newIndex+1,
                 updatedAt:serverTimestamp(),
                 updatedBy:auth.currentUser.uid
-            }),
-            updateDoc(doc(db,'platforms',target.id),{
-                order:currentOrder,
-                updatedAt:serverTimestamp(),
-                updatedBy:auth.currentUser.uid
-            })
-        ]);
+      })));
 
         await loadAdminPlatforms();
         await renderPublicPlatforms();
@@ -10399,11 +11172,21 @@ window.renderPublicSocialLinks=async function(){
 document.addEventListener('input',event=>{
     if(['socialTitle','socialIcon'].includes(event.target?.id))updateSocialPreview();
 });
+window.startAnnouncementTicker=function(){
+  const track=document.getElementById('publicAnnouncementTrack');
+  if(!track)return;
+  track.style.setProperty('animation','announcementMove 20s linear infinite','important');
+  track.style.removeProperty('transform');
+  track.classList.remove('announcement-ticker-ready');
+  void track.offsetWidth;
+  track.classList.add('announcement-ticker-ready');
+};
+
 document.addEventListener('change',event=>{
     if(event.target?.id==='socialTheme')updateSocialPreview();
 });
 
-window.renderPublicPlatforms=async function(){const c=document.getElementById('publicPlatformList');if(!c)return;try{const snap=await getDocs(collection(db,'platforms'));const docs=[...snap.docs].filter(s=>s.data().active!==false).sort((a,b)=>(Number(a.data().order)||0)-(Number(b.data().order)||0));if(!docs.length){c.innerHTML='<div class="admin-empty">Henüz günün sayfası eklenmemiş. Admin panelinden görsel ve link ekleyin.</div>';return;}c.innerHTML=docs.map(s=>{const d=s.data();const url=d.url&&/^https?:\/\//i.test(d.url)?d.url:'#';const img=d.logoImage||d.logoUrl;const nameFontSize=Number(d.nameFontSize)>0?Number(d.nameFontSize):22;const descriptionFontSize=Number(d.descriptionFontSize)>0?Number(d.descriptionFontSize):14;const isMobileView=window.innerWidth<=600;const displayNameSize=isMobileView?Math.max(3.2,Math.round(nameFontSize*0.15)):nameFontSize;const displayDescriptionSize=isMobileView?Math.max(2.0,Math.round(descriptionFontSize*0.13)):descriptionFontSize;const logo=img?`<div class="site-logo image-logo"><img src="${escapeHtml(img)}" alt="${escapeHtml(d.name||'Platform')} logosu"></div>`:`<div class="site-logo">${escapeHtml(d.logo||'VIP')}</div>`;return `<a class="site-card-link" href="${escapeHtml(url)}" ${url!=='#'?'target="_blank" rel="noopener noreferrer"':''}><article class="site-card ${escapeHtml(d.theme||'blue')}"><div class="star">★</div><div class="site-info"><h2 style="font-size:${displayNameSize}px">${escapeHtml(d.name||'Platform')}</h2><p style="font-size:${displayDescriptionSize}px">${escapeHtml(d.description||'Güncel platform bilgileri.')}</p></div>${logo}<span class="site-button">${url!=='#'?'GİRİŞ YAP':'DETAY'}</span></article></a>`;}).join('');}catch(e){console.warn(e);}};
+window.renderPublicPlatforms=async function(){const c=document.getElementById('publicPlatformList');if(!c)return;try{const snap=await getDocs(collection(db,'platforms'));const docs=[...snap.docs].filter(s=>s.data().active!==false).sort((a,b)=>(Number(a.data().order)||0)-(Number(b.data().order)||0));if(!docs.length){c.innerHTML='<div class="admin-empty">Henüz günün sayfası eklenmemiş. Admin panelinden görsel ve link ekleyin.</div>';return;}const fallbackBadges=['🔥 POPÜLER','☆ ÖNERİLEN','⚡ YENİ','🎁 BONUSLU','🛡 GÜVENİLİR','✿ CASINO'];c.innerHTML=docs.map((s,index)=>{const d=s.data();const badge=(d.badge||fallbackBadges[index%fallbackBadges.length]).trim();const url=d.url&&/^https?:\/\//i.test(d.url)?d.url:'#';const img=d.logoImage||d.logoUrl;const nameFontSize=Number(d.nameFontSize)>0?Number(d.nameFontSize):22;const descriptionFontSize=Number(d.descriptionFontSize)>0?Number(d.descriptionFontSize):14;const isMobileView=window.innerWidth<=600;const displayNameSize=isMobileView?Math.max(3.2,Math.round(nameFontSize*0.15)):nameFontSize;const displayDescriptionSize=isMobileView?Math.max(2.0,Math.round(descriptionFontSize*0.13)):descriptionFontSize;const logo=img?`<div class="site-logo image-logo"><img src="${escapeHtml(img)}" alt="${escapeHtml(d.name||'Platform')} logosu"></div>`:`<div class="site-logo">${escapeHtml(d.logo||'VIP')}</div>`;return `<a class="site-card-link" href="${escapeHtml(url)}" ${url!=='#'?'target="_blank" rel="noopener noreferrer"':''}><article class="site-card ${escapeHtml(d.theme||'blue')}" data-badge="${escapeHtml(badge)}"><div class="star">★</div><div class="site-info"><span class="site-badge-mobile">${escapeHtml(badge)}</span><h2 style="font-size:${displayNameSize}px">${escapeHtml(d.name||'Platform')}</h2><p style="font-size:${displayDescriptionSize}px">${escapeHtml(d.description||'Güncel platform bilgileri.')}</p></div>${logo}<span class="site-button">${url!=='#'?'GİRİŞ YAP':'DETAY'}</span></article></a>`;}).join('');}catch(e){console.warn(e);}};
 window.renderPublicFeaturedHeroes=async function(){
     const wrap=document.getElementById('featuredHeroWrap');
     if(!wrap)return;
@@ -10413,6 +11196,7 @@ window.renderPublicFeaturedHeroes=async function(){
             .map(s=>({id:s.id,data:s.data()}))
             .filter(x=>x.data.active!==false)
             .sort((a,b)=>(Number(a.data.order)||0)-(Number(b.data.order)||0));
+        wrap.style.setProperty('display',window.innerWidth>700?'block':'none','important');
         if(!docs.length){wrap.innerHTML='';return;}
         const items=docs.slice(0,3);
         const slideHtml=items.map((item,index)=>{
@@ -10912,7 +11696,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     const menu=document.createElement('aside');
     menu.id='mobileQuickMenu';
     menu.setAttribute('aria-label','Kısa yollar');
-    menu.innerHTML='<div class="mq-head"><div class="mq-title">KISA YOLLAR</div><div class="mq-sub">HIZLI ERİŞİM MENÜSÜ</div></div><div class="mq-links" id="mqLinks"></div>';
+    menu.innerHTML='<div class="mq-head"><div class="mq-title">MENÜ</div><div class="mq-sub">HIZLI ERİŞİM MENÜSÜ</div></div><div class="mq-links" id="mqLinks"></div>';
     document.body.append(overlay,menu);
 
     const links=menu.querySelector('#mqLinks');
@@ -10987,7 +11771,7 @@ document.addEventListener("DOMContentLoaded",()=>{
       if(card.querySelector('.site-badge-mobile')) return;
       const info=card.querySelector('.site-info');
       if(!info) return;
-      const b=badges[i%badges.length];
+      const b=card.dataset.badge ? ['',card.dataset.badge] : badges[i%badges.length];
       const badge=document.createElement('span');
       badge.className='site-badge-mobile';
       badge.textContent=b[0]+' '+b[1];
@@ -11339,5 +12123,11 @@ document.addEventListener("DOMContentLoaded",()=>{
   }
   .site-card:hover{transform:translateY(-1px)!important;border-color:#ff5968!important;box-shadow:0 0 20px rgba(255,40,55,.14),0 10px 28px rgba(0,0,0,.32)!important;}
   .site-card:hover .site-button{background:linear-gradient(180deg,rgba(95,20,31,.82),rgba(27,13,19,.9))!important;}
+}
+</style>
+
+<style id="restore-desktop-featured-hero">
+@media (min-width:701px){
+  .featured-hero-wrap{display:block !important;}
 }
 </style>
