@@ -11212,15 +11212,15 @@ function applyPageLogo(data){
   const image=document.getElementById('customPageLogo');
   if(!fallback||!image)return;
   const url=data?.url||'';
-  if(!url){fallback.style.display='';image.style.display='none';image.removeAttribute('src');return;}
+  if(!url){fallback.style.removeProperty('display');image.style.setProperty('display','none','important');image.removeAttribute('src');return;}
   const mobile=window.matchMedia('(max-width:700px)').matches;
   const width=mobile?Number(data.mobileWidth)||190:Number(data.webWidth)||300;
   const height=mobile?Number(data.mobileHeight)||48:Number(data.webHeight)||70;
   image.src=url;
   image.style.setProperty('width',Math.max(20,width)+'px','important');
   image.style.setProperty('height',Math.max(20,height)+'px','important');
-  image.style.display='block';
-  fallback.style.display='none';
+  image.style.setProperty('display','block','important');
+  fallback.style.setProperty('display','none','important');
 }
 
 window.renderPageLogo=async function(){
