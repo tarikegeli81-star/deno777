@@ -3929,7 +3929,8 @@ body{padding-bottom:0!important}.bottom-nav{display:none!important}.top-bar{posi
   .modal-overlay.desktop-inline-shortcut .plinko-modal-box,
   .modal-overlay.desktop-inline-shortcut .market-modal-box,
   .modal-overlay.desktop-inline-shortcut .raffles-modal-box,
-  .modal-overlay.desktop-inline-shortcut .leaderboard-modal-box{
+  .modal-overlay.desktop-inline-shortcut .leaderboard-modal-box,
+  .modal-overlay.desktop-inline-shortcut .varmisin-modal-box{
     position:relative !important;
     width:100% !important;
     max-width:none !important;
@@ -6893,6 +6894,11 @@ footer,
         <span class="nav-label">ÇEKİLİŞ</span>
     </button>
 
+    <button type="button" class="bottom-nav-item" data-nav="varmisin" onclick="window.openVarMisIn();return false;">
+      <span class="nav-icon">🎮</span>
+      <span class="nav-label">VAR MISIN?</span>
+    </button>
+
   <button type="button" class="bottom-nav-item bottom-admin-nav" id="bottomAdminButton" data-nav="admin" onclick="bottomNavGo('admin',this)" style="display:none">
     <span class="nav-icon">🛡️</span>
     <span class="nav-label">ADMİN</span>
@@ -7276,6 +7282,7 @@ footer,
 <button class="admin-nav" data-view="socials" onclick="showAdminView('socials',this)">🔗 ÜST MENÜ</button>
 <button class="admin-nav" data-view="market" onclick="showAdminView('market',this)">🛒 MARKET</button>
 <button class="admin-nav" data-view="raffles" onclick="showAdminView('raffles',this)">🎁 ÇEKİLİŞLER</button>
+<button class="admin-nav" data-view="varmisin" onclick="showAdminView('varmisin',this)">🎮 VAR MISIN YOK MUSUN</button>
 <div class="admin-sidebar-bottom"><button type="button" class="account-action danger" onclick="handleLogout()">🚪 ÇIKIŞ YAP</button></div>
 </aside><section class="admin-content">
 <div class="admin-view active" id="adminViewDashboard">
@@ -7634,6 +7641,42 @@ footer,
 <div class="admin-list" id="adminPromoList"></div>
 </div>
 
+<style id="varmisin-admin-simple-styles">
+  .varmisin-admin-simple{display:grid;gap:14px;max-width:760px}.varmisin-admin-card{padding:18px;border:1px solid rgba(255,48,62,.22);border-radius:14px;background:rgba(0,0,0,.14)}.varmisin-admin-card.highlight{border-color:rgba(255,48,62,.55);box-shadow:inset 0 0 22px rgba(255,35,52,.045)}.varmisin-admin-card-title{display:flex;align-items:flex-start;gap:11px;margin-bottom:15px}.varmisin-admin-card-title>span,.varmisin-admin-advanced summary>span{display:grid;place-items:center;flex:0 0 27px;width:27px;height:27px;border-radius:50%;background:#ff3042;color:#fff;font-weight:900;font-size:12px;box-shadow:0 0 12px rgba(255,35,52,.35)}.varmisin-admin-card-title strong{display:block;color:#fff;font-size:14px}.varmisin-admin-card-title small,.varmisin-admin-advanced summary small{display:block;margin-top:4px;color:#91a1b2;font-size:10px;line-height:1.4}.varmisin-admin-card .admin-checkbox{margin:9px 0}.varmisin-admin-note,.varmisin-admin-help{margin-top:7px;color:#8d9bae;font-size:10px;line-height:1.45}.varmisin-admin-help{color:#ff8b95}.varmisin-admin-advanced{cursor:default}.varmisin-admin-advanced summary{display:flex;align-items:center;gap:11px;list-style:none;cursor:pointer}.varmisin-admin-advanced summary::-webkit-details-marker{display:none}.varmisin-admin-advanced summary strong{color:#fff;font-size:13px}.varmisin-admin-advanced[open] summary{margin-bottom:16px}.varmisin-admin-ratio{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .varmisin-admin-save-status{grid-column:1/-1;min-height:20px;text-align:center;color:#8ff0ae;font-size:11px;font-weight:800}.varmisin-admin-save-status.error{color:#ff8f9a}
+  .varmisin-admin-gift-list{display:grid;gap:8px;margin-top:14px}.varmisin-admin-gift-item{display:flex;align-items:center;gap:12px;padding:10px;border:1px solid rgba(255,48,62,.3);border-radius:10px;background:rgba(255,35,52,.05)}.varmisin-admin-gift-item img{width:58px;height:48px;object-fit:contain;border-radius:6px;background:rgba(0,0,0,.2)}.varmisin-admin-gift-item strong{display:block;color:#fff;font-size:12px}.varmisin-admin-gift-item small{display:block;margin-top:3px;color:#ff8c96;font-size:10px}.varmisin-admin-gift-actions{margin-left:auto;display:flex;gap:6px}.varmisin-admin-gift-actions button{min-height:32px;padding:0 9px;font-size:9px}.varmisin-admin-gift-empty{padding:10px;color:#8995a4;font-size:10px}
+  @media(max-width:600px){.varmisin-admin-ratio{grid-template-columns:1fr}.varmisin-admin-card{padding:14px}.varmisin-admin-card-title strong{font-size:13px}}
+</style>
+<div class="admin-view" id="adminViewVarmisin">
+<div class="admin-view-title">🎮 VAR MISIN YOK MUSUN</div>
+<div class="admin-view-subtitle">Oyuncunun göreceği oyunu buradan kolayca ayarlayın.</div>
+<div class="varmisin-admin-simple">
+  <section class="varmisin-admin-card">
+    <div class="varmisin-admin-card-title"><span>1</span><div><strong>Oyunu aç veya kapat</strong><small>Kapalı olduğunda kullanıcılar yeni oyun başlatamaz.</small></div></div>
+    <label class="admin-checkbox"><input type="checkbox" id="varmisinAdminActive" checked> Oyun kullanıcılara açık</label>
+    <label class="admin-checkbox"><input type="checkbox" id="varmisinAdminUnlimited" checked> Adminler sınırsız oynayabilsin</label>
+    <div class="varmisin-admin-note">Her normal kullanıcı Türkiye saatine göre günde 1 oyun oynar.</div>
+    <input id="varmisinAdminWeeklyLimit" type="hidden" value="1">
+  </section>
+  <section class="varmisin-admin-card highlight">
+    <div class="varmisin-admin-card-title"><span>2</span><div><strong>Kutuya özel hediye koy</strong><small>Örneğin iPhone 17 yazın ve görselini yükleyin.</small></div></div>
+    <div class="admin-field"><label>HEDİYE ADI</label><input class="admin-input" id="varmisinAdminGiftName" maxlength="80" placeholder="iPhone 17"></div>
+    <div class="admin-field"><label>KAZANMA ŞANSI (%)</label><input class="admin-input" id="varmisinAdminGiftChance" type="number" min="0" max="100" step="1" value="100"><div class="varmisin-admin-help">100 = kesin kazanır · 0 = asla kazanamaz</div></div>
+    <label class="admin-checkbox"><input type="checkbox" id="varmisinAdminGiftActive" checked> Bu hediye oyunda aktif</label>
+    <div class="admin-field"><label>HEDİYE GÖRSELİ</label><input class="admin-file" id="varmisinAdminGiftFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif"><div class="logo-preview" id="varmisinAdminGiftPreview"></div></div>
+    <div class="varmisin-admin-gift-list" id="varmisinAdminGiftList"><div class="varmisin-admin-gift-empty">Kayıtlı özel hediye yükleniyor...</div></div>
+  </section>
+  <details class="varmisin-admin-card varmisin-admin-advanced">
+    <summary><span>3</span><strong>Diğer oyun ayarları</strong><small>Puan listesi ve banker teklif aralığı</small></summary>
+    <div class="admin-field full"><label>PUAN ÖDÜLLERİ VE KUTU SAYISI</label><textarea class="admin-input" id="varmisinAdminRewards" style="height:70px;padding:10px;resize:vertical">10,25,50,75,100,150,250,400,500,750,1000,1500,2000,3000,4000,5000,7500,10000,15000,20000,25000,35000,50000,100000</textarea><div class="varmisin-admin-help">Her sayı 1 kutudur. En az 24 ödül girin; yeni sayı ekledikçe oyuna yeni kutu eklenir.</div></div>
+    <div class="varmisin-admin-ratio"><div class="admin-field"><label>BANKER EN AZ</label><input class="admin-input" id="varmisinAdminMinRatio" type="number" min="0" max="1" step="0.01" value="0.2"></div><div class="admin-field"><label>BANKER EN ÇOK</label><input class="admin-input" id="varmisinAdminMaxRatio" type="number" min="0" max="1" step="0.01" value="0.9"></div></div>
+  </details>
+  <div class="admin-form-actions"><button type="button" class="admin-action" id="varmisinSaveButton" onclick="saveVarMisInSettings()">💾 AYARLARI KAYDET</button><button type="button" class="admin-action secondary" onclick="loadVarMisInSettings()">↻ MEVCUT AYARLARI YÜKLE</button></div>
+  <div class="varmisin-admin-save-status" id="varmisinAdminSaveStatus" role="status"></div>
+</div>
+<div class="admin-view-title" style="margin-top:22px">Oyun geçmişi</div><div class="admin-toolbar"><button class="admin-action secondary" onclick="loadVarMisInHistory()">↻ GEÇMİŞİ YENİLE</button></div><div class="admin-list" id="varmisinAdminHistory"><div class="admin-empty">Geçmişi görmek için yenileye basın.</div></div>
+</div>
+
 <div class="admin-view" id="adminViewAdmins">
 <div class="admin-view-title">🛡️ Yönetici Yönetimi</div>
 <div class="admin-view-subtitle">Yönetici hesaplarını buradan güvenli şekilde yönetin. Owner hesabı daima korunur.</div>
@@ -7733,6 +7776,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
+window.auth=auth;
 
 window.updateBottomNavigationVisibility = function(){
     const hasOpenModal=!!document.querySelector(".modal-overlay.active");
@@ -7815,6 +7859,228 @@ function getTurkeyDateKey(){
         month:"2-digit",
         day:"2-digit"
     }).format(new Date());
+}
+
+const varMisInRewards=[10,25,50,75,100,150,250,400,500,750,1000,1500,2000,3000,4000,5000,7500,10000,15000,20000,25000,35000,50000,100000];
+const varMisInRoundSizes=[6,5,4,3,2,1,1,1,1,1];
+let varMisInGame=null;
+let varMisInSaving=Promise.resolve();
+let varMisInLocalOnly=false;
+let varMisInDailyUsed=false;
+let varMisInConfig={active:true,weeklyLimit:1,adminUnlimited:true,rewards:varMisInRewards,minRatio:.2,maxRatio:.9,specialGift:{name:'',imageUrl:'',chance:100}};
+
+function varMisInFormat(value){return Number(value||0).toLocaleString('tr-TR')+' PUAN';}
+function varMisInGiftMarkup(gift,won){
+  if(!gift?.name)return '';
+  const image=gift.imageUrl?`<img class="varmisin-gift-image" src="${escapeHtml(gift.imageUrl)}" alt="">`:'';
+  return `${image}<span class="varmisin-gift-name">${escapeHtml(gift.name)}</span><small>${won?'KAZANDIN':'KAZANILAMADI'}</small>`;
+}
+function varMisInShuffle(items){return [...items].sort(()=>Math.random()-.5);}
+function varMisInGameRef(user){return doc(db,'users',user.uid,'games','varmisin_active');}
+function varMisInHistoryRef(user,gameId){return doc(db,'games',gameId);}
+function varMisInIsAdmin(user){return Boolean(user?.email && user.email.toLowerCase()==='sevkym@gmail.com');}
+
+function renderVarMisInBoard(){
+  const board=document.getElementById('varmisinBoard');
+  if(!board)return;
+  const game=varMisInGame;
+  const rewards=game?.boxRewards||varMisInRewards;
+  const openedBoxes=game?.openedBoxes||[];
+  const remainingRewards=rewards.filter((_,index)=>!openedBoxes.includes(index+1));
+  board.innerHTML=Array.from({length:rewards.length},(_,index)=>{
+    const box=index+1;
+    const opened=openedBoxes.includes(box)||(game?.status==='completed'&&game?.mainBox===box);
+    const main=game?.mainBox===box;
+    const reward=opened ? rewards[index] : '';
+    const isGift=opened&&game?.specialBox===box&&game?.specialGift;
+    const mainReady=main&&game?.mainBox&&openedBoxes.length===rewards.length-1;
+    const locked=opened||game?.status==='completed'||game?.bankerPending||(!mainReady&&main);
+    return `<button type="button" class="varmisin-box${opened?' opened':''}${main?' main-box':''}${isGift?' gift-box':''}" data-box="${box}" ${locked?'disabled':''} onclick="chooseVarMisInBox(${box})">${isGift?varMisInGiftMarkup(game.specialGift,game.specialGiftWon):opened?`<span class="reward${reward===100000?' jackpot':''}">${varMisInFormat(reward)}</span>`:`${String(box).padStart(2,'0')}`}</button>`;
+  }).join('');
+  const left=document.getElementById('varmisinRewardsLeft');
+  const rewardsRight=document.getElementById('varmisinRewardsRight');
+  const rewardMarkup=(value,index)=>`<div class="varmisin-reward-item${value===100000?' jackpot':''}"><span class="varmisin-reward-dot"></span><span>${varMisInFormat(value)}</span></div>`;
+  const giftLine=game?.specialGift&&!openedBoxes.includes(game.specialBox)?`<div class="varmisin-reward-item special"><span class="varmisin-reward-dot"></span><span>${escapeHtml(game.specialGift.name)}</span></div>`:'';
+  if(left)left.innerHTML=giftLine+remainingRewards.slice(0,Math.ceil(remainingRewards.length/2)).map(rewardMarkup).join('')||'<div class="varmisin-reward-empty">AÇILDI</div>';
+  if(rewardsRight)rewardsRight.innerHTML=remainingRewards.slice(Math.ceil(remainingRewards.length/2)).map(rewardMarkup).join('')||'<div class="varmisin-reward-empty">AÇILDI</div>';
+  const round=document.getElementById('varmisinRound');
+  const opened=document.getElementById('varmisinOpened');
+  const right=document.getElementById('varmisinRight');
+  if(round)round.textContent=game?`${game.currentRound}. tur`:'Hazır';
+  if(opened)opened.textContent=`${openedBoxes.length} / ${Math.max(0,rewards.length-1)}`;
+    if(right)right.textContent=game?.status==='active'?'Kullanılıyor':(varMisInDailyUsed?'0 / 1':'1 / 1');
+    updateVarMisInDailyCounter();
+}
+
+function updateVarMisInDailyCounter(){
+  const element=document.getElementById('varmisinDailyCounter');
+  if(!element)return;
+  const now=new Date(),parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Istanbul',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).formatToParts(now);
+  const hour=Number(parts.find(part=>part.type==='hour')?.value||0),minute=Number(parts.find(part=>part.type==='minute')?.value||0),second=Number(parts.find(part=>part.type==='second')?.value||0);
+  const remaining=Math.max(0,24*60*60-(hour*3600+minute*60+second));
+  const hours=String(Math.floor(remaining/3600)).padStart(2,'0'),minutes=String(Math.floor((remaining%3600)/60)).padStart(2,'0'),seconds=String(remaining%60).padStart(2,'0');
+  element.textContent=`Yeni hak: ${hours}:${minutes}:${seconds}`;
+}
+setInterval(updateVarMisInDailyCounter,1000);
+
+function varMisInSaveGame(){
+  const user=auth.currentUser;
+  if(!user||!varMisInGame||varMisInLocalOnly)return Promise.resolve();
+  varMisInSaving=varMisInSaving.then(()=>setDoc(varMisInGameRef(user),{...varMisInGame,updatedAt:serverTimestamp()},{merge:true}));
+  return varMisInSaving;
+}
+
+function varMisInOffer(){
+  const game=varMisInGame;
+  const remaining=game.boxRewards.filter((_,index)=>!game.openedBoxes.includes(index+1));
+  const average=remaining.reduce((sum,value)=>sum+value,0)/Math.max(1,remaining.length);
+  const ratio=game.currentRound<=1?varMisInConfig.minRatio+.1:game.currentRound<=4?(varMisInConfig.minRatio+varMisInConfig.maxRatio)/2:varMisInConfig.maxRatio-.1;
+  return Math.max(10,Math.round(average*ratio*(.96+Math.random()*.08)/10)*10);
+}
+
+async function loadVarMisInGame(){
+  const user=auth.currentUser;
+  if(!user){varMisInGame=null;renderVarMisInBoard();return;}
+  const [snap,userSnap,settingsSnap]=await Promise.all([getDoc(varMisInGameRef(user)),getDoc(doc(db,'users',user.uid)),getDoc(doc(db,'gameSettings','varmisin'))]);
+  if(settingsSnap.exists())varMisInConfig={...varMisInConfig,...settingsSnap.data()};
+  varMisInDailyUsed=!varMisInIsAdmin(user)&&(userSnap.exists()&&userSnap.data().varmisinLastDate===getTurkeyDateKey());
+  if(snap.exists()&&snap.data().status==='active'){
+    varMisInGame={...snap.data(),gameId:snap.data().gameId||`varmisin_${user.uid}_${Date.now()}`};
+    if(!varMisInGame.specialGift&&varMisInConfig.specialGift?.name&&varMisInConfig.specialGift.active!==false){
+      varMisInGame.specialGift=varMisInConfig.specialGift;
+      varMisInGame.specialBox=null;
+    }
+    if(varMisInGame.specialGift&&(!varMisInGame.specialBox||(!varMisInGame.openedBoxes.includes(varMisInGame.specialBox)&&varMisInGame.specialBox>6))){
+      const firstSix=Array.from({length:Math.min(6,varMisInGame.boxRewards.length)},(_,index)=>index+1);
+      const available=firstSix.filter(value=>value!==varMisInGame.mainBox&&!varMisInGame.openedBoxes.includes(value));
+      if(available.length)varMisInGame.specialBox=varMisInShuffle(available)[0];
+      await varMisInSaveGame();
+    }
+    document.getElementById('varmisinMessage').textContent='Kaldığın yerden devam edebilirsin.';
+    document.getElementById('varmisinStartButton').style.display='none';
+  }else{
+    varMisInGame=null;
+    document.getElementById('varmisinStartButton').style.display='inline-flex';
+  }
+  renderVarMisInBoard();
+}
+
+window.openVarMisIn=async function(){
+  closeAllModals();
+  openModal('varmisinModal');
+  if(!auth.currentUser){document.getElementById('varmisinMessage').textContent='Oynamak için önce giriş yapmalısın.';renderVarMisInBoard();return;}
+  try{await loadVarMisInGame();}catch(error){console.error('Var Mısın Yok Musun yüklenemedi:',error);document.getElementById('varmisinMessage').textContent='Oyun yüklenemedi. Lütfen tekrar dene.';varMisInGame=null;renderVarMisInBoard();}
+};
+
+window.startVarMisInGame=async function(){
+  const user=auth.currentUser;
+  if(!user){openLogin();return;}
+  const userRef=doc(db,'users',user.uid),today=getTurkeyDateKey();
+  try{
+    const settingsSnap=await getDoc(doc(db,'gameSettings','varmisin'));
+    varMisInConfig={...varMisInConfig,...(settingsSnap.exists()?settingsSnap.data():{})};
+    if(!varMisInConfig.active&&!varMisInIsAdmin(user))throw new Error('VARMISIN_DISABLED');
+    const result=await runTransaction(db,async(transaction)=>{
+      const userSnap=await transaction.get(userRef);
+      const data=userSnap.exists()?userSnap.data():{};
+      if(!varMisInIsAdmin(user)&&data.varmisinLastDate===today)throw new Error('VARMISIN_DAILY_LIMIT');
+      const gameId=`varmisin_${user.uid}_${Date.now()}`;
+            const rewards=varMisInShuffle(varMisInConfig.rewards||varMisInRewards),specialGift=varMisInConfig.specialGift?.name&&varMisInConfig.specialGift.active!==false?varMisInConfig.specialGift:null;
+            const game={gameId,userId:user.uid,gameType:'varmisin_yokmusun',status:'active',mainBox:null,boxRewards:rewards,openedBoxes:[],currentRound:0,roundOpened:0,boxesToOpen:0,bankerOffer:0,bankerPending:false,specialBox:null,specialGift,specialGiftWon:false,rewardClaimed:false,createdAt:serverTimestamp(),updatedAt:serverTimestamp()};
+      transaction.set(varMisInGameRef(user),game);
+      if(!varMisInIsAdmin(user))transaction.set(userRef,{varmisinLastDate:today},{merge:true});
+      return game;
+    });
+    varMisInGame={...result};
+    varMisInDailyUsed=true;
+    document.getElementById('varmisinStartButton').style.display='none';
+    document.getElementById('varmisinMessage').textContent='Ana kutunu seç.';
+    renderVarMisInBoard();
+    }catch(error){
+      if(error.message==='VARMISIN_DAILY_LIMIT'||error.message==='VARMISIN_DISABLED'){
+        document.getElementById('varmisinMessage').textContent=error.message==='VARMISIN_DAILY_LIMIT'?'Bugünkü oyun hakkını kullandın.':'Oyun şu anda aktif değil.';
+        return;
+      }
+      console.error('Var Mısın Yok Musun Firebase kaydı başarısız:',error);
+      varMisInLocalOnly=true;
+      varMisInGame={gameId:`local_${user.uid}_${Date.now()}`,userId:user.uid,gameType:'varmisin_yokmusun',status:'active',mainBox:null,boxRewards:varMisInShuffle(varMisInConfig.rewards||varMisInRewards),openedBoxes:[],currentRound:0,roundOpened:0,boxesToOpen:0,bankerOffer:0,bankerPending:false,specialBox:null,specialGift:varMisInConfig.specialGift?.name&&varMisInConfig.specialGift.active!==false?varMisInConfig.specialGift:null,specialGiftWon:false,rewardClaimed:false};
+      document.getElementById('varmisinStartButton').style.display='none';
+      document.getElementById('varmisinMessage').textContent='Oyun açıldı. Ana kutunu seç.';
+      renderVarMisInBoard();
+    }
+};
+
+window.chooseVarMisInBox=async function(box){
+  if(!varMisInGame||varMisInGame.status!=='active')return;
+  if(varMisInGame.bankerPending)return;
+  if(!varMisInGame.mainBox){
+    varMisInGame.mainBox=box;varMisInGame.currentRound=1;varMisInGame.roundOpened=0;varMisInGame.boxesToOpen=varMisInRoundSizes[0];
+    if(varMisInGame.specialGift){
+      const firstRoundBoxes=Array.from({length:Math.min(6,varMisInGame.boxRewards.length)},(_,index)=>index+1).filter(value=>value!==box);
+      const fallbackBoxes=Array.from({length:varMisInGame.boxRewards.length},(_,index)=>index+1).filter(value=>value!==box);
+      varMisInGame.specialBox=varMisInShuffle(firstRoundBoxes.length?firstRoundBoxes:fallbackBoxes)[0];
+      varMisInGame.specialGiftWon=Number(varMisInGame.specialGift.chance??100)>=100||Math.random()*100<Number(varMisInGame.specialGift.chance??100);
+    }
+    document.getElementById('varmisinMessage').textContent='Ana kutun seçildi. 6 kutu aç.';await varMisInSaveGame();renderVarMisInBoard();return;
+  }
+  if(varMisInGame.openedBoxes.includes(box))return;
+  if(box===varMisInGame.mainBox){
+    if(varMisInGame.openedBoxes.length!==varMisInGame.boxRewards.length-1)return;
+    varMisInGame.openedBoxes.push(box);
+    await varMisInSaveGame();
+    renderVarMisInBoard();
+    await varMisInFinish(varMisInGame.boxRewards[box-1],'Kendi kutunu açtın. Kazancın:');
+    return;
+  }
+  /* Özel hediye ilk turda mutlaka oyuncunun seçtiği kutulardan birinde açılır. */
+  if(varMisInGame.specialGift&&varMisInGame.roundOpened>=5&&!varMisInGame.openedBoxes.includes(varMisInGame.specialBox)){
+    varMisInGame.specialBox=box;
+  }
+  varMisInGame.openedBoxes.push(box);varMisInGame.roundOpened=(varMisInGame.roundOpened||0)+1;
+  if(varMisInGame.roundOpened>=varMisInGame.boxesToOpen){
+    varMisInGame.bankerOffer=varMisInOffer();
+    document.getElementById('varmisinOffer').textContent=varMisInFormat(varMisInGame.bankerOffer);
+    varMisInGame.bankerPending=true;
+    document.getElementById('varmisinBanker').hidden=false;
+    document.getElementById('varmisinMessage').textContent='Banker teklifini değerlendir.';
+  }
+  if(varMisInGame.openedBoxes.length===varMisInGame.boxRewards.length-1){
+    document.getElementById('varmisinMessage').textContent='Tüm kutular açıldı. Şimdi kendi kutuna bas.';
+  }
+  await varMisInSaveGame();renderVarMisInBoard();
+};
+
+window.acceptVarMisInOffer=async function(){await varMisInFinish(varMisInGame?.bankerOffer||0,'Banker teklifini kabul ettin.');};
+window.rejectVarMisInOffer=async function(){
+  document.getElementById('varmisinBanker').hidden=true;
+  if(!varMisInGame||varMisInGame.status!=='active')return;
+  varMisInGame.bankerPending=false;
+  varMisInGame.currentRound+=1;varMisInGame.roundOpened=0;
+  varMisInGame.boxesToOpen=varMisInRoundSizes[Math.min(varMisInGame.currentRound-1,varMisInRoundSizes.length-1)];
+  document.getElementById('varmisinMessage').textContent=`Sıradaki turda ${varMisInGame.boxesToOpen} kutu aç.`;
+  await varMisInSaveGame();renderVarMisInBoard();
+};
+
+async function varMisInFinish(reward,message){
+  const user=auth.currentUser;if(!user||!varMisInGame||varMisInGame.rewardClaimed)return;
+  const game=varMisInGame,gameRef=varMisInGameRef(user),historyRef=varMisInHistoryRef(user,game.gameId),userRef=doc(db,'users',user.uid);
+  let awardedPoints=0,leaderboardUsername=user.displayName||'Kullanıcı';
+  try{
+    await runTransaction(db,async(transaction)=>{
+      const [gameSnap,userSnap]=await Promise.all([transaction.get(gameRef),transaction.get(userRef)]);
+      if(!gameSnap.exists()||gameSnap.data().rewardClaimed||gameSnap.data().status!=='active')throw new Error('VARMISIN_ALREADY_CLAIMED');
+      const data=userSnap.exists()?userSnap.data():{},nextPoints=Number(data.points||0)+Number(reward),league=getLeagueInfo(nextPoints);
+      awardedPoints=nextPoints;
+      leaderboardUsername=data.username||user.displayName||'Kullanıcı';
+      transaction.set(userRef,{points:nextPoints,league:league.key,leagueName:league.name,pointsUpdatedAt:serverTimestamp()},{merge:true});
+      transaction.set(gameRef,{status:'completed',reward,bankerOffer:game.bankerOffer,rewardClaimed:true,completedAt:serverTimestamp(),updatedAt:serverTimestamp()},{merge:true});
+    });
+    setDoc(doc(db,'leaderboard',user.uid),{username:leaderboardUsername,points:awardedPoints,league:getLeagueInfo(awardedPoints).key,leagueName:getLeagueInfo(awardedPoints).name,updatedAt:serverTimestamp()},{merge:true}).catch(error=>console.warn('Leaderboard güncellenemedi:',error));
+    setDoc(historyRef,{...game,status:'completed',reward,rewardClaimed:true,completedAt:serverTimestamp()}).catch(error=>console.warn('Oyun geçmişi kaydedilemedi:',error));
+    varMisInGame.status='completed';varMisInGame.rewardClaimed=true;
+    updateAccountPointsUI(awardedPoints);
+    document.getElementById('varmisinBanker').hidden=true;document.getElementById('varmisinResult').hidden=false;document.getElementById('varmisinResult').innerHTML=`${message}<strong>${varMisInFormat(reward)}</strong>`;document.getElementById('varmisinMessage').textContent='Oyun tamamlandı.';renderVarMisInBoard();
+  }catch(error){document.getElementById('varmisinMessage').textContent=error.message==='VARMISIN_ALREADY_CLAIMED'?'Bu oyun sonucu daha önce işlendi.':'Ödül kaydedilemedi. Lütfen tekrar dene.';}
 }
 
 async function awardDailyLoginPoints(user){
@@ -8629,7 +8895,56 @@ window.deletePressRequest = async function(id){
     }
 };
 
-window.showAdminView=async function(view,button){const a=await getAuthorizedAdmin().catch(()=>null);if(!a){closeModal('adminPanelModal');alert('Admin yetkiniz bulunmuyor.');return;}if(view==='admins'&&a.role!=='owner'){alert('Yönetici yönetimi yalnızca Owner hesabına açıktır.');return;}if(view==='promos'&&!(a.role==='owner'||a.role==='admin')){alert('Promosyon kodu bölümü yalnızca admin yetkisi olan hesaplara açıktır.');return;}window.currentAdminData=a;document.querySelectorAll('.admin-view').forEach(v=>v.classList.remove('active'));const target=document.getElementById('adminView'+view.charAt(0).toUpperCase()+view.slice(1));if(target)target.classList.add('active');document.querySelectorAll('.admin-nav').forEach(n=>n.classList.remove('active'));if(button)button.classList.add('active');if(view==='dashboard')loadAdminStats();if(view==='users')loadAdminUsers();if(view==='platforms')loadAdminPlatforms();if(view==='announcements')loadAdminAnnouncements();if(view==='popup')loadSitePopup();if(view==='featured')loadAdminFeaturedHeroes();if(view==='press')loadPressRequests();if(view==='admins')loadAdminAdmins();if(view==='promos')loadPromoCodesAdmin();if(view==='vip')loadVipAreas();if(view==='pageLogo')loadPageLogoSettings();if(view==='socials'){loadAdminSocials();updateSocialPreview();}if(view==='market'){loadMarketProducts();loadMarketOrders();}if(view==='raffles')loadRafflesAdmin();}
+window.showAdminView=async function(view,button){const a=await getAuthorizedAdmin().catch(()=>null);if(!a){closeModal('adminPanelModal');alert('Admin yetkiniz bulunmuyor.');return;}if(view==='admins'&&a.role!=='owner'){alert('Yönetici yönetimi yalnızca Owner hesabına açıktır.');return;}if(view==='promos'&&!(a.role==='owner'||a.role==='admin')){alert('Promosyon kodu bölümü yalnızca admin yetkisi olan hesaplara açıktır.');return;}window.currentAdminData=a;document.querySelectorAll('.admin-view').forEach(v=>v.classList.remove('active'));const target=document.getElementById('adminView'+view.charAt(0).toUpperCase()+view.slice(1));if(target)target.classList.add('active');document.querySelectorAll('.admin-nav').forEach(n=>n.classList.remove('active'));if(button)button.classList.add('active');if(view==='dashboard')loadAdminStats();if(view==='users')loadAdminUsers();if(view==='platforms')loadAdminPlatforms();if(view==='announcements')loadAdminAnnouncements();if(view==='popup')loadSitePopup();if(view==='featured')loadAdminFeaturedHeroes();if(view==='press')loadPressRequests();if(view==='admins')loadAdminAdmins();if(view==='promos')loadPromoCodesAdmin();if(view==='vip')loadVipAreas();if(view==='pageLogo')loadPageLogoSettings();if(view==='socials'){loadAdminSocials();updateSocialPreview();}if(view==='market'){loadMarketProducts();loadMarketOrders();}if(view==='raffles')loadRafflesAdmin();if(view==='varmisin'){loadVarMisInSettings();loadVarMisInHistory();}}
+window.loadVarMisInSettings=async function(){
+  const snap=await getDoc(doc(db,'gameSettings','varmisin'));
+  const data=snap.exists()?snap.data():{};
+  const set=(id,value)=>{const el=document.getElementById(id);if(el)el.value=value;};
+  const check=(id,value)=>{const el=document.getElementById(id);if(el)el.checked=value!==false;};
+  check('varmisinAdminActive',data.active);set('varmisinAdminWeeklyLimit',data.weeklyLimit||1);check('varmisinAdminUnlimited',data.adminUnlimited);
+  set('varmisinAdminRewards',(data.rewards||varMisInRewards).join(','));set('varmisinAdminMinRatio',data.minRatio??.2);set('varmisinAdminMaxRatio',data.maxRatio??.9);
+  set('varmisinAdminGiftName',data.specialGift?.name||'');set('varmisinAdminGiftChance',data.specialGift?.chance??100);
+  const activeGift=document.getElementById('varmisinAdminGiftActive');if(activeGift)activeGift.checked=data.specialGift?.active!==false;
+  const preview=document.getElementById('varmisinAdminGiftPreview');if(preview)preview.innerHTML=data.specialGift?.imageUrl?`<img src="${escapeHtml(data.specialGift.imageUrl)}" alt="">`:'';
+  renderVarMisInAdminGift(data.specialGift);
+};
+function renderVarMisInAdminGift(gift){
+  const list=document.getElementById('varmisinAdminGiftList');if(!list)return;
+  if(!gift?.name){list.innerHTML='<div class="varmisin-admin-gift-empty">Henüz kayıtlı özel hediye yok.</div>';return;}
+  list.innerHTML=`<div class="varmisin-admin-gift-item">${gift.imageUrl?`<img src="${escapeHtml(gift.imageUrl)}" alt="">`:''}<div><strong>${escapeHtml(gift.name)}</strong><small>${Number(gift.chance||0)}% kazanma şansı · ${gift.active===false?'Pasif':'Aktif'}</small></div><div class="varmisin-admin-gift-actions"><button type="button" class="admin-action secondary" onclick="toggleVarMisInGift()">${gift.active===false?'AKTİF ET':'PASİF ET'}</button><button type="button" class="admin-action danger" onclick="deleteVarMisInGift()">SİL</button></div></div>`;
+}
+window.toggleVarMisInGift=async function(){
+  const admin=await getAuthorizedAdmin().catch(()=>null);if(!admin)return;
+  const ref=doc(db,'gameSettings','varmisin'),snap=await getDoc(ref);if(!snap.exists()||!snap.data().specialGift)return;
+  const gift=snap.data().specialGift;await setDoc(ref,{specialGift:{...gift,active:gift.active===false}},{merge:true});await loadVarMisInSettings();
+};
+window.deleteVarMisInGift=async function(){
+  const admin=await getAuthorizedAdmin().catch(()=>null);if(!admin)return;
+  const ref=doc(db,'gameSettings','varmisin'),snap=await getDoc(ref);if(!snap.exists())return;const gift=snap.data().specialGift||{};
+  if(gift.storagePath)await deleteObject(storageRef(storage,gift.storagePath)).catch(()=>{});
+  await setDoc(ref,{specialGift:{name:'',imageUrl:'',storagePath:'',chance:0,active:false}},{merge:true});await loadVarMisInSettings();
+};
+window.saveVarMisInSettings=async function(){
+  const button=document.getElementById('varmisinSaveButton'),status=document.getElementById('varmisinAdminSaveStatus');
+  const setStatus=(message,error=false)=>{if(status){status.textContent=message;status.classList.toggle('error',error);}};
+  if(button){button.disabled=true;button.textContent='⏳ KAYDEDİLİYOR...';}setStatus('');
+  try{
+    const admin=await getAuthorizedAdmin();if(!admin)throw new Error('Admin yetkiniz bulunmuyor.');
+    const rewards=document.getElementById('varmisinAdminRewards').value.split(',').map(value=>Number(value.trim())).filter(value=>Number.isFinite(value)&&value>0);
+    if(rewards.length<24)throw new Error('En az 24 geçerli ödül girin.');
+    const current=(await getDoc(doc(db,'gameSettings','varmisin'))).data()||{};const file=document.getElementById('varmisinAdminGiftFile')?.files?.[0];let imageUrl=current.specialGift?.imageUrl||'',storagePath=current.specialGift?.storagePath||'';
+    if(file){const path=`varmisin-gifts/${auth.currentUser.uid}_${Date.now()}_${file.name.replace(/[^a-z0-9._-]/gi,'-')}`;const result=await uploadBytes(storageRef(storage,path),file,{contentType:file.type,cacheControl:'public,max-age=3600'});imageUrl=await getDownloadURL(result.ref);storagePath=path;}
+    const specialGift={name:document.getElementById('varmisinAdminGiftName').value.trim(),chance:Math.min(100,Math.max(0,Number(document.getElementById('varmisinAdminGiftChance').value)||0)),active:document.getElementById('varmisinAdminGiftActive').checked,imageUrl,storagePath};
+    await setDoc(doc(db,'gameSettings','varmisin'),{active:document.getElementById('varmisinAdminActive').checked,weeklyLimit:1,adminUnlimited:document.getElementById('varmisinAdminUnlimited').checked,rewards,minRatio:Number(document.getElementById('varmisinAdminMinRatio').value)||.2,maxRatio:Number(document.getElementById('varmisinAdminMaxRatio').value)||.9,specialGift,updatedAt:serverTimestamp(),updatedBy:auth.currentUser.uid},{merge:true});
+    varMisInConfig={...varMisInConfig,rewards,specialGift};renderVarMisInAdminGift(specialGift);setStatus('Ayarlar başarıyla kaydedildi.');
+  }catch(error){console.error('Var Mısın ayarları kaydedilemedi:',error);setStatus(error.message||'Ayarlar kaydedilemedi.',true);}
+  finally{if(button){button.disabled=false;button.textContent='💾 AYARLARI KAYDET';}}
+};
+window.loadVarMisInHistory=async function(){
+  const list=document.getElementById('varmisinAdminHistory');if(!list)return;list.innerHTML='<div class="admin-empty">Geçmiş yükleniyor...</div>';
+  const snap=await getDocs(query(collection(db,'games'),where('gameType','==','varmisin_yokmusun'),limit(100)));
+  list.innerHTML=snap.empty?'<div class="admin-empty">Henüz oyun geçmişi yok.</div>':snap.docs.map(item=>{const data=item.data();return `<div class="admin-row"><div class="admin-row-main"><strong>${escapeHtml(data.userId||'Kullanıcı')}</strong><span>${escapeHtml(data.status||'')}</span></div><div class="admin-row-actions"><strong>${Number(data.reward||0).toLocaleString('tr-TR')} Puan</strong></div></div>`}).join('');
+};
 window.loadAdminStats=async function(){
 try{
  const a=window.currentAdminData||await getAuthorizedAdmin(); if(!a)return;
@@ -11809,6 +12124,62 @@ document.addEventListener("DOMContentLoaded",()=>{
   </div>
 </div>
 
+<style id="varmisin-game-styles">
+  .varmisin-modal-box{width:min(980px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;padding:20px;background:radial-gradient(circle at 50% 0,rgba(255,35,55,.13),transparent 34%),linear-gradient(145deg,#10111c,#07090f 72%);border:1px solid rgba(255,48,62,.62);border-radius:22px;box-shadow:0 24px 80px rgba(0,0,0,.72),0 0 34px rgba(255,35,52,.14)}
+  .varmisin-hero{text-align:center;padding:2px 24px 12px}.varmisin-kicker{color:#ff5663;font-size:10px;font-weight:900;letter-spacing:.18em}.varmisin-hero h2{margin:5px 0 3px;font-size:clamp(22px,4vw,36px);color:#fff;text-shadow:0 0 18px rgba(255,41,61,.36)}.varmisin-hero p{color:#aaaab2;font-size:12px;line-height:1.4}.varmisin-status{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:0 auto 12px}.varmisin-chip{padding:7px 12px;border:1px solid rgba(255,255,255,.1);border-radius:8px;background:rgba(255,255,255,.035);color:#d8d8df;font-size:11px;font-weight:800}.varmisin-chip strong{color:#ff7982}.varmisin-board{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.varmisin-box{position:relative;aspect-ratio:1.45;border:1px solid rgba(255,55,70,.58);border-radius:10px;background:linear-gradient(145deg,#242632,#0c0e16 68%);color:#ff6974;font-size:clamp(14px,2vw,22px);font-weight:900;box-shadow:inset 0 0 18px rgba(255,30,45,.06),0 0 10px rgba(255,30,45,.08);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;overflow:hidden}.varmisin-box::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 45%,rgba(255,255,255,.07) 46%,transparent 48%),repeating-linear-gradient(0deg,transparent 0 10px,rgba(255,45,58,.05) 11px 12px);pointer-events:none}.varmisin-box:not(:disabled):hover{transform:translateY(-3px);border-color:#ff5663;box-shadow:0 0 20px rgba(255,35,52,.28),inset 0 0 18px rgba(255,35,52,.1)}.varmisin-box:disabled{cursor:default}.varmisin-box.opened{background:linear-gradient(145deg,#42131b,#1a0e14);color:#fff;border-color:#ff4050;animation:varmisinFlip .35s ease}.varmisin-box.main-box{border:2px solid #ff293d;box-shadow:0 0 0 2px rgba(255,41,61,.2),0 0 24px rgba(255,35,52,.35);animation:varmisinPulse 1.8s ease-in-out infinite}.varmisin-box.main-box::after{content:"SENİN KUTUN";position:absolute;left:4px;right:4px;bottom:4px;padding:2px;background:rgba(255,41,61,.9);color:#fff;font-size:7px;letter-spacing:.05em}.varmisin-box .reward{position:relative;z-index:1;display:block;font-size:clamp(11px,1.7vw,18px);color:#ffd8dc}.varmisin-box .jackpot{color:#ffd66b}.varmisin-actions{text-align:center;min-height:38px;margin-top:10px}.varmisin-message{color:#ff9ba3;font-size:12px;font-weight:800;line-height:1.4}.varmisin-primary,.varmisin-bank-button{min-height:42px;padding:0 22px;border:1px solid #ff4050;border-radius:9px;background:linear-gradient(135deg,#7d1725,#2a0c13);color:#fff;font-weight:900;box-shadow:0 0 18px rgba(255,35,52,.18);cursor:pointer}.varmisin-primary:disabled{opacity:.5;cursor:not-allowed}.varmisin-banker{margin-top:14px;padding:18px;text-align:center;border:1px solid rgba(255,64,80,.62);background:linear-gradient(145deg,rgba(90,14,25,.48),rgba(18,10,15,.86));box-shadow:inset 0 0 24px rgba(255,30,45,.07),0 0 28px rgba(255,30,45,.12);animation:varmisinBankerIn .3s ease}.varmisin-banker h3{color:#ff4050;font-size:18px;letter-spacing:.1em}.varmisin-banker p{margin:8px 0;color:#d8d8df;font-size:12px}.varmisin-offer{display:block;margin:4px 0 14px;color:#fff;font-size:clamp(24px,5vw,40px);text-shadow:0 0 16px rgba(255,50,65,.38)}.varmisin-bank-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.varmisin-bank-button{min-width:140px}.varmisin-bank-button.accept{background:linear-gradient(135deg,#b51f31,#56111d)}.varmisin-bank-button.reject{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.2);color:#ddd}.varmisin-result{margin-top:14px;padding:18px;text-align:center;border:1px solid #ff4050;background:rgba(100,12,25,.24);animation:varmisinBankerIn .35s ease}.varmisin-result strong{display:block;color:#ffd66b;font-size:clamp(26px,6vw,48px);margin:6px 0;text-shadow:0 0 20px rgba(255,75,70,.45)}
+  .varmisin-game-layout{display:grid;grid-template-columns:150px minmax(0,1fr) 150px;gap:10px;align-items:start}.varmisin-rewards-panel{min-width:0;padding:10px 8px;border:1px solid rgba(255,48,62,.38);background:rgba(5,7,13,.48);border-radius:10px}.varmisin-rewards-title{margin-bottom:9px;text-align:center;color:#ff6974;font-size:10px;font-weight:900;letter-spacing:.08em}.varmisin-reward-item{display:flex;align-items:center;gap:5px;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.06);color:#d8d8df;font-size:9px;font-weight:800;white-space:nowrap}.varmisin-reward-dot{width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#ff3042;box-shadow:0 0 6px rgba(255,30,45,.7)}.varmisin-reward-item.jackpot{color:#ffd66b}.varmisin-reward-item.jackpot .varmisin-reward-dot{background:#ffd66b;box-shadow:0 0 6px rgba(255,214,107,.7)}.varmisin-reward-empty{padding:10px 0;text-align:center;color:#777;font-size:9px}.varmisin-board-wrap{min-width:0}
+  @keyframes varmisinFlip{from{transform:rotateY(90deg);opacity:.3}to{transform:rotateY(0);opacity:1}}@keyframes varmisinPulse{50%{box-shadow:0 0 0 4px rgba(255,41,61,.16),0 0 30px rgba(255,35,52,.5)}}@keyframes varmisinBankerIn{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
+  @media(min-width:701px){.varmisin-modal-box{padding:14px}.varmisin-hero{padding:0 18px 8px}.varmisin-hero h2{margin:3px 0;font-size:30px}.varmisin-status{margin-bottom:8px}.varmisin-board{gap:6px}.varmisin-box{aspect-ratio:2.1}.varmisin-actions{margin-top:7px;min-height:34px}.varmisin-banker{margin-top:8px;padding:11px}.varmisin-banker p{margin:5px 0}.varmisin-offer{margin:2px 0 9px;font-size:30px}.varmisin-result{margin-top:8px;padding:12px}}
+  @media(max-width:700px){.varmisin-modal-box{width:calc(100vw - 16px);padding:14px 10px;border-radius:18px}.varmisin-hero{padding:2px 8px 14px}.varmisin-hero p{font-size:11px}.varmisin-game-layout{grid-template-columns:1fr}.varmisin-rewards-panel{order:2}.varmisin-rewards-panel.right{order:3}.varmisin-rewards-title{margin-bottom:5px}.varmisin-rewards-panel .varmisin-reward-item{display:inline-flex;width:49%;border:0}.varmisin-board{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.varmisin-box{border-radius:8px}.varmisin-box.main-box::after{font-size:6px}.varmisin-chip{padding:7px 9px;font-size:10px}}
+  @media(prefers-reduced-motion:reduce){.varmisin-box,.varmisin-banker,.varmisin-result{animation:none!important;transition:none!important}}
+</style>
+
+<style id="varmisin-premium-visuals">
+  .varmisin-modal-box{position:relative;background:radial-gradient(circle at 50% 18%,rgba(255,38,55,.09),transparent 28%),linear-gradient(180deg,#0e101a 0%,#07090f 72%,#05060a 100%);border-color:rgba(255,45,62,.75);box-shadow:0 28px 90px rgba(0,0,0,.8),0 0 42px rgba(255,25,45,.16),inset 0 1px 0 rgba(255,255,255,.06)}
+  .varmisin-modal-box::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;background:repeating-linear-gradient(135deg,transparent 0 34px,rgba(255,39,56,.35) 35px 36px,transparent 37px 76px);mask-image:linear-gradient(180deg,#000,transparent 74%)}
+  .varmisin-hero,.varmisin-status,.varmisin-game-layout,.varmisin-actions,.varmisin-banker,.varmisin-result{position:relative;z-index:1}
+  .varmisin-kicker{display:inline-flex;align-items:center;gap:9px}.varmisin-kicker::before,.varmisin-kicker::after{content:"";display:block;width:28px;height:1px;background:#ff3042;box-shadow:0 0 8px rgba(255,35,50,.8)}
+  .varmisin-hero h2{font-weight:1000;letter-spacing:.02em;text-shadow:0 0 2px #fff,0 0 18px rgba(255,40,55,.45)}
+  .varmisin-chip{border-color:rgba(255,72,84,.28);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.015));box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 4px 12px rgba(0,0,0,.2)}
+  .varmisin-rewards-panel{position:relative;border-color:rgba(255,48,62,.55);background:linear-gradient(180deg,rgba(35,12,20,.6),rgba(5,7,13,.72));box-shadow:inset 0 0 20px rgba(255,25,45,.06),0 8px 20px rgba(0,0,0,.22)}
+  .varmisin-rewards-panel::before{content:"";position:absolute;left:8px;right:8px;top:5px;height:1px;background:linear-gradient(90deg,transparent,#ff3548,transparent);box-shadow:0 0 9px rgba(255,35,52,.8)}
+  .varmisin-rewards-title{color:#ff5663;text-shadow:0 0 9px rgba(255,35,52,.45);letter-spacing:.12em}
+  .varmisin-reward-item{color:#e5e6ea;border-bottom-color:rgba(255,65,75,.12);text-shadow:0 0 6px rgba(255,255,255,.08)}
+  .varmisin-reward-dot{width:6px;height:6px;flex-basis:6px;background:#ff293d;box-shadow:0 0 7px #ff293d}
+  .varmisin-box{border-color:rgba(255,48,62,.72);border-radius:8px;background:linear-gradient(145deg,#30313b 0%,#171923 18%,#080a11 62%,#14151e 100%);box-shadow:inset 0 0 0 2px rgba(0,0,0,.35),inset 0 0 15px rgba(255,40,55,.1),0 3px 0 #030408,0 0 10px rgba(255,30,48,.13);text-shadow:0 0 10px rgba(255,52,67,.65)}
+  .varmisin-box{color:#ff7180;text-shadow:0 0 3px #ffc1c7,0 0 8px #ff3042,0 0 18px rgba(255,30,48,.95),0 0 30px rgba(255,30,48,.55)}
+  .varmisin-box::before{background:linear-gradient(135deg,transparent 39%,rgba(255,255,255,.14) 40%,transparent 42%),repeating-linear-gradient(0deg,transparent 0 8px,rgba(255,48,62,.1) 9px 10px),linear-gradient(90deg,rgba(255,255,255,.05),transparent 18% 82%,rgba(255,255,255,.04))}
+  .varmisin-box::after{content:"";position:absolute;inset:6px;border:1px solid rgba(255,70,80,.2);border-radius:5px;pointer-events:none}
+  .varmisin-box:not(:disabled):hover{transform:translateY(-3px) scale(1.02);border-color:#ff7380;box-shadow:inset 0 0 0 2px rgba(0,0,0,.35),0 0 0 2px rgba(255,41,61,.18),0 0 25px rgba(255,30,48,.45)}
+  .varmisin-box.opened{background:linear-gradient(145deg,#681d29,#2c1018 58%,#120910);border-color:#ff5260;box-shadow:inset 0 0 20px rgba(255,45,60,.2),0 0 16px rgba(255,35,52,.25)}
+  .varmisin-box .reward{color:#fff1f2;text-shadow:0 0 3px #fff,0 0 8px #ff7b85,0 0 18px #ff3042,0 0 30px rgba(255,30,48,.7)}
+  .varmisin-box .reward.jackpot{color:#ffe38e;text-shadow:0 0 3px #fff3bd,0 0 9px #ffd66b,0 0 20px #ff9f1c,0 0 32px rgba(255,159,28,.72)}
+  .varmisin-box.gift-box{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:7px;color:#fff}.varmisin-gift-image{position:relative;z-index:1;width:min(72%,70px);height:min(58%,48px);object-fit:contain;filter:drop-shadow(0 0 7px rgba(255,90,100,.9))}.varmisin-gift-name{position:relative;z-index:1;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:clamp(8px,1.3vw,13px);font-weight:1000;color:#fff;text-shadow:0 0 5px #ff3042,0 0 12px rgba(255,30,48,.9)}.varmisin-box.gift-box small{position:relative;z-index:1;color:#ff9ca4;font-size:7px;font-weight:900;letter-spacing:.04em}.varmisin-reward-item.special{color:#ff9ca4}.varmisin-reward-item.special .varmisin-reward-dot{background:#ff7180;box-shadow:0 0 7px #ff3042}
+  .varmisin-box.main-box{border-color:#ff3447;box-shadow:inset 0 0 0 2px rgba(255,80,90,.2),0 0 0 2px rgba(255,41,61,.26),0 0 27px rgba(255,35,52,.6)}
+  .varmisin-box.main-box::after{inset:auto 5px 5px;border:0;border-radius:2px;box-shadow:0 0 10px rgba(255,25,45,.8)}
+  .varmisin-banker{border-color:#ff4050;background:linear-gradient(135deg,rgba(95,13,27,.72),rgba(12,8,14,.94));box-shadow:inset 0 0 0 1px rgba(255,100,110,.1),inset 0 0 28px rgba(255,25,45,.13),0 0 28px rgba(255,25,45,.18)}
+  .varmisin-banker h3{letter-spacing:.16em;text-shadow:0 0 12px rgba(255,40,55,.7)}
+  .varmisin-offer{font-weight:1000;text-shadow:0 0 2px #fff,0 0 20px rgba(255,55,70,.65)}
+  .varmisin-bank-button{font-size:12px;letter-spacing:.08em;transition:transform .2s ease,filter .2s ease,box-shadow .2s ease}.varmisin-bank-button:hover{transform:translateY(-2px);filter:brightness(1.12)}.varmisin-bank-button.accept{background:linear-gradient(180deg,#d82b40,#681321);box-shadow:0 0 18px rgba(255,30,48,.3)}.varmisin-bank-button.reject{background:linear-gradient(180deg,#29232a,#120e14)}
+  @media(max-width:700px){.varmisin-modal-box::before{opacity:.1}.varmisin-rewards-panel{padding:8px}.varmisin-box::after{inset:4px}.varmisin-kicker::before,.varmisin-kicker::after{width:15px}.varmisin-bank-button{min-width:132px}}
+</style>
+
+<div class="modal-overlay" id="varmisinModal">
+  <div class="varmisin-modal-box">
+    <button type="button" class="modal-close" onclick="closeModal('varmisinModal')">X</button>
+    <div class="varmisin-hero"><span class="varmisin-kicker">DENO OYUN ALANI</span><h2>VAR MISIN YOK MUSUN?</h2><p>Önce ana kutunu seç. Sonra kalan kutulardaki şansı yönet.</p></div>
+    <div class="varmisin-status"><span class="varmisin-chip">Tur: <strong id="varmisinRound">Hazır</strong></span><span class="varmisin-chip">Açılan: <strong id="varmisinOpened">0 / 23</strong></span><span class="varmisin-chip">Hak: <strong id="varmisinRight">1 / 1</strong></span><span class="varmisin-chip"><strong id="varmisinDailyCounter">Yeni hak: --:--:--</strong></span></div>
+    <div class="varmisin-game-layout">
+      <aside class="varmisin-rewards-panel"><div class="varmisin-rewards-title">KALAN ÖDÜLLER</div><div id="varmisinRewardsLeft"></div></aside>
+      <div class="varmisin-board-wrap"><div class="varmisin-rewards-title">24 KUTU</div><div class="varmisin-board" id="varmisinBoard"></div></div>
+      <aside class="varmisin-rewards-panel right"><div class="varmisin-rewards-title">KALAN ÖDÜLLER</div><div id="varmisinRewardsRight"></div></aside>
+    </div>
+    <div class="varmisin-actions"><p class="varmisin-message" id="varmisinMessage">Oyuna başlamak için bir ana kutu seç.</p><button type="button" class="varmisin-primary" id="varmisinStartButton" onclick="startVarMisInGame()">ANA KUTUMU SEÇ</button></div>
+    <div class="varmisin-banker" id="varmisinBanker" hidden><h3>DENO BANKER</h3><p>TEKLİFİN:</p><strong class="varmisin-offer" id="varmisinOffer">0 PUAN</strong><div class="varmisin-bank-actions"><button type="button" class="varmisin-bank-button accept" onclick="acceptVarMisInOffer()">VARIM</button><button type="button" class="varmisin-bank-button reject" onclick="rejectVarMisInOffer()">YOKUM</button></div></div>
+    <div class="varmisin-result" id="varmisinResult" hidden></div>
+  </div>
+</div>
+
 <script id="mobile-hamburger-script">
 (function(){
   function init(){
@@ -12105,7 +12476,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     'wheelModal',
     'plinkoModal',
     'marketModal',
-    'rafflesModal'
+    'rafflesModal',
+    'varmisinModal'
   ]);
 
   function isDesktop(){
@@ -12125,7 +12497,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     if(!modal) return;
     requestAnimationFrame(function(){
       requestAnimationFrame(function(){
-        const top = modal.getBoundingClientRect().top + window.scrollY - 95;
+        const offset = id === 'varmisinModal' ? 10 : 95;
+        const top = modal.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({top:Math.max(0, top), behavior:'smooth'});
       });
     });
